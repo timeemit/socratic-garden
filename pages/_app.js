@@ -1,4 +1,4 @@
-import (require('purecss').getFile('pure-min.css'));
+require('purecss');
 import '../styles/app.scss';
 import Link from 'next/link';
 import React from 'react';

@@ -10,7 +10,7 @@
     "start": "next start -p $PORT"
   },
   "dependencies": {
-    "next": "latest",
+    "next": "^9.3.5",
     "purecss": "^1.0.1",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",

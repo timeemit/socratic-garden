@@ -23,7 +23,7 @@ function MyApp({ Component, pageProps }) {
 
       <Component {...pageProps} />
 
-      <footer>I`m here to stay</footer>
+      <footer>Copyright © 2020</footer>
     </>
   );
 }

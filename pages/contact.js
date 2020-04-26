@@ -3,7 +3,7 @@ import React from 'react'
 import Page from '../components/Page'
 
 export default () => (
-  <Page>
-    <div>Hello World</div>
+  <Page title="Contact us">
+    <div>Contact</div>
   </Page>
 )

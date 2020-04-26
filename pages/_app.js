@@ -19,6 +19,10 @@ function MyApp({ Component, pageProps }) {
       <Component {...pageProps} />
 
       <footer>Copyright © 2020</footer>
+      {/* Google Tag */}
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-164482043-1"></script>
+      <script dangerouslySetInnerHTML={{__html:"window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-164482043-1');"}} />
+      {/* End of Google Tag */}
     </>
   );
 }

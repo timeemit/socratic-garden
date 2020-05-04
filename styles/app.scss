@@ -7,6 +7,10 @@
   text-align: justify;
 }
 
+.pure-g > div {
+  box-sizing: border-box;
+}
+
 footer {
   margin-top: 20px;
 }
@@ -17,4 +21,16 @@ footer {
 
 .centered-text {
   text-align: center;
+}
+
+.padding-side-sm {
+  pre {
+    //overflow: visible;
+    white-space: normal;
+  }
+  padding: 0 1em;
+}
+
+ul, ol {
+  list-style-type: none;
 }

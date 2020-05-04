@@ -1,6 +1,28 @@
+// Pure CSS
 import 'purecss/build/pure.css';
 import 'purecss/build/grids-responsive.css';
+
+// Global CSS
 import '../styles/app.scss';
+
+// Font Awesome
+import { config } from '@fortawesome/fontawesome-svg-core';
+import '@fortawesome/fontawesome-svg-core/styles.css'; // Import the CSS
+config.autoAddCss = false;
+
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faCheck, faArrowUp, faFireAlt, faChartLine } from '@fortawesome/free-solid-svg-icons';
+import { faClock } from '@fortawesome/free-regular-svg-icons';
+
+library.add(
+  faCheck,
+  faArrowUp,
+  faFireAlt,
+  faClock,
+  faChartLine,
+);
+
+// Components for Rendering
 import Link from 'next/link';
 import Head from 'next/head';
 import React from 'react';

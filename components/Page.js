@@ -12,6 +12,6 @@ export default ({ children, title = 'This is the default title' }: Props) => (
     <Head>
       <title>{title}</title>
     </Head>
-    {children}
+    <div className="pure-g">{children}</div>
   </section>
 )

@@ -56,9 +56,6 @@ export default () => (
           <li> 🤔 Motivate long term learning </li>
         </ul>
       </div>
-
-      <h1 className="pure-u-1 centered-text">Join the Alpha</h1>
-      <p className="pure-u-1">  Sign up and let's build a thriving community.</p>
     </Land>
   </Prototype>
 );

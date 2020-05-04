@@ -1,6 +1,6 @@
 // @flow
 import React, { type Node } from 'react';
-import Head from 'next/head';
+import Page from '../components/Page';
 
 type Props = {
   children: Node,
@@ -9,10 +9,7 @@ type Props = {
 
 export default ({ children, title }: Props) => (
   <section>
-    <Head>
-      <title>{title}</title>
-    </Head>
-    {children}
+    <Page title={title} children={children} />
 
     {/* Mailchimp Popup */}
     <script type="text/javascript" src="https://downloads.mailchimp.com/js/signup-forms/popup/unique-methods/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript" dangerouslySetInnerHTML={{__html: 'window.dojoRequire(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us8.list-manage.com","uuid":"01032a27f69729090a9cd31f0","lid":"a5deae97ac","uniqueMethods":true}) })'}} />

@@ -11,7 +11,7 @@ export default () => (
       <p className="pure-u-1">Instructors are competing here for the ultimate prize: the opportunity to enrich curious minds.  The platform measures resources by how well they are engaging students, motivating continued studies, and improving subject comprehension.  The better a lesson performs, the more students it reaches.</p>
 
         <h1 className="pure-u-1 centered-text"><p>We Can Invert</p><p>The Student:Teacher Ratio</p></h1>
-      <p className="pure-u-1">Socratic Combat synthesizes educational resources (lessons and their associated quizzes, organized by topics) into an algorithmically generated curriculum personalized for the student.  Each student is continuously guided, prompted, and supported by numerous teachers. While students assess themselves with quizzes, the platform continuously improves itself by attentively identifying which teaching materials are yielding the strongest student performance.</p> 
+      <p className="pure-u-1">Socratic Combat synthesizes educational resources (lessons and their associated quizzes, organized by topics) into an algorithmically generated curriculum personalized for the student.  Each student is continuously guided, prompted, and supported by numerous teachers. While students assess themselves with quizzes, the platform continuously improves itself by attentively identifying which teaching materials are yielding the strongest student performance.</p>
 
       <h1 className="pure-u-1 centered-text">Empower Curiosity</h1>
       <p className="pure-u-1">Socratic Combat puts students as the central navigators of their educational journey, where the menus of topics, lessons, and quizzes are highlighted with algorithmically measured signals that help guide students towards their own criteria for success.</p>
@@ -49,7 +49,7 @@ export default () => (
       </div>
 
       <h1 className="pure-u-1 centered-text">Join the Alpha</h1>
-      <p className="pure-u-1">Socratic Combat is an effort to measurably scale the impact of passionate, capable educators into the lives of students of all ages and interests.  Sign up and let's build a thriving community.</p>  
+      <p className="pure-u-1">Socratic Combat is an effort to measurably scale the impact of passionate, capable educators into the lives of students of all ages and interests.  Sign up and let's build a thriving community.</p>
     </Land>
   </Prototype>
 );

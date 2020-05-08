@@ -1,7 +1,8 @@
 #__next {
   margin: 30px 30px;
   // font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
-  font-family: Verdana, Geneva, sans-serif;
+  // font-family: Verdana, Geneva, sans-serif;
+  font-family: 'AvenirNext-DemiBold';
   line-height: 2em;
   li p { line-height: 0.8em; }
   text-align: justify;
@@ -33,4 +34,8 @@ footer {
 
 ul, ol {
   list-style-type: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: rgb(56,77,108);
 }

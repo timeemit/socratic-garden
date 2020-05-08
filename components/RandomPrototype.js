@@ -102,10 +102,10 @@ const IMAGES = [
   },
 ];
 
-export default class Prototype extends React.Component<Props,State> {
+export default class RandomPrototype extends React.Component<Props,State> {
   constructor(props: Props) {
     super(props);
-    const image = Prototype.randomImage();
+    const image = RandomPrototype.randomImage();
     this.state = {
       image: image,
       viewed_images: [image],
@@ -117,7 +117,7 @@ export default class Prototype extends React.Component<Props,State> {
   }
 
   static randomImage(): number {
-    return Prototype.choose(Prototype.imageIndices());
+    return RandomPrototype.choose(RandomPrototype.imageIndices());
   }
 
   static choose(candidates: Array<number>): number {
@@ -125,12 +125,12 @@ export default class Prototype extends React.Component<Props,State> {
   }
 
   randomDifferentImage(): number {
-    const candidates = Prototype.imageIndices().filter((image) => image !== this.state.image);
-    return Prototype.choose(candidates);
+    const candidates = RandomPrototype.imageIndices().filter((image) => image !== this.state.image);
+    return RandomPrototype.choose(candidates);
   }
 
   unseenImages(): Array<number> {
-    return Prototype.imageIndices().filter((image) => !this.state.viewed_images.includes(image));
+    return RandomPrototype.imageIndices().filter((image) => !this.state.viewed_images.includes(image));
   }
 
   onClick = () =>  {
@@ -142,7 +142,7 @@ export default class Prototype extends React.Component<Props,State> {
         viewed_images: [image],
       });
     } else {
-      const candidate = Prototype.choose(candidates);
+      const candidate = RandomPrototype.choose(candidates);
       this.setState({
         image: candidate,
         viewed_images: this.state.viewed_images.concat([candidate]),

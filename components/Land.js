@@ -9,7 +9,9 @@ type Props = {
 
 export default ({ children, title }: Props) => (
   <section>
-    <Page title={title} children={children} />
+    <Page title={title} grid={true}>
+      {children}
+    </Page>
 
     {/* Mailchimp Footer */}
     <h1 className="centered-text">Join the Alpha</h1>

@@ -5,7 +5,7 @@ import Land from '../components/Land';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default () => (
-  <Land title="Socratic Combat" grid={true}>
+  <Land title="Socratic Combat">
     <img style={{"max-height": "200px"}} className="pure-img centered" src={`/logo.png`} />
     <p className="pure-u-1">Socratic Combat is an initiaive to scale the impact of passionate educators into learners by inviting them to compete here for the ultimate prize: <em>Enriching Curious Minds</em></p>
 

@@ -43,12 +43,6 @@ export default () => (
                   <input id="big-button" type="button" className="pure-button" value="Big Button" />
                 </label>
               </fieldset>
-              <fieldset>
-                <label for="big-button">
-                  Big Button Label
-                  <input id="big-button" type="button" className="pure-button" value="Big Button" />
-                </label>
-              </fieldset>
             </form>
           </section>
         </main>

@@ -1,17 +1,26 @@
 // @flow
 import React from 'react';
-import Land from '../components/Land';
+import Page from '../components/Page';
+import Guide from '../components/Guide';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default () => (
-  <Land title="Socratic Combat">
-    <img style={{"max-height": "200px"}} className="pure-img centered" src={`/logo.png`} />
-    <p className="pure-u-1">Socratic Combat is an initiaive to scale the impact of passionate educators into learners by inviting them to compete here for the ultimate prize: <em>Enriching Curious Minds</em></p>
+  <Page title="Socratic Combat">
+    <div className="pure-u-1 pure-u-lg-1-3">
+      <img className="pure-img " src={`/logo.png`} />
+    </div>
 
-    <h1 className="pure-u-1 centered-text">A Learning Platform that Learns</h1>
-    <p className="pure-u-1">Socratic Combat aims to algorthmically synthesize informative lessons and quizzes into a dynamic curriculum personalized for learners.  As learners assess themselves with quizzes, the platform improves itself continuously by identifying which teaching materials are yielding the strongest student performance.</p>
+    <div className="pure-u-1 pure-u-lg-2-3">
+      <h1>A Free Learning Platform</h1>
+      <p>Socratic Combat aims to algorthmically synthesize informative lessons and quizzes into a dynamic curriculum personalized for learners.  As learners assess themselves with quizzes, the platform improves itself continuously by identifying which teaching materials are yielding the strongest student performance.</p>
+    </div>
 
+    <div className="pure-u-1 centered-text">
+      <Guide />
+    </div>
+
+    {/*
     <h1 className="pure-u-1 centered-text">Empower Curiosity</h1>
     <p className="pure-u-1">Socratic Combat puts students as the central navigators of their educational journey, where the menus of lessons and quizzes are highlighted with algorithmically measured signals that help guide students towards their own criteria for success.</p>
     <div className="pure-u-1 pure-u-md-1-3 padding-side-sm">
@@ -55,5 +64,7 @@ export default () => (
         <li> 🤔 Motivate long term learning </li>
       </ul>
     </div>
-  </Land>
+
+    */}
+  </Page>
 );

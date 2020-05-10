@@ -7,10 +7,14 @@
   text-align: justify;
 }
 
+@font-face {
+  font-family: 'AvenirNextBold';
+  src: url('/Avenir-Next-LT-Pro-Bold.ttf');
+}
 
 @font-face {
-  font-family: 'AvenirNext';
-  src: url('/Avenir-Next-LT-Pro-Bold.ttf');
+  font-family: 'AvenirNextRegular';
+  src: url('/Avenir-Next-Regular.ttf');
 }
 
 .pure-g > div {
@@ -43,7 +47,7 @@ ul, ol {
 
 h1, h2, h3, h4, h5, h6 {
   color: rgb(56,77,108);
-  &, .pure-g &[class *= "pure-u"] {
-    font-family: 'AvenirNext';
+  &, #__next .pure-g &[class *= "pure-u"] {
+    font-family: 'AvenirNextBold';
   }
 }

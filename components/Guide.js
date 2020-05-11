@@ -1,9 +1,7 @@
 // @flow
+import type { Choice } from './ChoiceButton';
 import React, { type Node } from 'react';
-
-type Choice = {
-  text: string,
-};
+import ChoiceButton from './ChoiceButton';
 
 const ChoiceIndices = {
   "first": "1",
@@ -51,16 +49,17 @@ export default class Guide extends React.Component<{}, State> {
       {text: "A useful webpage", url: "#link"},
       {text: "Another cool page", url: "#link"},
     ];
-    const resources_list = resources.map(resource => 
+    const resources_list = resources.map(resource =>
       <li key={resource.url}>
         <a href={resource.url}>{resource.text}</a>
       </li>
     );
-    const choice_class = `pure-button pure-u-1 pure-u-sm-1-${Object.values(this.state.question.choices).length}`;
-    const choices_list = Object.keys(this.state.question.choices).map(choice => 
-      <button className={choice_class}>
-        {this.state.question.choices[choice].text}
-      </button>
+    const choices_list = Object.keys(this.state.question.choices).map(choice_index =>
+      <ChoiceButton
+        key={choice_index}
+        choice={this.state.question.choices[choice_index]}
+        total={Object.values(this.state.question.choices).length}
+      />
     );
     return (
       <section>

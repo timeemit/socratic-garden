@@ -1,6 +1,6 @@
 // @flow
 import type { Choice } from './ChoiceButton';
-import React, { type Node } from 'react';
+import React from 'react';
 import ChoiceButton from './ChoiceButton';
 
 const ChoiceIndices = {

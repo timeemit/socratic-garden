@@ -2,18 +2,28 @@
 import styles from '../styles/ChoiceButton.module.scss';
 import React from 'react';
 
-export type Choice = {
-  text: string,
+export const ChoiceIndices = {
+  "first": "1",
+  "second": "2",
+  "third": "3",
 };
 
-type Props = {
+export type Choice = {|
+  text: string,
+|};
+
+export type ChoiceIndex = $Values<typeof ChoiceIndices>;
+
+type Props = {|
   total: number,
   choice: Choice,
-};
+  index: ChoiceIndex,
+  onClick: (ChoiceIndex) => void,
+|};
 
 export default class ChoiceButton extends React.Component<Props> {
   onClick = () => {
-    alert('hello!');
+    this.props.onClick(this.props.index);
   }
 
   render() {

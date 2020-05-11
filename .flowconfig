@@ -5,4 +5,5 @@
 [libs]
 
 [options]
-module.name_mapper='.*(.css.scss)' -> '{}'
+module.file_ext=.scss
+module.name_mapper='.*.scss' -> '{}'

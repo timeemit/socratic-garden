@@ -29,7 +29,7 @@ export default class Guide extends React.Component<{}, State> {
   onChoice = (choice: ChoiceIndex): void => {
     let { answered } = this.state;
     const answer = { ...this.state.question, chosen_choice: choice};
-    answered.push(answer);
+    answered.unshift(answer);
     this.setState({ answered });
     return;
   }
@@ -44,7 +44,6 @@ export default class Guide extends React.Component<{}, State> {
         <a href={resource.url}>{resource.text}</a>
       </li>
     );
-    console.log(this.state.answered);
     const answered_list = this.state.answered.map((answered_question, index) =>
       <AnsweredQuestionView
         key={index}
@@ -53,12 +52,12 @@ export default class Guide extends React.Component<{}, State> {
     );
     return (
       <main>
-        {answered_list}
         <QuestionView
           key={-1}
           question={this.state.question}
           onChoice={this.onChoice}
         />
+        {answered_list}
       </main>
     );
   }

@@ -34,4 +34,3 @@ export default class AnsweredQuestionView extends React.Component<Props> {
     );
   }
 }
-

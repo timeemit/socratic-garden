@@ -26,11 +26,11 @@ export default class Guide extends React.Component<{}, State> {
     answered: [],
   }
 
-  onChoice = (choice: ChoiceIndex): void => {
-    let { answered } = this.state;
-    const answer = { ...this.state.question, chosen_choice: choice};
-    answered.unshift(answer);
-    this.setState({ answered });
+  onContinue = (choice: ChoiceIndex): void => {
+    // let { answered } = this.state;
+    // const answer = { ...this.state.question, chosen_choice: choice };
+    // this.setState({ answered });
+    alert("correct!");
     return;
   }
 
@@ -55,7 +55,7 @@ export default class Guide extends React.Component<{}, State> {
         <QuestionView
           key={-1}
           question={this.state.question}
-          onChoice={this.onChoice}
+          onContinue={this.onContinue}
         />
         {answered_list}
       </main>

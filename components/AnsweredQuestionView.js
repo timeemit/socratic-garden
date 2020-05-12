@@ -21,7 +21,7 @@ export default class AnsweredQuestionView extends React.Component<Props> {
         index={choice_index}
         choice={this.props.question.choices[choice_index]}
         total={Object.values(this.props.question.choices).length}
-        chosen={choice_index === this.props.question.chosen_choice}
+        correct={choice_index === this.props.question.correct_choice}
       />
     );
     return (

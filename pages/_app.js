@@ -6,9 +6,9 @@ import 'purecss/build/grids-responsive.css';
 import '../styles/app.scss';
 
 // Font Awesome
-import { config } from '@fortawesome/fontawesome-svg-core';
+import { config as fontAwesomeConfig } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css'; // Import the CSS
-config.autoAddCss = false;
+fontAwesomeConfig.autoAddCss = false;
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faCheck, faArrowUp, faFireAlt, faChartLine } from '@fortawesome/free-solid-svg-icons';

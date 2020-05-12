@@ -13,7 +13,7 @@ export default () => (
 
     <div className="pure-u-1 pure-u-lg-2-3">
       <h1>A Free Learning Platform</h1>
-      <p>Socratic Combat aims to algorthmically synthesize informative lessons and quizzes into a dynamic curriculum personalized for learners.  As learners assess themselves with quizzes, the platform improves itself continuously by identifying which teaching materials are yielding the strongest student performance.</p>
+      <p>Socratic Combat aims to algorthmically synthesize informative lessons and quizzes into a dynamic curriculum personalized for learners.  Why not give it a try?</p>
     </div>
 
     <div className="pure-u-1 centered-text">
@@ -21,6 +21,8 @@ export default () => (
     </div>
 
     {/*
+    <h1 className="pure-u-1 centered-text">Continuously Self-Improving</h1>
+    <p className="pure-u-1">As learners assess themselves with quizzes, the platform improves itself continuously by identifying which teaching materials are yielding the strongest student performance.</p>
     <h1 className="pure-u-1 centered-text">Empower Curiosity</h1>
     <p className="pure-u-1">Socratic Combat puts students as the central navigators of their educational journey, where the menus of lessons and quizzes are highlighted with algorithmically measured signals that help guide students towards their own criteria for success.</p>
     <div className="pure-u-1 pure-u-md-1-3 padding-side-sm">

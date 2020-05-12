@@ -17,6 +17,19 @@
   src: url('/Avenir-Next-Regular.ttf');
 }
 
+$yellow-primary: rgb(252, 175, 23);
+$purple-primary: rgb(126, 73, 157);
+$red-primary: rgb(238, 77, 155);
+$blue-primary: rgb(68, 173, 226);
+
+$yellow-secondary: rgb(215, 136, 23);
+$purple-secondary: rgb(96, 44, 130);
+$red-secondary: rgb(197, 47, 125);
+$blue-secondary: rgb(26, 135, 188);
+
+$logo-text: rgb(56, 77, 110);
+
+
 .pure-g > div {
   box-sizing: border-box;
 }
@@ -46,7 +59,7 @@ ul, ol {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: rgb(56,77,108);
+  color: $logo-text;
   &, #__next .pure-g &[class *= "pure-u"] {
     font-family: 'AvenirNextBold';
   }

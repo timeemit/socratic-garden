@@ -2,7 +2,7 @@
 import type { ChoiceIndex } from './ChoiceButton';
 import type { QuestionType } from './QuestionView';
 import React from 'react';
-import ChosenButton  from './ChosenButton';
+import ChoiceButton  from './ChoiceButton';
 
 export type AnsweredQuestionType = {|
   ...QuestionType,
@@ -16,12 +16,14 @@ type Props = {|
 export default class AnsweredQuestionView extends React.Component<Props> {
   render() {
     const choices_list = Object.keys(this.props.question.choices).map(choice_index =>
-      <ChosenButton
+      <ChoiceButton
         key={choice_index}
         index={choice_index}
         choice={this.props.question.choices[choice_index]}
         total={Object.values(this.props.question.choices).length}
         correct={choice_index === this.props.question.correct_choice}
+        chosen={false}
+        chosen_last={false}
       />
     );
     return (

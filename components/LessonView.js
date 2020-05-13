@@ -1,0 +1,26 @@
+// @flow
+import React from 'react';
+
+export type LessonType = {|
+  id: number,
+  title: string,
+  text: string,
+|};
+
+type Props = {|
+  lesson: LessonType,
+|};
+
+type State = {
+};
+
+export default class LessonView extends React.Component<Props> {
+  render() {
+    return (
+      <section>
+        <h1>{this.props.lesson.title}</h1>
+        <p>{this.props.lesson.text}</p>
+      </section>
+    );
+  }
+}

@@ -1,6 +1,7 @@
 // @flow
 import styles from '../styles/ChoiceButton.module.scss';
 import React from 'react';
+import Link from 'next/link'
 
 export const ChoiceIndices = {
   "first": "1",
@@ -18,18 +19,16 @@ type Props = {|
   total: number,
   choice: Choice,
   index: ChoiceIndex,
-  onClick: (ChoiceIndex) => void,
+  correct: boolean,
+  chosen: boolean,
+  chosen_last: boolean,
 |};
 
 export default class ChoiceButton extends React.Component<Props> {
-  onClick = () => {
-    this.props.onClick(this.props.index);
-  }
-
   render() {
     const choice_class = `${styles.button} pure-button pure-u-1 pure-u-md-1-${this.props.total}`;
     return (
-      <button className={choice_class} onClick={this.onClick}>
+      <button className={choice_class}>
         {this.props.choice.text}
       </button>
     );

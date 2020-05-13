@@ -1,7 +1,6 @@
 // @flow
 import React from 'react';
 import Page from '../components/Page';
-import Guide from '../components/Guide';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -14,10 +13,6 @@ export default () => (
     <div className="pure-u-1 pure-u-lg-2-3">
       <h1>A Free Learning Platform</h1>
       <p>Socratic Combat aims to algorthmically synthesize informative lessons and quizzes into a dynamic curriculum personalized for learners.  Why not give it a try?</p>
-    </div>
-
-    <div className="pure-u-1 centered-text">
-      <Guide />
     </div>
 
     {/*

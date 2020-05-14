@@ -19,8 +19,9 @@ export type Choice = {|
 export type ChoiceIndex = $Values<typeof ChoiceIndices>;
 
 type Props = {|
+  className: string,
+  onChoice: (ChoiceIndex) => void,
   question: QuestionType,
-  total: number,
   choice: Choice,
   index: ChoiceIndex,
   correct: boolean,
@@ -28,13 +29,23 @@ type Props = {|
   chosen_last: boolean,
 |};
 
-export default class ChoiceButton extends React.Component<Props> {
+export default class ChoiceButton extends React.PureComponent<Props> {
+  onClick = () => {
+    this.props.onChoice(this.props.index);
+  }
+
   render() {
-    const choice_class = `${styles.button} pure-button pure-u-1 pure-u-md-1-${this.props.total}`;
     const url = `/questions/${this.props.question.id}/${slug(this.props.question.text)}/choices/${this.props.index}/${slug(this.props.choice.text)}`;
+    let choice_classes = [
+      styles.button,
+      'pure-button',
+    ];
+    if (this.props.chosen) {
+      choice_classes.push('pure-button-disabled');
+    }
     return (
-      <GlowBlock>
-        <button className={choice_class}>
+      <GlowBlock className={this.props.className}>
+        <button onClick={this.onClick} className={choice_classes.join(', ')}>
           {this.props.choice.text}
         </button>
       </GlowBlock>

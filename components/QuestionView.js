@@ -8,27 +8,45 @@ export type QuestionType = {|
   text: string,
   choices: {[ChoiceIndex]: Choice},
   correct_choice: ChoiceIndex,
-  chosen: Array<ChoiceIndex>,
 |};
 
 type Props = {|
   question: QuestionType,
+  onFinish: () => void,
 |};
 
-type State = {};
+type State = {
+  chosen: Array<ChoiceIndex>,
+};
 
-export default class QuestionView extends React.Component<Props> {
+export default class QuestionView extends React.Component<Props,State> {
+  state: State = {
+    chosen: [],
+  }
+
+  onChoice = (choice: ChoiceIndex) => {
+    let { chosen } = this.state;
+    if (choice === this.props.question.correct_choice) {
+      return this.props.onFinish();
+    } else {
+      chosen.unshift(choice);
+      this.setState({chosen});
+    }
+  }
+
   render() {
+    const total = Object.keys(this.props.question.choices).length;
     const choices_list = Object.keys(this.props.question.choices).map(choice_index => {
       return <ChoiceButton
+        className={`pure-u-1 pure-u-md-1-${total}`}
         key={choice_index}
+        onChoice={this.onChoice}
         index={choice_index}
         question={this.props.question}
         choice={this.props.question.choices[choice_index]}
-        total={Object.keys(this.props.question.choices).length}
         correct={choice_index === this.props.question.correct_choice}
-        chosen={this.props.question.chosen.includes(choice_index)}
-        chosen_last={this.props.question.chosen[0] === choice_index}
+        chosen={this.state.chosen.includes(choice_index)}
+        chosen_last={this.state.chosen[0] === choice_index}
       />;
     });
     return (

@@ -13,7 +13,6 @@ const QUESTIONS: Array<QuestionType> = [
       [ChoiceIndices.third]: {text: "A free learning platform"},
     },
     correct_choice: ChoiceIndices.third,
-    chosen: [],
   },
   {
     id: 1,
@@ -24,12 +23,15 @@ const QUESTIONS: Array<QuestionType> = [
       [ChoiceIndices.third]: {text: "Regular exercise and a good diet"},
     },
     correct_choice: ChoiceIndices.second,
-    chosen: [],
   }
 ];
 
 export function QuestionFetch(id: number) {
   const question = QUESTIONS[id];
-  question.id = id;
+  return question;
+}
+
+export function NextQuestion(id: number) {
+  const question = QUESTIONS[(id + 1) % QUESTIONS.length]; // lol
   return question;
 }

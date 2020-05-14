@@ -28,7 +28,7 @@ const QUESTIONS: Array<QuestionType> = [
   }
 ];
 
-export default (id: number) => {
+export function QuestionFetch(id: number) {
   const question = QUESTIONS[id];
   question.id = id;
   return question;

@@ -18,7 +18,8 @@
     "purecss": "^1.0.1",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
-    "sass": "^1.26.5"
+    "sass": "^1.26.5",
+    "slug": "^2.1.1"
   },
   "devDependencies": {
     "babel-eslint": "8.2.6",

@@ -29,12 +29,11 @@ $blue-secondary: rgb(26, 135, 188);
 
 $logo-text: rgb(56, 77, 110);
 
-
 .pure-g > div {
   box-sizing: border-box;
 }
 
-footer {
+footer.footer {
   margin-top: 20px;
 }
 
@@ -47,18 +46,14 @@ footer {
 }
 
 .padding-side-sm {
-  pre {
-    //overflow: visible;
-    white-space: normal;
-  }
   padding: 0 1em;
 }
 
-ul, ol {
+ul.list, ol.list {
   list-style-type: none;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1.header, h2.header, h3.header, h4.header, h5.header, h6.header {
   color: $logo-text;
   &, #__next .pure-g &[class *= "pure-u"] {
     font-family: 'AvenirNextBold';

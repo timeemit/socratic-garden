@@ -16,7 +16,7 @@ const LESSONS: Array<LessonType> = [
   }
 ];
 
-export default (id: number) => {
+export function LessonFetch(id: number) {
   const lesson = LESSONS[id];
   lesson.id = id;
   return lesson;

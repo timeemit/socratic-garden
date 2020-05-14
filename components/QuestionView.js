@@ -23,6 +23,7 @@ export default class QuestionView extends React.Component<Props> {
       return <ChoiceButton
         key={choice_index}
         index={choice_index}
+        question={this.props.question}
         choice={this.props.question.choices[choice_index]}
         total={Object.keys(this.props.question.choices).length}
         correct={choice_index === this.props.question.correct_choice}
@@ -32,7 +33,7 @@ export default class QuestionView extends React.Component<Props> {
     });
     return (
       <section>
-        <h2>{this.props.question.text}</h2>
+        <h2 className="header">{this.props.question.text}</h2>
         <div className="pure-g">
           {choices_list}
         </div>

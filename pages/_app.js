@@ -3,7 +3,7 @@ import 'purecss/build/pure.css';
 import 'purecss/build/grids-responsive.css';
 
 // Global CSS
-import '../styles/app.scss';
+import '../styles/_app.scss';
 
 // Font Awesome
 import { config as fontAwesomeConfig } from '@fortawesome/fontawesome-svg-core';
@@ -13,6 +13,13 @@ fontAwesomeConfig.autoAddCss = false;
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faCheck, faArrowUp, faFireAlt, faChartLine } from '@fortawesome/free-solid-svg-icons';
 import { faClock } from '@fortawesome/free-regular-svg-icons';
+
+// Slugger
+import slug from 'slug';
+
+slug.defaults.modes.pretty.lower = true;
+
+export { slug };
 
 library.add(
   faCheck,
@@ -46,7 +53,7 @@ function MyApp({ Component, pageProps }) {
 
       <Component {...pageProps} />
 
-      <footer className="centered-text">Copyright © 2020</footer>
+      <footer className="footer centered-text">Copyright © 2020</footer>
 
       {/* Google Tag */}
       <script async src="https://www.googletagmanager.com/gtag/js?id=UA-164482043-1"></script>

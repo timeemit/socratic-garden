@@ -18,7 +18,7 @@ export default class LessonView extends React.Component<Props> {
   render() {
     return (
       <section>
-        <h1>{this.props.lesson.title}</h1>
+        <h1 className="header">{this.props.lesson.title}</h1>
         <p>{this.props.lesson.text}</p>
       </section>
     );

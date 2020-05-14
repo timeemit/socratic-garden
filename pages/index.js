@@ -11,14 +11,14 @@ export default () => (
     </div>
 
     <div className="pure-u-1 pure-u-lg-2-3">
-      <h1>A Free Learning Platform</h1>
+      <h1 className="h">A Free Learning Platform</h1>
       <p>Socratic Combat aims to algorthmically synthesize informative lessons and quizzes into a dynamic curriculum personalized for learners.  Why not give it a try?</p>
     </div>
 
     {/*
-    <h1 className="pure-u-1 centered-text">Continuously Self-Improving</h1>
+    <h1 className="header pure-u-1 centered-text">Continuously Self-Improving</h1>
     <p className="pure-u-1">As learners assess themselves with quizzes, the platform improves itself continuously by identifying which teaching materials are yielding the strongest student performance.</p>
-    <h1 className="pure-u-1 centered-text">Empower Curiosity</h1>
+    <h1 className="header pure-u-1 centered-text">Empower Curiosity</h1>
     <p className="pure-u-1">Socratic Combat puts students as the central navigators of their educational journey, where the menus of lessons and quizzes are highlighted with algorithmically measured signals that help guide students towards their own criteria for success.</p>
     <div className="pure-u-1 pure-u-md-1-3 padding-side-sm">
       <pre><FontAwesomeIcon icon="check" style={{color: "green"}} /> Frequently Completed</pre>
@@ -43,10 +43,10 @@ export default () => (
     </div>
     <div className="pure-u-1 pure-u-md-1-6"></div>
 
-    <h1 className="pure-u-1 centered-text">Teach with Metrics</h1>
+    <h1 className="header pure-u-1 centered-text">Teach with Metrics</h1>
     <div className="pure-u-1 pure-u-lg-1-2">
       <p>At the back of every instructor's mind are doubts:</p>
-      <ul>
+      <ul className="list">
         <li>😴 "Are my students engaged?"</li>
         <li>📉 "How much of an impact have I actually had?"</li>
         <li>🙄 "Have I kindled an ongoing curiosity in my students?"</li>
@@ -55,7 +55,7 @@ export default () => (
 
     <div className="pure-u-1 pure-u-lg-1-2">
       <p>Socratic Combat aims to answer these questions:</p>
-      <ul>
+      <ul className="list">
         <li> 😯 Get precise engagement metrics </li>
         <li> 🧐 Quantify your impact on students </li>
         <li> 🤔 Motivate long term learning </li>

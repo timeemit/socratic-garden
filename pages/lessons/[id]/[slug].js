@@ -8,8 +8,8 @@ import Page from '../../../components/Page';
 import { ChoiceIndices } from '../../../components/ChoiceButton';
 import LessonView from '../../../components/LessonView';
 import QuestionView from '../../../components/QuestionView';
-import LessonFetch from '../../../models/Lesson';
-import QuestionFetch from '../../../models/Question';
+import { LessonFetch } from '../../../models/Lesson';
+import { QuestionFetch } from '../../../models/Question';
 
 type Params = {|
   lesson: LessonType,

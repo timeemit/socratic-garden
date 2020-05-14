@@ -1,8 +1,11 @@
 // @flow
 import type { LessonType } from './LessonView';
 import type { QuestionType } from './QuestionView';
+import Router from 'next/router'
 import React from 'react';
+import { slug } from '../pages/_app';
 import LessonView from './LessonView';
+import { NextLesson } from '../models/Lesson';
 import { NextQuestion } from '../models/Question';
 import QuestionView from './QuestionView';
 
@@ -11,32 +14,21 @@ export type Props = {|
   question: QuestionType,
 |};
 
-type State = {|
-  lesson: LessonType,
-  question: QuestionType,
-|};
-
-export default class ChallengeView extends React.Component<Props,State> {
-  constructor(props: Props) {
-    super(props);
-    const { lesson, question } = props;
-    this.state = { lesson, question };
-  }
-
+export default class ChallengeView extends React.Component<Props> {
   onFinish = () => {
-    const question = NextQuestion(this.state.question.id);
-    return this.setState({ question });
+    const lesson = NextLesson(this.props.lesson.id);
+    return Router.push("/lessons/[id]/[slug]", `/lessons/${lesson.id}/${slug(lesson.title)}`);
   }
 
   render() {
     return (
-      <section>
+      <>
         <LessonView lesson={this.props.lesson} />
         <QuestionView 
           question={this.props.question}
           onFinish={this.onFinish}
         />
-      </section>
+      </>
     );
   }
 }

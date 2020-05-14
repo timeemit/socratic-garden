@@ -21,3 +21,8 @@ export function LessonFetch(id: number) {
   lesson.id = id;
   return lesson;
 }
+
+export function NextLesson(id: number) {
+  const lesson = LESSONS[(id + 1) % LESSONS.length]; // lol
+  return lesson;
+}

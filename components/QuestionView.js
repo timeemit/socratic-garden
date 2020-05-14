@@ -27,6 +27,7 @@ export default class QuestionView extends React.Component<Props,State> {
   onChoice = (choice: ChoiceIndex) => {
     let { chosen } = this.state;
     if (choice === this.props.question.correct_choice) {
+      this.setState({chosen: []});
       return this.props.onFinish();
     } else {
       chosen.unshift(choice);

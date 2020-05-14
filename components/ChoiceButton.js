@@ -45,7 +45,7 @@ export default class ChoiceButton extends React.PureComponent<Props> {
     }
     return (
       <GlowBlock className={this.props.className}>
-        <button onClick={this.onClick} className={choice_classes.join(', ')}>
+        <button onClick={this.onClick} className={choice_classes.join(' ')}>
           {this.props.choice.text}
         </button>
       </GlowBlock>

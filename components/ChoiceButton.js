@@ -4,7 +4,6 @@ import styles from '../styles/ChoiceButton.module.scss';
 import { slug } from '../pages/_app';
 import React from 'react';
 import Link from 'next/link';
-import GlowBlock from './GlowBlock';
 
 export const ChoiceIndices = {
   "first": "1",
@@ -44,11 +43,11 @@ export default class ChoiceButton extends React.PureComponent<Props> {
       choice_classes.push('pure-button-disabled');
     }
     return (
-      <GlowBlock className={this.props.className}>
+      <div className={this.props.className}>
         <button onClick={this.onClick} className={choice_classes.join(' ')}>
           {this.props.choice.text}
         </button>
-      </GlowBlock>
+      </div>
     );
   }
 }

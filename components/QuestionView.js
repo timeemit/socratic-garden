@@ -39,7 +39,7 @@ export default class QuestionView extends React.Component<Props,State> {
     const total = Object.keys(this.props.question.choices).length;
     const choices_list = Object.keys(this.props.question.choices).map(choice_index => {
       return <ChoiceButton
-        className={`pure-u-1 pure-u-md-1-${total}`}
+        className={`pure-u-1 pure-u-lg-1-${total}`}
         key={choice_index}
         onChoice={this.onChoice}
         index={choice_index}

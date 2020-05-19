@@ -12,8 +12,13 @@ const LESSONS: Array<LessonType> = [
   {
     id: 1,
     title: "Continuously Self-Improving",
-    text: "As learners assess themselves with quizzes, the platform improves itself continuously by identifying which resources are yielding the strongest student performance.",
-  }
+    text: "As you assess yourself with quizzes alongside other learners, the platform improves itself continuously by identifying which resources are yielding the strongest student performance.",
+  },
+  // {
+  //   id: 2,
+  //   title: "Empower Curiosity",
+  //   text: "Socratic Combat puts you at the center of an educational journey, where the menus of lessons and quizzes are highlighted with algorithmically measured signals that help guide students towards their own criteria for success."
+  // },
 ];
 
 export function LessonFetch(id: number) {

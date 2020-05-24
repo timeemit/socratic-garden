@@ -1,8 +1,6 @@
 {
-  "name": "with-flow",
-  "version": "1.0.0",
-  "license": "MIT",
-  "author": "Jag Reehal",
+  "name": "socratic-combat",
+  "author": "Liam Norris",
   "scripts": {
     "dev": "next",
     "build": "next build",

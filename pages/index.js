@@ -2,10 +2,10 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import Page from '../components/Page';
-import { LessonFetch } from '../models/Lesson';
-import { QuestionFetch } from '../models/Question';
-import ChallengeView from '../components/ChallengeView';
+import Page from 'components/Page';
+import { LessonFetch } from 'models/Lesson';
+import { QuestionFetch } from 'models/Question';
+import ChallengeView from 'components/ChallengeView';
 
 export default () => {
   const lesson = LessonFetch(0);

@@ -1,7 +1,7 @@
 // @flow
-import type { QuestionType } from './QuestionView';
-import styles from '../styles/ChoiceButton.module.scss';
-import { slug } from '../pages/_app';
+import type { QuestionType } from 'components/QuestionView';
+import styles from 'styles/ChoiceButton.module.scss';
+import { slug } from 'pages/_app';
 import React from 'react';
 import Link from 'next/link';
 

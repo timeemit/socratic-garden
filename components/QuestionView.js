@@ -1,7 +1,7 @@
 // @flow
-import type { Choice, ChoiceIndex } from './ChoiceButton';
+import type { Choice, ChoiceIndex } from 'components/ChoiceButton';
 import React from 'react';
-import ChoiceButton  from './ChoiceButton';
+import ChoiceButton  from 'components/ChoiceButton';
 
 export type QuestionType = {|
   id: number,

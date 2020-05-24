@@ -1,13 +1,13 @@
 // @flow
-import type { LessonType } from './LessonView';
-import type { QuestionType } from './QuestionView';
+import type { LessonType } from 'components/LessonView';
+import type { QuestionType } from 'components/QuestionView';
 import Router from 'next/router'
 import React from 'react';
-import { slug } from '../pages/_app';
-import LessonView from './LessonView';
-import { NextLesson } from '../models/Lesson';
-import { NextQuestion } from '../models/Question';
-import QuestionView from './QuestionView';
+import { slug } from 'pages/_app';
+import LessonView from 'components/LessonView';
+import { NextLesson } from 'models/Lesson';
+import { NextQuestion } from 'models/Question';
+import QuestionView from 'components/QuestionView';
 
 export type Props = {|
   lesson: LessonType,

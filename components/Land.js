@@ -1,6 +1,6 @@
 // @flow
 import React, { type Node } from 'react';
-import Page from 'components/Page';
+import Page from '../components/Page';
 
 type Props = {
   children: Node,

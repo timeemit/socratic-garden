@@ -3,7 +3,7 @@ import 'purecss/build/pure.css';
 import 'purecss/build/grids-responsive.css';
 
 // Global CSS
-import 'styles/_app.scss';
+import '../styles/_app.scss';
 
 // Font Awesome
 import { config as fontAwesomeConfig } from '@fortawesome/fontawesome-svg-core';

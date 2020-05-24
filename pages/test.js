@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import Page from 'components/Page';
+import Page from '../components/Page';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 

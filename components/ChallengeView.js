@@ -5,12 +5,13 @@ import Router from 'next/router'
 import React from 'react';
 import { slug } from '../pages/_app';
 import LessonView from './LessonView';
+import Topic from '../models/Topic';
 import { NextLesson } from '../models/Lesson';
 import { NextQuestion, NavigationQuestion } from '../models/Question';
 import { ChoiceIndices } from './ChoiceButton';
 import QuestionView from './QuestionView';
 
-type Props = {|
+export type Props = {|
   lesson: LessonType,
   question: QuestionType,
 |};
@@ -34,10 +35,14 @@ export default class ChallengeView extends React.Component<Props,State> {
     return Router.push("/lessons/[id]/[slug]", `/lessons/${lesson.id}/${slug(lesson.title)}`);
   }
 
+  getTopics(): Array<Topic> {
+    return this.props.lesson.topics.map((topic) => new Topic(topic));
+  }
+
   render() {
     return (
       <>
-        <LessonView lesson={this.props.lesson} />
+        <LessonView lesson={this.props.lesson} topics={this.getTopics()} />
         <QuestionView
           key={this.props.question.id}
           question={this.props.question}

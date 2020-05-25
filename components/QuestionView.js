@@ -1,5 +1,6 @@
 // @flow
 import type { Choice, ChoiceIndex } from './ChoiceButton';
+import type { TopicType } from '../models/Topic';
 import React from 'react';
 import ChoiceButton  from './ChoiceButton';
 

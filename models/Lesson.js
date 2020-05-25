@@ -1,16 +1,19 @@
 // @flow
 
 import type  { LessonType } from '../components/LessonView';
+import Topic from './Topic';
 import { ChoiceIndices } from '../components/ChoiceButton';
 
 const LESSONS: Array<LessonType> = [
   {
     id: 0,
+    topics: ["Socratic Combat"],
     title: "A Free Learning Platform",
     text: "Socratic Combat aims to algorthmically synthesize informative lessons and quizzes into a dynamic curriculum personalized for learners.  Why not give it a try?",
   },
   {
     id: 1,
+    topics: ["Socratic Combat"],
     title: "Continuously Self-Improving",
     text: "As you assess yourself with quizzes alongside other learners, the platform improves itself continuously by identifying which resources are yielding the strongest student performance.",
   },

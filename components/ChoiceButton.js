@@ -13,7 +13,7 @@ export const ChoiceIndices = {
 
 export type Choice = {|
   text: string,
-  response: string,
+  response: ?string,
 |};
 
 export type ChoiceIndex = $Values<typeof ChoiceIndices>;

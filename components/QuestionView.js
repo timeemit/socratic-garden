@@ -7,7 +7,7 @@ export type QuestionType = {|
   id: number,
   text: string,
   choices: {[ChoiceIndex]: Choice},
-  correct_choice: ChoiceIndex,
+  correct_choice: ?ChoiceIndex,
 |};
 
 type Props = {|
@@ -17,21 +17,23 @@ type Props = {|
 
 type State = {
   chosen: Array<ChoiceIndex>,
+  response: ?string,
 };
 
 export default class QuestionView extends React.Component<Props,State> {
   state: State = {
     chosen: [],
+    response: null,
   }
 
   onChoice = (choice: ChoiceIndex) => {
     let { chosen } = this.state;
-    if (choice === this.props.question.correct_choice) {
-      this.setState({chosen: []});
+    const { correct_choice } = this.props.question;
+    const { response } = this.props.question.choices[choice];
+    chosen.unshift(choice);
+    this.setState({chosen, response});
+    if (correct_choice === null || choice === correct_choice) {
       return this.props.onFinish();
-    } else {
-      chosen.unshift(choice);
-      this.setState({chosen});
     }
   }
 
@@ -46,7 +48,7 @@ export default class QuestionView extends React.Component<Props,State> {
         question={this.props.question}
         choice={this.props.question.choices[choice_index]}
         correct={choice_index === this.props.question.correct_choice}
-        chosen={this.state.chosen.includes(choice_index)}
+        chosen={this.state.chosen.includes(choice_index) || this.state.chosen.includes(this.props.question.correct_choice)}
       />;
     });
     return (
@@ -55,7 +57,16 @@ export default class QuestionView extends React.Component<Props,State> {
         <div className="pure-g">
           {choices_list}
         </div>
+        {this.renderNotice()}
       </section>
     );
+  }
+
+  renderNotice() {
+    if (this.state.response == null) {
+      return null;
+    } else {
+      return (<h3 className="header">{this.state.response}</h3>);
+    }
   }
 }

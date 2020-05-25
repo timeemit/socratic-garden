@@ -38,7 +38,7 @@ export default class ChallengeView extends React.Component<Props,State> {
     return (
       <>
         <LessonView lesson={this.props.lesson} />
-        <QuestionView 
+        <QuestionView
           key={this.props.question.id}
           question={this.props.question}
           onFinish={this.onFinish}
@@ -50,9 +50,9 @@ export default class ChallengeView extends React.Component<Props,State> {
 
   renderNavigation() {
     if (this.state.finished) {
-      return <QuestionView 
+      return <QuestionView
         key={-1}
-        question={NavigationQuestion}
+        question={NavigationQuestion(this.props.question.id)}
         onFinish={this.onContinue}
       />
     } else {

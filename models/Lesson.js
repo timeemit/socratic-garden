@@ -28,6 +28,6 @@ export function LessonFetch(id: number) {
 }
 
 export function NextLesson(id: number) {
-  const lesson = LESSONS[(id + 1) % LESSONS.length]; // lol
-  return lesson;
+  const next_id = (id + 1) % LESSONS.length; // lol
+  return LessonFetch(next_id);
 }

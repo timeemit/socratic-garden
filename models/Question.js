@@ -44,38 +44,41 @@ const QUESTIONS: Array<QuestionType> = [
   }
 ];
 
-export const NavigationQuestion: QuestionType = {
-  id: -1,
-  text: "Great job!  What's next?",
-  choices: {
-    [ChoiceIndices.first]: {
-      text: "Next question",
-      response: null,
-    },
-    /*
-    [ChoiceIndices.first]: {
-      text: "A new question for this lesson",
-      response: null,
-    },
-    [ChoiceIndices.second]: {
-      text: "Another lesson for the same topic",
-      response: null,
-    },
-    [ChoiceIndices.third]: {
-      text: "Find a new topic",
-      response: null,
-    }
-    */
-  },
-  correct_choice: null,
-};
-
 export function QuestionFetch(id: number) {
   const question = QUESTIONS[id];
   return question;
 }
 
 export function NextQuestion(id: number) {
-  const question = QUESTIONS[(id + 1) % QUESTIONS.length]; // lol
-  return question;
+  const next_id = (id + 1) % QUESTIONS.length; // lol
+  return QuestionFetch(next_id);
+}
+
+export function NavigationQuestion(id: number): QuestionType {
+  const next = NextQuestion(id);
+  return {
+    id: -1,
+    text: "Great job!  What's next?",
+    choices: {
+      [ChoiceIndices.first]: {
+        text: next.text,
+        response: null,
+      },
+      /*
+      [ChoiceIndices.first]: {
+        text: "A new question for this lesson",
+        response: null,
+      },
+      [ChoiceIndices.second]: {
+        text: "Another lesson for the same topic",
+        response: null,
+      },
+      [ChoiceIndices.third]: {
+        text: "Find a new topic",
+        response: null,
+      }
+      */
+    },
+    correct_choice: null,
+  };
 }

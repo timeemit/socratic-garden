@@ -16,9 +16,9 @@ export default () => {
         <img style={{"max-height": "200px"}} className="pure-img centered" src={`/logo.png`} />
       </div>
 
-      <div className="pure-u-1">
+      <main className="pure-u-1 centered-text">
         <ChallengeView lesson={lesson} question={question} />
-      </div>
+      </main>
 
       {/*
       <h1 className="header pure-u-1 centered-text">Empower Curiosity</h1>

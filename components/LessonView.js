@@ -11,9 +11,6 @@ type Props = {|
   lesson: LessonType,
 |};
 
-type State = {
-};
-
 export default class LessonView extends React.Component<Props> {
   render() {
     return (

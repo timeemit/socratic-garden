@@ -47,7 +47,6 @@ export default class QuestionView extends React.Component<Props,State> {
         choice={this.props.question.choices[choice_index]}
         correct={choice_index === this.props.question.correct_choice}
         chosen={this.state.chosen.includes(choice_index)}
-        chosen_last={this.state.chosen[0] === choice_index}
       />;
     });
     return (

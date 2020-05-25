@@ -13,6 +13,7 @@ export const ChoiceIndices = {
 
 export type Choice = {|
   text: string,
+  response: string,
 |};
 
 export type ChoiceIndex = $Values<typeof ChoiceIndices>;
@@ -25,7 +26,6 @@ type Props = {|
   index: ChoiceIndex,
   correct: boolean,
   chosen: boolean,
-  chosen_last: boolean,
 |};
 
 export default class ChoiceButton extends React.PureComponent<Props> {

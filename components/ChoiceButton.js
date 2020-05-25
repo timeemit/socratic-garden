@@ -6,9 +6,9 @@ import React from 'react';
 import Link from 'next/link';
 
 export const ChoiceIndices = {
-  "first": "1",
-  "second": "2",
-  "third": "3",
+  first: "1",
+  second: "2",
+  third: "3",
 };
 
 export type Choice = {|

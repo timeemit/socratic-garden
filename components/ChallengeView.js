@@ -1,13 +1,14 @@
 // @flow
 import type { LessonType } from './LessonView';
 import type { QuestionType } from './QuestionView';
+import type { TopicType } from '../models/Topic';
 import Router from 'next/router'
 import React from 'react';
 import { slug } from '../pages/_app';
 import LessonView from './LessonView';
-import Topic from '../models/Topic';
 import { NextLesson } from '../models/Lesson';
-import { NextQuestion, NavigationQuestion } from '../models/Question';
+import { TopicByText } from '../models/Topic';
+import { NavigationQuestion } from '../models/Question';
 import { ChoiceIndices } from './ChoiceButton';
 import QuestionView from './QuestionView';
 
@@ -35,16 +36,12 @@ export default class ChallengeView extends React.Component<Props,State> {
     return Router.push("/lessons/[id]/[slug]", `/lessons/${lesson.id}/${slug(lesson.title)}`);
   }
 
-  getTopics(): Array<Topic> {
-    return this.props.lesson.topics.map((topic) => new Topic(topic));
-  }
-
   render() {
     return (
       <>
-        <LessonView lesson={this.props.lesson} topics={this.getTopics()} />
+        <LessonView lesson={this.props.lesson} />
         <QuestionView
-          key={this.props.question.id}
+          key={this.props.question.lesson_id}
           question={this.props.question}
           onFinish={this.onFinish}
         />
@@ -57,7 +54,7 @@ export default class ChallengeView extends React.Component<Props,State> {
     if (this.state.finished) {
       return <QuestionView
         key={-1}
-        question={NavigationQuestion(this.props.question.id)}
+        question={NavigationQuestion(this.props.question.lesson_id)}
         onFinish={this.onContinue}
       />
     } else {

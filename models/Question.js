@@ -1,12 +1,11 @@
 // @flow
 
 import type  { QuestionType } from '../components/QuestionView';
-import Topic from './Topic';
 import { ChoiceIndices } from '../components/ChoiceButton';
 
 const QUESTIONS: Array<QuestionType> = [
   {
-    id: 0,
+    lesson_id: 0,
     text: "What is Socratic Combat?",
     choices: {
       [ChoiceIndices.first]: {
@@ -25,7 +24,7 @@ const QUESTIONS: Array<QuestionType> = [
     correct_choice: ChoiceIndices.third,
   },
   {
-    id: 1,
+    lesson_id: 1,
     text: "How does Socratic Combat improve itself?",
     choices: {
       [ChoiceIndices.first]: {
@@ -45,20 +44,18 @@ const QUESTIONS: Array<QuestionType> = [
   }
 ];
 
-export function QuestionFetch(id: number) {
-  const question = QUESTIONS[id];
+export function QuestionByLessonID(lesson_id: number): QuestionType {
+  const question = QUESTIONS.find((question) => question.lesson_id === lesson_id);
+  if (question == undefined) {
+    return QUESTIONS[0];
+  }
   return question;
 }
 
-export function NextQuestion(id: number) {
-  const next_id = (id + 1) % QUESTIONS.length; // lol
-  return QuestionFetch(next_id);
-}
-
-export function NavigationQuestion(id: number): QuestionType {
-  const next = NextQuestion(id);
+export function NavigationQuestion(lesson_id: number): QuestionType {
+  const next = QuestionByLessonID(lesson_id);
   return {
-    id: -1,
+    lesson_id: -1,
     text: "Great job!  What's next?",
     choices: {
       [ChoiceIndices.first]: {

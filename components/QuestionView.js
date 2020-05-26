@@ -5,7 +5,7 @@ import React from 'react';
 import ChoiceButton  from './ChoiceButton';
 
 export type QuestionType = {|
-  id: number,
+  lesson_id: number,
   text: string,
   choices: {[ChoiceIndex]: Choice},
   correct_choice: ?ChoiceIndex,

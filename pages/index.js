@@ -4,12 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import Page from '../components/Page';
 import { LessonFetch } from '../models/Lesson';
-import { QuestionFetch } from '../models/Question';
+import { QuestionByLessonID } from '../models/Question';
 import ChallengeView from '../components/ChallengeView';
 
 export default () => {
   const lesson = LessonFetch(0);
-  const question = QuestionFetch(0);
+  const question = QuestionByLessonID(0);
   return (
     <Page title="Socratic Combat">
       <div className="pure-u-1">

@@ -1,7 +1,7 @@
 // @flow
 
+import type { TopicType } from './Topic';
 import type  { LessonType } from '../components/LessonView';
-import Topic from './Topic';
 import { ChoiceIndices } from '../components/ChoiceButton';
 
 const LESSONS: Array<LessonType> = [
@@ -33,4 +33,8 @@ export function LessonFetch(id: number) {
 export function NextLesson(id: number) {
   const next_id = (id + 1) % LESSONS.length; // lol
   return LessonFetch(next_id);
+}
+
+export function LessonsByTopic(topic: TopicType): Array<LessonType> {
+  return LESSONS.filter((lesson) => lesson.topics.includes(topic.text));
 }

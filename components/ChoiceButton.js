@@ -34,7 +34,6 @@ export default class ChoiceButton extends React.PureComponent<Props> {
   }
 
   render() {
-    const url = `/questions/${this.props.question.id}/${slug(this.props.question.text)}/choices/${this.props.index}/${slug(this.props.choice.text)}`;
     let choice_classes = [
       styles.button,
       'pure-button',

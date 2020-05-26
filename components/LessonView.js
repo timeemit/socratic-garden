@@ -1,6 +1,6 @@
 // @flow
-import React from 'react';
-import Topic from '../models/Topic';
+import { TopicByText, type TopicType } from '../models/Topic';
+import React, { type Node } from 'react';
 import TopicLink from './TopicLink';
 
 export type LessonType = {|
@@ -12,7 +12,6 @@ export type LessonType = {|
 
 type Props = {|
   lesson: LessonType,
-  topics: Array<Topic>,
 |};
 
 export default class LessonView extends React.Component<Props> {
@@ -27,6 +26,7 @@ export default class LessonView extends React.Component<Props> {
   }
 
   renderTopics() {
-    return this.props.topics.map((topic, i) => <TopicLink key={i} topic={topic} />);
+    const topics: Array<TopicType> = this.props.lesson.topics.map(TopicByText).filter(Boolean);
+    return topics.map<Node>((topic, i) => <TopicLink key={i} topic={topic} />);
   }
 }

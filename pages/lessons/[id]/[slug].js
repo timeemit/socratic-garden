@@ -21,7 +21,7 @@ export async function getServerSideProps(context: Context): Promise<{|props: Par
 export default (params: Params) => {
   return (
     <Page title={params.lesson.title}>
-      <main className="pure-u-1 centered-text">
+      <main className="pure-u-1">
         <ChallengeView lesson={params.lesson} question={params.question} />
       </main>
     </Page>

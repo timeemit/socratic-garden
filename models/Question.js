@@ -56,7 +56,7 @@ export function NavigationQuestion(lesson_id: number): QuestionType {
   const next = QuestionByLessonID(lesson_id);
   return {
     lesson_id: -1,
-    text: "Great job!  What's next?",
+    text: "What next?",
     choices: {
       [ChoiceIndices.first]: {
         text: next.text,

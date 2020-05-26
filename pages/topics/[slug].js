@@ -5,9 +5,11 @@ import type { LessonType } from '../../components/LessonView';
 import type { TopicType } from '../../models/Topic';
 import React, {type Node} from 'react';
 import Page from '../../components/Page';
+import { slug as slugger} from '../../pages/_app';
 import { TopicBySlug } from '../../models/Topic';
 import { LessonsByTopic } from '../../models/Lesson';
 import { QuestionByLessonID } from '../../models/Question';
+import Link from 'next/link';
 import Page404 from '../404';
 
 type Params = {|
@@ -35,26 +37,24 @@ export default class TopicPage extends React.Component<Params> {
     };
     return (
       <Page title={topic.text}>
-        <main className="pure-u-1 centered-text">
-          <h1>Lessons</h1>
-          {this.renderLessons()}
-          <h1>Questions</h1>
-          {this.renderQuestions()}
+        <main className="pure-u-1">
+          <h1 className="header">{topic.text}</h1>
+          {this.renderQuestionsWithLessons()}
         </main>
       </Page>
     );
   }
 
-  renderLessons(): Node {
-    return this.props.lessons.map((lesson) => (
-      <div>{lesson.title}</div>
-    ));
-  }
-
-  renderQuestions(): Node {
-    return this.props.questions.map((question) => (
-      <div>{question.text}</div>
-    ));
+  renderQuestionsWithLessons(): Node {
+    return this.props.questions.map((question, i) => {
+      const lesson = this.props.lessons[i];
+      return (
+        <div>
+          <Link href="/lessons/[id]/[slug]" as={`/lessons/${lesson.id}/${slugger(lesson.title)}`}>
+            <a href="#">{question.text} ... {lesson.title}</a>
+          </Link>
+        </div>
+      );
+    });
   }
 }
-

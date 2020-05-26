@@ -53,7 +53,7 @@ export default class QuestionView extends React.Component<Props,State> {
       />;
     });
     return (
-      <section>
+      <section className="centered-text">
         <h2 className="header">{this.props.question.text}</h2>
         <div className="pure-g">
           {choices_list}

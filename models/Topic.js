@@ -1,7 +1,5 @@
 // @flow
-function slugify(text: string) {
-  return text.toLowerCase().replace(/\W+/, '-');
-}
+import { slug } from '../pages/_app';
 
 export type TopicType = {|
   slug: string,
@@ -11,7 +9,7 @@ export type TopicType = {|
 const TOPICS: Array<TopicType> = [
   "Socratic Combat",
 ].map((text) => {
-  return {slug: slugify(text), text};
+  return {slug: slug(text), text};
 });
 
 export function TopicBySlug(slug: string): ?TopicType {

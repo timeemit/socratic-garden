@@ -1,4 +1,5 @@
 // @flow
+import styles from '../../styles/TopicPage.module.scss';
 import type { Context } from '../../types/context';
 import type { QuestionType } from '../../components/QuestionView';
 import type { LessonType } from '../../components/LessonView';
@@ -37,10 +38,8 @@ export default class TopicPage extends React.Component<Params> {
     };
     return (
       <Page title={topic.text}>
-        <main className="pure-u-1">
-          <h1 className="header">{topic.text}</h1>
-          {this.renderQuestionsWithLessons()}
-        </main>
+        <h1 className="pure-u-1 header">{topic.text}</h1>
+        {this.renderQuestionsWithLessons()}
       </Page>
     );
   }
@@ -49,9 +48,12 @@ export default class TopicPage extends React.Component<Params> {
     return this.props.questions.map((question, i) => {
       const lesson = this.props.lessons[i];
       return (
-        <div>
+        <div key={i} className={`pure-u-lg-1-3 pure-u-1 ${styles.card}`}>
           <Link href="/lessons/[id]/[slug]" as={`/lessons/${lesson.id}/${slugger(lesson.title)}`}>
-            <a href="#">{question.text} ... {lesson.title}</a>
+            <a className={styles.link} href="#">
+              <h2 className={`header ${styles.header}`}>{question.text}</h2>
+              <span className={styles.content}>{lesson.text}</span>
+            </a>
           </Link>
         </div>
       );

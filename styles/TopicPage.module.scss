@@ -1,0 +1,20 @@
+.card {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0 10px;
+  height: 10em;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.header {
+  white-space: normal;
+  overflow: visible;
+}
+
+.contents {
+  text-decoration: underline
+}

@@ -29,10 +29,20 @@ library.add(
   faChartLine,
 );
 
+// Listen to router events
+import Router from 'next/router';
+
+const handleRouteChangeComplete = (url) => {
+  gtag('config',  'UA-164482043-1', {'page_path': url});
+}
+Router.events.on('routeChangeComplete', handleRouteChangeComplete);
+
+
 // Components for Rendering
 import Link from 'next/link';
 import Head from 'next/head';
 import React from 'react';
+
 
 function MyApp({ Component, pageProps }) {
   return (

@@ -5,7 +5,7 @@ import type { QuestionType } from '../../../components/QuestionView';
 import type { Props as Params } from '../../../components/ChallengeView';
 
 import React from 'react';
-import Page from '../../../components/Page';
+import Page from '../../../components/PageWithNavigator';
 import { ChoiceIndices } from '../../../components/ChoiceButton';
 import { LessonFetch } from '../../../models/Lesson';
 import { QuestionByLessonID } from '../../../models/Question';

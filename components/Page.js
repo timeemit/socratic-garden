@@ -2,13 +2,13 @@
 import React, { type Node } from 'react'
 import Head from 'next/head'
 
-type Props = {
+export type Props = {
   children: Node,
-  title?: string,
+  title: string,
   grid?: boolean
 }
 
-export default ({ children, title='This is the default title', grid=false }: Props) => (
+export default ({ children, title, grid=false }: Props) => (
   <section>
     <Head>
       <title>{title}</title>

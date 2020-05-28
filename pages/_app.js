@@ -37,12 +37,9 @@ const handleRouteChangeComplete = (url) => {
 }
 Router.events.on('routeChangeComplete', handleRouteChangeComplete);
 
-
 // Components for Rendering
-import Link from 'next/link';
 import Head from 'next/head';
 import React from 'react';
-
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -50,16 +47,6 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-
-      {/*
-        <header>
-          <nav>
-            <Link href="/">
-              <a>Home</a>
-            </Link>
-          </nav>
-        </header>
-      */}
 
       <Component {...pageProps} />
 

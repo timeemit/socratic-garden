@@ -5,7 +5,7 @@ import type { QuestionType } from '../../components/QuestionView';
 import type { LessonType } from '../../components/LessonView';
 import type { TopicType } from '../../models/Topic';
 import React, {type Node} from 'react';
-import Page from '../../components/Page';
+import Page from '../../components/PageWithNavigator';
 import { slug as slugger} from '../../pages/_app';
 import { TopicBySlug } from '../../models/Topic';
 import { LessonsByTopic } from '../../models/Lesson';

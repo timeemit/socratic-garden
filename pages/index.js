@@ -13,7 +13,7 @@ export default () => {
   return (
     <Page title="Socratic Combat">
       <div className="pure-u-1">
-        <img style={{"max-height": "200px"}} className="pure-img centered" src={`/logo.png`} />
+        <img style={{"max-height": "200px"}} className="pure-img centered" src="/logo.png" />
       </div>
 
       <main className="pure-u-1">

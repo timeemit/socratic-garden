@@ -1,4 +1,35 @@
+@use "./app";
+
+.nav {
+  display: inline-block;
+}
 .homeLogo {
-  max-height: 80px;
+  max-height: 2.25em;
   cursor: pointer;
+  vertical-align: bottom;
+}
+
+@mixin header {
+  font-size: 1.5em;
+  text-decoration: none;
+  margin-left: 25px;
+  font-family: 'AvenirNextBold';
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.headerRed {
+  @include header;
+  color: app.$red-secondary;
+}
+
+.headerBlue {
+  @include header;
+  color: app.$blue-secondary;
+}
+
+.headerPurple {
+  @include header;
+  color: app.$purple-secondary;
 }

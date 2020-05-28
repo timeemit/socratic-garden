@@ -6,6 +6,7 @@ import type { LessonType } from '../../components/LessonView';
 import type { TopicType } from '../../models/Topic';
 import React, {type Node} from 'react';
 import Page from '../../components/PageWithNavigator';
+import TopicLink from '../../components/TopicLink';
 import { slug as slugger} from '../../pages/_app';
 import { TopicBySlug } from '../../models/Topic';
 import { LessonsByTopic } from '../../models/Lesson';
@@ -38,7 +39,7 @@ export default class TopicPage extends React.Component<Params> {
     };
     return (
       <Page title={topic.text}>
-        <h1 className="pure-u-1 header">{topic.text}</h1>
+        <h1 className="pure-u-1 header"><TopicLink topic={topic} /></h1>
         {this.renderQuestionsWithLessons()}
       </Page>
     );

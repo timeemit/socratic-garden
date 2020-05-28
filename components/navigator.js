@@ -18,7 +18,7 @@ export default class Navigator extends React.PureComponent<{}> {
               <span className={styles.span}>Review Topics</span>
             </a>
           </Link>
-          <Link href="/questions">
+            <Link href="/lessons/new">
             <a href="#" className={styles.headerBlue}>
               <FontAwesomeIcon icon="edit" transform="left-3" />
               <span className={styles.span}>Submit a Lesson</span>

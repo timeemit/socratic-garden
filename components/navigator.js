@@ -15,13 +15,13 @@ export default class Navigator extends React.PureComponent<{}> {
           <Link href="/topics">
             <a href="#" className={styles.headerPurple}>
               <FontAwesomeIcon icon="book" transform="left-3" />
-              <span className={styles.span}>Topics</span>
+              <span className={styles.span}>Review Topics</span>
             </a>
           </Link>
           <Link href="/questions">
             <a href="#" className={styles.headerBlue}>
-              <FontAwesomeIcon icon="question" transform="left-3" />
-              <span className={styles.span}>Questions</span>
+              <FontAwesomeIcon icon="edit" transform="left-3" />
+              <span className={styles.span}>Submit a Lesson</span>
             </a>
           </Link>
         </nav>

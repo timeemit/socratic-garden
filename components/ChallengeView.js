@@ -60,7 +60,7 @@ export default class ChallengeView extends React.Component<Props,State> {
 
   renderNavigation() {
     if (this.state.finished === null) {
-      return <em><a href="#" onClick={this.onSkip}>Skip this question</a></em>
+      return <em><a href="#" className="link" onClick={this.onSkip}>Skip this question</a></em>
     } else {
       const { finished } = this.state;
       let question = NavigationQuestion(this.props.question.lesson_id);

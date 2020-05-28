@@ -53,6 +53,13 @@ ul.list, ol.list {
   list-style-type: none;
 }
 
+a.link {
+  color: rgb(0, 0, 238);
+  &:hover {
+    color: rgba(0, 0, 238, 0.8);
+  }
+}
+
 h1.header, h2.header, h3.header, h4.header, h5.header, h6.header {
   color: $logo-text;
   &, #__next .pure-g &[class *= "pure-u"] {

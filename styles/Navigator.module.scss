@@ -14,22 +14,28 @@
   text-decoration: none;
   margin-left: 25px;
   font-family: 'AvenirNextBold';
-  &:hover {
-    text-decoration: underline;
-  }
 }
 
 .headerRed {
   @include header;
   color: app.$red-secondary;
+  &:hover {
+    color: app.$red-primary;
+  }
 }
 
 .headerBlue {
   @include header;
   color: app.$blue-secondary;
+  &:hover {
+    color: app.$blue-primary;
+  }
 }
 
 .headerPurple {
   @include header;
   color: app.$purple-secondary;
+  &:hover {
+    color: app.$purple-primary;
+  }
 }

@@ -51,7 +51,7 @@ export default class TopicPage extends React.Component<Params> {
       return (
         <div key={i} className={`pure-u-lg-1-3 pure-u-1 ${styles.card}`}>
           <Link href="/lessons/[id]/[slug]" as={`/lessons/${lesson.id}/${slugger(lesson.title)}`}>
-            <a className={styles.link} href="#">
+            <a className={`link ${styles.link}`} href="#">
               <h2 className={`header ${styles.header}`}>{question.text}</h2>
               <span className={styles.content}>{lesson.text}</span>
             </a>

@@ -6,7 +6,7 @@ export type TopicType = {|
   text: string,
 |}
 
-const TOPICS: Array<TopicType> = [
+export const TOPICS: Array<TopicType> = [
   "Socratic Combat",
 ].map((text) => {
   return {slug: slug(text), text};

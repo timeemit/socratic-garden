@@ -1,13 +1,38 @@
 .textArea {
   min-height: 4em;
+  min-width: 10em;
   max-width: 100%;
   line-height: 1.5em;
 }
 
+.autoComplete {
+  width: 200px;
+  display: inline-block;
+}
+
 .topicInput {
   margin-bottom: 1em;
+  width: 100%;
+}
+
+.options {
+  width: 200px;
+  position: absolute;
+  z-index: 500;
+  background-color: white;
+}
+
+.option {
+  margin: 0.5em 0;
+  padding: 0 10px;
+  position: relative;
+  border-radius: 8px;
+  &:hover {
+    background-color: lightgrey;
+  }
 }
 
 .publishButton {
   height: 4em;
+  border-radius: 15px;
 }

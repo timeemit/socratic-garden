@@ -27,8 +27,18 @@ export default class NewLesson extends React.Component<Props,State> {
           <h1 className="pure-u-1 header">
             <input className="pure-u-1" type="text" placeholder="Title of a Great Lesson..." spellcheck="true" />
           </h1>
-          <div className="pure-u-1"myBrowser>
-            <input className={lesson_styles.topicInput} placeholder="...on the topic of...?" />
+          <div className="pure-u-1">
+            <div className={lesson_styles.autoComplete}>
+              <input className={lesson_styles.topicInput} type="text" placeholder="...on the topic of...?" />
+              <div className={lesson_styles.options}>
+                <div className={lesson_styles.option}>
+                  Choice 1
+                </div>
+                <div className={lesson_styles.option}>
+                  Choice 2
+                </div>
+              </div>
+            </div>
           </div>
           <div className="pure-u-1">
             <textarea className={`pure-u-1 ${lesson_styles.textArea}`} placeholder="...that pushes a student's understanding forward in just a few seconds"></textarea>

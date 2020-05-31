@@ -5,21 +5,9 @@
   line-height: 1.5em;
 }
 
-.autoComplete {
-  width: 200px;
-  display: inline-block;
-}
-
-.topicInput {
-  margin-bottom: 1em;
-  width: 100%;
-}
-
-.options {
-  width: 200px;
-  position: absolute;
-  z-index: 500;
-  background-color: white;
+.publishButton {
+  height: 4em;
+  border-radius: 15px;
 }
 
 .option {
@@ -32,7 +20,10 @@
   }
 }
 
-.publishButton {
-  height: 4em;
-  border-radius: 15px;
+.topicLink {
+  display: inline-block;
+  margin-right: 1em;
+  & > a {
+    vertical-align: super;
+  }
 }

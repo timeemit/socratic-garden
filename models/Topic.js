@@ -19,3 +19,11 @@ export function TopicBySlug(slug: string): ?TopicType {
 export function TopicByText(text: string): ?TopicType {
   return TOPICS.find((topic) => topic.text === text) ?? null;
 };
+
+export function CreateTopicByText(text: string): TopicType {
+  return {text, slug: slug(text)};
+}
+
+export function TopicsByText(text: string): Array<TopicType> {
+  return TOPICS.filter((topic) => topic.text.toLowerCase().startsWith(text.toLowerCase()));
+};

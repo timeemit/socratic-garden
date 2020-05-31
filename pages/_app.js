@@ -12,7 +12,7 @@ fontAwesomeConfig.autoAddCss = false;
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faCheck, faArrowUp, faFireAlt, faChartLine, faEdit, faQuestion, faBook } from '@fortawesome/free-solid-svg-icons';
-import { faClock } from '@fortawesome/free-regular-svg-icons';
+import { faClock, faTimesCircle } from '@fortawesome/free-regular-svg-icons';
 
 // Slugger
 import slug from 'slug';
@@ -30,6 +30,7 @@ library.add(
   faEdit,
   faQuestion,
   faBook,
+  faTimesCircle,
 );
 
 // Listen to router events

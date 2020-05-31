@@ -5,6 +5,7 @@
     "dev": "next",
     "build": "next build",
     "flow": "flow",
+    "heroku-postbuild": "npm run build",
     "start": "next start -p $PORT"
   },
   "dependencies": {

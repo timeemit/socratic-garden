@@ -8,6 +8,7 @@ import type { NewProps, OptionProps, ChosenProps } from '../../components/Autoco
 import type { TopicType } from '../../models/Topic';
 
 import React, { type Node } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Page from '../../components/PageWithNavigator';
 import { ChoiceIndices } from '../../components/ChoiceButton';
 import { LessonFetch } from '../../models/Lesson';
@@ -69,7 +70,7 @@ export default class NewLesson extends React.Component<Props,State> {
               new={({display}: NewProps) => {
                 return (
                   <div className={lesson_styles.option}>
-                    + Add "{display}"
+                    <FontAwesomeIcon icon="plus" /> Add "{display}"
                   </div>
                 );
               }}

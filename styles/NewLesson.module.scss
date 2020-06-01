@@ -1,4 +1,20 @@
+input.isValid, textarea.isValid {
+  &:valid {
+    border: solid green 1px;
+  }
+  &:invalid:focus {
+    border: solid red 1px;
+  }
+}
+
 .textArea {
+  min-height: 4em;
+  min-width: 100%;
+  max-width: 100%;
+  line-height: 1.2em;
+}
+
+.choiceTextArea {
   min-height: 4em;
   min-width: 10em;
   max-width: 100%;

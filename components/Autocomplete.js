@@ -3,6 +3,7 @@ import styles from '../styles/Autocomplete.module.scss';
 import type { ComponentType } from 'react';
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Closeable from './Closeable';
 
 export type OptionProps<T> = {
   value: T,
@@ -141,12 +142,9 @@ export default class Autocomplete<A,B> extends React.Component<Props<A|B>,State<
     const Chosen = this.props.chosen;
     return this.props.values.map((value, i) => {
       return (
-        <div className={styles.chosenItem} key={i}>
+        <Closeable className={styles.chosenItem} key={i} onClose={() => this.onRemoval(value)}>
           <Chosen value={value} />
-          <div className={styles.closeButton} onClick={() => this.onRemoval(value)}>
-            <FontAwesomeIcon icon={["far", "times-circle"]} size="lg" />
-          </div>
-        </div>
+        </Closeable>
       );
     });
   }

@@ -21,20 +21,20 @@ import { TopicsByText, CreateTopicByText } from '../../models/Topic';
 type Props = {||};
 
 type State = {
-  lesson_title: ?string,
-  lesson_text: ?string,
+  lesson_title: string,
+  lesson_text: string,
   topics: Array<TopicType>,
-  question_text: ?string,
+  question_text: string,
   choices: {[ChoiceIndex]: Choice},
   correct_choice: ?ChoiceIndex,
 };
 
 export default class NewLesson extends React.Component<Props,State> {
   state: State = {
-    lesson_title: null,
-    lesson_text: null,
+    lesson_title: "",
+    lesson_text: "",
     topics: [],
-    question_text: null,
+    question_text: "",
     choices: {
       [ChoiceIndices.first]: {text: "", response: ""},
       [ChoiceIndices.second]: {text: "", response: ""},
@@ -59,7 +59,7 @@ export default class NewLesson extends React.Component<Props,State> {
 
   isValid() {
     return this.state.topics.length > 0 &&
-      ![this.state.lesson_title, this.state.lesson_text, this.state.question_text, this.state.correct_choice].includes(null) &&
+      this.state.correct_choice !== null &&
       ![this.state.lesson_title, this.state.lesson_text, this.state.question_text, this.state.correct_choice].includes("") &&
       Object.values(this.state.choices).every(choice => !Object.values(choice).includes(""))
   }

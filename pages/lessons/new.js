@@ -16,6 +16,7 @@ import { LessonFetch } from '../../models/Lesson';
 import { QuestionByLessonID } from '../../models/Question';
 import Autocomplete from '../../components/Autocomplete';
 import TopicLink from '../../components/TopicLink';
+import Interstitial from '../../components/Interstitial';
 import { TopicsByText, CreateTopicByText } from '../../models/Topic';
 
 type Props = {||};
@@ -27,6 +28,7 @@ type State = {
   question_text: string,
   choices: {[ChoiceIndex]: Choice},
   correct_choice: ?ChoiceIndex,
+  reveal_interstitial: boolean,
 };
 
 export default class NewLesson extends React.Component<Props,State> {
@@ -41,6 +43,7 @@ export default class NewLesson extends React.Component<Props,State> {
       [ChoiceIndices.third]: {text: "", response: ""},
     },
     correct_choice: null,
+    reveal_interstitial: false,
   };
 
   textChanger = (field: ("lesson_title" | "lesson_text" | "question_text" | "correct_choice")): (SyntheticEvent<HTMLInputElement> => void) => {
@@ -77,6 +80,11 @@ export default class NewLesson extends React.Component<Props,State> {
       return topic.text !== chosen_topic.text;
     });
     this.setState({topics});
+  }
+
+  onSubmit = (e: SyntheticEvent<>) => {
+    e.stopPropagation;
+    this.setState({reveal_interstitial: true});
   }
 
   render() {
@@ -148,10 +156,26 @@ export default class NewLesson extends React.Component<Props,State> {
             />
           </h2>
           {this.renderChoices()}
-          <button className={`pure-u-1 pure-button pure-button-primary ${styles.publishButton} ${enabled}`}>
+          <button
+            className={`pure-u-1 pure-button pure-button-primary ${styles.publishButton} ${enabled}`}
+            onClick={this.onSubmit}>
             Publish
           </button>
         </form>
+        <Interstitial
+          content={
+            <div>
+              <h1>Thank You For Contributing!</h1>
+              <em>But don't you want credit for your hard work?</em>
+              <form className={`pure-form centered-text ${styles.signup}`}>
+                <input type="email" placeholder="my@email.com" />
+                <input className="pure-button" type="button" value="Sign Up" />
+              </form>
+            </div>
+          }
+          reveal={this.state.reveal_interstitial}
+          onCancel={() => this.setState({reveal_interstitial: false})}
+        />
       </Page>
     );
   }

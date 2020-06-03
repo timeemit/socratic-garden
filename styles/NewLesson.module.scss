@@ -38,8 +38,14 @@ input.isValid, textarea.isValid {
 
 .topicLink {
   display: inline-block;
-  margin-right: 1em;
   & > a {
     vertical-align: super;
+  }
+}
+
+.signup {
+  margin-top: 1.5em;
+  input {
+    margin-right: 1.5em;
   }
 }

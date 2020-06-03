@@ -142,9 +142,11 @@ export default class Autocomplete<A,B> extends React.Component<Props<A|B>,State<
     const Chosen = this.props.chosen;
     return this.props.values.map((value, i) => {
       return (
-        <Closeable className={styles.chosenItem} key={i} onClose={() => this.onRemoval(value)}>
-          <Chosen value={value} />
-        </Closeable>
+        <div className={styles.chosenItem} key={i}>
+          <Closeable onClose={() => this.onRemoval(value)}>
+            <Chosen value={value} />
+          </Closeable>
+        </div>
       );
     });
   }

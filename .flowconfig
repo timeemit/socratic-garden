@@ -8,3 +8,4 @@
 module.file_ext=.js
 module.file_ext=.scss
 module.name_mapper='.*.scss' -> '{}'
+esproposal.optional_chaining=enable

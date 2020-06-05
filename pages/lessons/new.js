@@ -5,7 +5,7 @@ import type { LessonType } from '../../types/LessonType';
 import type { QuestionType } from '../../types/QuestionType';
 import type { Props as Params } from '../../components/ChallengeView';
 import type { NewProps, OptionProps, ChosenProps } from '../../components/Autocomplete';
-import type { TopicType } from '../../types/TopicType';
+import type { ConceptType } from '../../types/ConceptType';
 import type { Choice, ChoiceIndex } from '../../types/ChoiceTypes';
 
 import React, { type Node } from 'react';
@@ -15,17 +15,17 @@ import { ChoiceIndices } from '../../types/ChoiceTypes';
 import { LessonFetch } from '../../models/Lesson';
 import { QuestionByLessonID } from '../../models/Question';
 import Autocomplete from '../../components/Autocomplete';
-import TopicLink from '../../components/TopicLink';
+import ConceptLink from '../../components/ConceptLink';
 import Interstitial from '../../components/Interstitial';
 import SignWhere from '../../components/SignWhere';
-import { TopicsByText, CreateTopicByText } from '../../models/Topic';
+import { ConceptsByText, CreateConceptByText } from '../../models/Concept';
 
 type Props = {||};
 
 type State = {
   lesson_title: string,
   lesson_text: string,
-  topics: Array<TopicType>,
+  concepts: Array<ConceptType>,
   question_text: string,
   choices: {[ChoiceIndex]: Choice},
   correct_choice: ?ChoiceIndex,
@@ -36,7 +36,7 @@ export default class NewLesson extends React.Component<Props,State> {
   state: State = {
     lesson_title: "",
     lesson_text: "",
-    topics: [],
+    concepts: [],
     question_text: "",
     choices: {
       [ChoiceIndices.first]: {text: "", response: ""},
@@ -63,25 +63,25 @@ export default class NewLesson extends React.Component<Props,State> {
 
   isValid() {
     return true; // For Debugging
-    // return this.state.topics.length > 0 &&
+    // return this.state.concepts.length > 0 &&
     //   this.state.correct_choice !== null &&
     //   ![this.state.lesson_title, this.state.lesson_text, this.state.question_text, this.state.correct_choice].includes("") &&
     //   Object.values(this.state.choices).every(choice => !Object.values(choice).includes(""))
   }
 
-  onTopicChoice = (chosen_topic: ?TopicType) => {
-    let { topics } = this.state;
-    if (chosen_topic != null) {
-      topics.push(chosen_topic);
+  onConceptChoice = (chosen_concept: ?ConceptType) => {
+    let { concepts } = this.state;
+    if (chosen_concept != null) {
+      concepts.push(chosen_concept);
     }
-    this.setState({topics});
+    this.setState({concepts});
   }
 
-  onTopicRemoval = (chosen_topic: TopicType) => {
-    const topics = this.state.topics.filter((topic) => {
-      return topic.text !== chosen_topic.text;
+  onConceptRemoval = (chosen_concept: ConceptType) => {
+    const concepts = this.state.concepts.filter((concept) => {
+      return concept.text !== chosen_concept.text;
     });
-    this.setState({topics});
+    this.setState({concepts});
   }
 
   onSubmit = (e: SyntheticEvent<>) => {
@@ -106,15 +106,15 @@ export default class NewLesson extends React.Component<Props,State> {
           </h1>
           <div className="pure-u-1">
             <Autocomplete
-              values={this.state.topics}
-              onChoice={this.onTopicChoice}
-              onRemoval={this.onTopicRemoval}
-              retrieve={TopicsByText}
-              create={CreateTopicByText}
-              display={(topic) => topic.text}
+              values={this.state.concepts}
+              onChoice={this.onConceptChoice}
+              onRemoval={this.onConceptRemoval}
+              retrieve={ConceptsByText}
+              create={CreateConceptByText}
+              display={(concept) => concept.text}
               width="200px"
-              placeholder="...on the topic of...?"
-              option={({value, display}: OptionProps<TopicType>) => {
+              placeholder="...on the concept of...?"
+              option={({value, display}: OptionProps<ConceptType>) => {
                 return (
                   <div className={styles.option}>
                     {display}
@@ -128,10 +128,10 @@ export default class NewLesson extends React.Component<Props,State> {
                   </div>
                 );
               }}
-              chosen={({value}: ChosenProps<TopicType>) => {
+              chosen={({value}: ChosenProps<ConceptType>) => {
                 return (
-                  <div className={styles.topicLink}>
-                    <TopicLink topic={value} disabled={true} />
+                  <div className={styles.conceptLink}>
+                    <ConceptLink concept={value} disabled={true} />
                   </div>
                 )
               }}

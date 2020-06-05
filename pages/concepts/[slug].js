@@ -1,45 +1,45 @@
 // @flow
-import styles from '../../styles/TopicPage.module.scss';
+import styles from '../../styles/ConceptPage.module.scss';
 import type { Context } from '../../types/context';
 import type { QuestionType } from '../../types/QuestionType';
 import type { LessonType } from '../../types/LessonType';
-import type { TopicType } from '../../types/TopicType';
+import type { ConceptType } from '../../types/ConceptType';
 import React, {type Node} from 'react';
 import Page from '../../components/PageWithNavigator';
-import TopicLink from '../../components/TopicLink';
+import ConceptLink from '../../components/ConceptLink';
 import { slug as slugger} from '../../pages/_app';
-import { TopicBySlug } from '../../models/Topic';
-import { LessonsByTopic } from '../../models/Lesson';
+import { ConceptBySlug } from '../../models/Concept';
+import { LessonsByConcept } from '../../models/Lesson';
 import { QuestionByLessonID } from '../../models/Question';
 import Link from 'next/link';
 import Page404 from '../404';
 
 type Params = {|
-  topic: ?TopicType,
+  concept: ?ConceptType,
   lessons: Array<LessonType>,
   questions: Array<QuestionType>,
 |};
 
 export async function getServerSideProps(context: Context): Promise<{|props: Params|}> {
   const { slug } = context.params;
-  const topic = TopicBySlug(slug);
-  if (topic == null) {
-    return { props: {topic, lessons: [], questions: []} };
+  const concept = ConceptBySlug(slug);
+  if (concept == null) {
+    return { props: {concept, lessons: [], questions: []} };
   }
-  const lessons = LessonsByTopic(topic);
+  const lessons = LessonsByConcept(concept);
   const questions = lessons.map(({id}) => QuestionByLessonID(id));
-  return { props: {topic, lessons, questions} };
+  return { props: {concept, lessons, questions} };
 }
 
-export default class TopicPage extends React.Component<Params> {
+export default class ConceptPage extends React.Component<Params> {
   render() {
-    const { topic } = this.props;
-    if (topic == null) {
+    const { concept } = this.props;
+    if (concept == null) {
       return <Page404 />;
     };
     return (
-      <Page title={topic.text}>
-        <h1 className="pure-u-1 header"><TopicLink topic={topic} /></h1>
+      <Page title={concept.text}>
+        <h1 className="pure-u-1 header"><ConceptLink concept={concept} /></h1>
         {this.renderQuestionsWithLessons()}
       </Page>
     );

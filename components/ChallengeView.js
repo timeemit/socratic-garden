@@ -1,13 +1,13 @@
 // @flow
 import type { LessonType } from '../types/LessonType';
 import type { QuestionType } from '../types/QuestionType';
-import type { TopicType } from '../types/TopicType';
+import type { ConceptType } from '../types/ConceptType';
 import Router from 'next/router'
 import React from 'react';
 import { slug } from '../pages/_app';
 import LessonView from './LessonView';
 import { NextLesson } from '../models/Lesson';
-import { TopicByText } from '../models/Topic';
+import { ConceptByText } from '../models/Concept';
 import { NavigationQuestion } from '../models/Question';
 import { ChoiceIndices } from '../types/ChoiceTypes';
 import QuestionView from './QuestionView';

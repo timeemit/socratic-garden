@@ -2,7 +2,7 @@
 
 export type LessonType = {|
   id: number,
-  topics: Array<string>,
+  concepts: Array<string>,
   title: string,
   text: string,
 |};

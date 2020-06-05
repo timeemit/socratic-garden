@@ -1,7 +1,7 @@
 Schemas
 =======
 
-Topic
+Concept
 -----
 
 + slug (string)
@@ -20,7 +20,7 @@ Lesson
 ------
 
 + id (something unique)
-+ topic_id (foreign key)
++ concept_id (foreign key)
 + title (string)
 + text (string)
 
@@ -28,7 +28,7 @@ Question
 --------
 
 + id (something unique)
-+ topic_id (foreign key)
++ concept_id (foreign key)
 + text (string)
 + correct_answer (Choice)
 + incorrect_answers (Choices)

@@ -1,19 +1,19 @@
 // @flow
 
-import type { TopicType } from '../types/TopicType';
+import type { ConceptType } from '../types/ConceptType';
 import type  { LessonType } from '../types/LessonType';
 import { ChoiceIndices } from '../types/ChoiceTypes';
 
 const LESSONS: Array<LessonType> = [
   {
     id: 0,
-    topics: ["Socratic Combat"],
+    concepts: ["Socratic Combat"],
     title: "A Free Learning Platform",
     text: "Socratic Combat aims to algorthmically synthesize informative lessons and quizzes into a dynamic curriculum personalized for learners.  Why not give it a try?",
   },
   {
     id: 1,
-    topics: ["Socratic Combat"],
+    concepts: ["Socratic Combat"],
     title: "Continuously Self-Improving",
     text: "As you assess yourself with quizzes alongside other learners, the platform improves itself continuously by identifying which resources are yielding the strongest student performance.",
   },
@@ -35,6 +35,6 @@ export function NextLesson(id: number) {
   return LessonFetch(next_id);
 }
 
-export function LessonsByTopic(topic: TopicType): Array<LessonType> {
-  return LESSONS.filter((lesson) => lesson.topics.includes(topic.text));
+export function LessonsByConcept(concept: ConceptType): Array<LessonType> {
+  return LESSONS.filter((lesson) => lesson.concepts.includes(concept.text));
 }

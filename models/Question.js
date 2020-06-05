@@ -68,11 +68,11 @@ export function NavigationQuestion(lesson_id: number): QuestionType {
         response: null,
       },
       [ChoiceIndices.second]: {
-        text: "Another lesson for the same topic",
+        text: "Another lesson for the same concept",
         response: null,
       },
       [ChoiceIndices.third]: {
-        text: "Find a new topic",
+        text: "Find a new concept",
         response: null,
       }
       */

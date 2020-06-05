@@ -1,6 +1,6 @@
 // @flow
 
-export type TopicType = {|
+export type ConceptType = {|
   slug: string,
   text: string,
 |}

@@ -17,6 +17,7 @@ import { QuestionByLessonID } from '../../models/Question';
 import Autocomplete from '../../components/Autocomplete';
 import TopicLink from '../../components/TopicLink';
 import Interstitial from '../../components/Interstitial';
+import SignWhere from '../../components/SignWhere';
 import { TopicsByText, CreateTopicByText } from '../../models/Topic';
 
 type Props = {||};
@@ -61,10 +62,11 @@ export default class NewLesson extends React.Component<Props,State> {
   }
 
   isValid() {
-    return this.state.topics.length > 0 &&
-      this.state.correct_choice !== null &&
-      ![this.state.lesson_title, this.state.lesson_text, this.state.question_text, this.state.correct_choice].includes("") &&
-      Object.values(this.state.choices).every(choice => !Object.values(choice).includes(""))
+    return true; // For Debugging
+    // return this.state.topics.length > 0 &&
+    //   this.state.correct_choice !== null &&
+    //   ![this.state.lesson_title, this.state.lesson_text, this.state.question_text, this.state.correct_choice].includes("") &&
+    //   Object.values(this.state.choices).every(choice => !Object.values(choice).includes(""))
   }
 
   onTopicChoice = (chosen_topic: ?TopicType) => {
@@ -164,14 +166,7 @@ export default class NewLesson extends React.Component<Props,State> {
         </form>
         <Interstitial
           content={
-            <div>
-              <h1>Thank You For Contributing!</h1>
-              <em>But don't you want credit for your hard work?</em>
-              <form className={`pure-form centered-text ${styles.signup}`}>
-                <input type="email" placeholder="my@email.com" />
-                <input className="pure-button" type="button" value="Sign Up" />
-              </form>
-            </div>
+            <SignWhere />
           }
           reveal={this.state.reveal_interstitial}
           onCancel={() => this.setState({reveal_interstitial: false})}

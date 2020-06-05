@@ -59,10 +59,9 @@ export default class Gateway extends React.Component<Props,State> {
   renderSignup() {
     return (
       <form className={`pure-form ${styles.signup}`}>
-        <input className="pure-input-1-2" type="text" placeholder="John" required />
-        <input className="pure-input-1-2" type="text" placeholder="Doe" required />
-        <input className="pure-input-1" type="email" placeholder="my@email.com" required />
-        <input className="pure-input-1" type="password" placeholder="password" required />
+        <input className="pure-input-1" type="text" placeholder="My Name" required />
+        <input className="pure-input-1-2" type="email" placeholder="my@email.com" required />
+        <input className="pure-input-1-2" type="password" placeholder="password" required />
         <a className="pure-u-1-2 centered-text" href="#" onClick={() => this.setState({direction: Direction.in})}>Sign In</a>
         <div className="pure-u-1-2 centered-text">
           <input className="pure-input-1 centered-text" className="pure-button pure-button-primary" type="button" value="Sign Up" />

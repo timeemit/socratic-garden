@@ -1,24 +1,22 @@
 // @flow
 import type { ConceptType } from '../types/ConceptType';
 
-import { slug } from '../pages/_app';
-
 export const CONCEPTS: Array<ConceptType> = [
   "Socratic Combat",
-].map((text) => {
-  return {slug: slug(text), text};
+].map((text, id) => {
+  return {text, id};
 });
-
-export function ConceptBySlug(slug: string): ?ConceptType {
-  return CONCEPTS.find((concept) => concept.slug === slug) ?? null;
-};
 
 export function ConceptByText(text: string): ?ConceptType {
   return CONCEPTS.find((concept) => concept.text === text) ?? null;
 };
 
+export function ConceptByID(id: number): ?ConceptType {
+  return CONCEPTS.find((concept) => concept.id === id) ?? null;
+};
+
 export function CreateConceptByText(text: string): ConceptType {
-  return {text, slug: slug(text)};
+  return {text, id: -1};
 }
 
 export function ConceptsByText(text: string): Array<ConceptType> {

@@ -1,6 +1,6 @@
 // @flow
 
 export type ConceptType = {|
-  slug: string,
+  id: number,
   text: string,
 |}

@@ -1,8 +1,9 @@
 // @flow
+import type { ConceptType } from './ConceptType';
 
 export type LessonType = {|
   id: number,
-  concepts: Array<string>,
+  concept: ConceptType,
   title: string,
   text: string,
 |};

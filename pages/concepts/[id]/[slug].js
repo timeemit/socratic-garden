@@ -1,18 +1,18 @@
 // @flow
-import styles from '../../styles/ConceptPage.module.scss';
-import type { Context } from '../../types/context';
-import type { QuestionType } from '../../types/QuestionType';
-import type { LessonType } from '../../types/LessonType';
-import type { ConceptType } from '../../types/ConceptType';
+import styles from '../../../styles/ConceptPage.module.scss';
+import type { Context } from '../../../types/context';
+import type { QuestionType } from '../../../types/QuestionType';
+import type { LessonType } from '../../../types/LessonType';
+import type { ConceptType } from '../../../types/ConceptType';
 import React, {type Node} from 'react';
-import Page from '../../components/PageWithNavigator';
-import ConceptLink from '../../components/ConceptLink';
-import { slug as slugger} from '../../pages/_app';
-import { ConceptBySlug } from '../../models/Concept';
-import { LessonsByConcept } from '../../models/Lesson';
-import { QuestionByLessonID } from '../../models/Question';
+import Page from '../../../components/PageWithNavigator';
+import ConceptLink from '../../../components/ConceptLink';
+import { slug as slugger} from '../../../pages/_app';
+import { ConceptByID } from '../../../models/Concept';
+import { LessonsByConcept } from '../../../models/Lesson';
+import { QuestionByLessonID } from '../../../models/Question';
 import Link from 'next/link';
-import Page404 from '../404';
+import Page404 from '../../404';
 
 type Params = {|
   concept: ?ConceptType,
@@ -21,8 +21,8 @@ type Params = {|
 |};
 
 export async function getServerSideProps(context: Context): Promise<{|props: Params|}> {
-  const { slug } = context.params;
-  const concept = ConceptBySlug(slug);
+  const { id } = context.params;
+  const concept = ConceptByID(+id);
   if (concept == null) {
     return { props: {concept, lessons: [], questions: []} };
   }

@@ -15,14 +15,9 @@ export default class LessonView extends React.Component<Props> {
     return (
       <section>
         <h1 className="header">{this.props.lesson.title}</h1>
-          {this.renderConcepts()}
+        <ConceptLink concept={this.props.lesson.concept} />
         <p>{this.props.lesson.text}</p>
       </section>
     );
-  }
-
-  renderConcepts() {
-    const concepts: Array<ConceptType> = this.props.lesson.concepts.map(ConceptByText).filter(Boolean);
-    return concepts.map<Node>((concept, i) => <ConceptLink key={i} concept={concept} />);
   }
 }

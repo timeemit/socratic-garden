@@ -1,5 +1,5 @@
 // @flow
-import type { TopicType } from '../models/Topic';
+import type { TopicType } from '../types/TopicType';
 import styles from '../styles/TopicLink.module.scss';
 import React from 'react';
 import Link from 'next/link';

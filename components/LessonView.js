@@ -1,14 +1,10 @@
 // @flow
-import { TopicByText, type TopicType } from '../models/Topic';
-import React, { type Node } from 'react';
-import TopicLink from './TopicLink';
+import type { LessonType } from '../types/LessonType';
+import type { TopicType } from '../types/TopicType';
 
-export type LessonType = {|
-  id: number,
-  topics: Array<string>,
-  title: string,
-  text: string,
-|};
+import React, { type Node } from 'react';
+import { TopicByText} from '../models/Topic';
+import TopicLink from './TopicLink';
 
 type Props = {|
   lesson: LessonType,

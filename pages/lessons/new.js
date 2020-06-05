@@ -1,17 +1,17 @@
 // @flow
 import styles from '../../styles/NewLesson.module.scss'
 import button_styles from '../../styles/ChoiceButton.module.scss'
-import type { LessonType } from '../../components/LessonView';
-import type { QuestionType } from '../../components/QuestionView';
+import type { LessonType } from '../../types/LessonType';
+import type { QuestionType } from '../../types/QuestionType';
 import type { Props as Params } from '../../components/ChallengeView';
 import type { NewProps, OptionProps, ChosenProps } from '../../components/Autocomplete';
-import type { TopicType } from '../../models/Topic';
-import type { Choice, ChoiceIndex } from '../../components/ChoiceButton';
+import type { TopicType } from '../../types/TopicType';
+import type { Choice, ChoiceIndex } from '../../types/ChoiceTypes';
 
 import React, { type Node } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Page from '../../components/PageWithNavigator';
-import { ChoiceIndices } from '../../components/ChoiceButton';
+import { ChoiceIndices } from '../../types/ChoiceTypes';
 import { LessonFetch } from '../../models/Lesson';
 import { QuestionByLessonID } from '../../models/Question';
 import Autocomplete from '../../components/Autocomplete';

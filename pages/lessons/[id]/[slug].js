@@ -1,12 +1,12 @@
 // @flow
 import type { Context } from '../../../types/context';
-import type { LessonType } from '../../../components/LessonView';
-import type { QuestionType } from '../../../components/QuestionView';
+import type { LessonType } from '../../../types/LessonType';
+import type { QuestionType } from '../../../types/QuestionType';
 import type { Props as Params } from '../../../components/ChallengeView';
 
 import React from 'react';
 import Page from '../../../components/PageWithNavigator';
-import { ChoiceIndices } from '../../../components/ChoiceButton';
+import { ChoiceIndices } from '../../../types/ChoiceTypes';
 import { LessonFetch } from '../../../models/Lesson';
 import { QuestionByLessonID } from '../../../models/Question';
 import ChallengeView from '../../../components/ChallengeView';

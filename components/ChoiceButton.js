@@ -1,22 +1,10 @@
 // @flow
-import type { QuestionType } from './QuestionView';
 import styles from '../styles/ChoiceButton.module.scss';
+import type { ChoiceIndex, Choice } from '../types/ChoiceTypes';
+import type { QuestionType } from '../types/QuestionType';
 import { slug } from '../pages/_app';
 import React from 'react';
 import Link from 'next/link';
-
-export const ChoiceIndices = {
-  first: "1",
-  second: "2",
-  third: "3",
-};
-
-export type Choice = {|
-  text: string,
-  response: ?string,
-|};
-
-export type ChoiceIndex = $Values<typeof ChoiceIndices>;
 
 type Props = {|
   className: string,

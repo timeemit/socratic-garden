@@ -1,7 +1,7 @@
 // @flow
 
-import type  { QuestionType } from '../components/QuestionView';
-import { ChoiceIndices } from '../components/ChoiceButton';
+import type  { QuestionType } from '../types/QuestionType';
+import { ChoiceIndices } from '../types/ChoiceTypes';
 
 const QUESTIONS: Array<QuestionType> = [
   {

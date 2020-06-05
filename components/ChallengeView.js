@@ -1,7 +1,7 @@
 // @flow
-import type { LessonType } from './LessonView';
-import type { QuestionType } from './QuestionView';
-import type { TopicType } from '../models/Topic';
+import type { LessonType } from '../types/LessonType';
+import type { QuestionType } from '../types/QuestionType';
+import type { TopicType } from '../types/TopicType';
 import Router from 'next/router'
 import React from 'react';
 import { slug } from '../pages/_app';
@@ -9,7 +9,7 @@ import LessonView from './LessonView';
 import { NextLesson } from '../models/Lesson';
 import { TopicByText } from '../models/Topic';
 import { NavigationQuestion } from '../models/Question';
-import { ChoiceIndices } from './ChoiceButton';
+import { ChoiceIndices } from '../types/ChoiceTypes';
 import QuestionView from './QuestionView';
 
 export type Props = {|

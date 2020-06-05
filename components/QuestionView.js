@@ -1,15 +1,9 @@
 // @flow
-import type { Choice, ChoiceIndex } from './ChoiceButton';
-import type { TopicType } from '../models/Topic';
+import type { Choice, ChoiceIndex } from '../types/ChoiceTypes';
+import type { QuestionType } from '../types/QuestionType';
+import type { TopicType } from '../types/TopicType';
 import React from 'react';
 import ChoiceButton  from './ChoiceButton';
-
-export type QuestionType = {|
-  lesson_id: number,
-  text: string,
-  choices: {[ChoiceIndex]: Choice},
-  correct_choice: ?ChoiceIndex,
-|};
 
 type Props = {|
   question: QuestionType,

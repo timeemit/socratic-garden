@@ -1,8 +1,8 @@
 // @flow
 
-import type { TopicType } from './Topic';
-import type  { LessonType } from '../components/LessonView';
-import { ChoiceIndices } from '../components/ChoiceButton';
+import type { TopicType } from '../types/TopicType';
+import type  { LessonType } from '../types/LessonType';
+import { ChoiceIndices } from '../types/ChoiceTypes';
 
 const LESSONS: Array<LessonType> = [
   {

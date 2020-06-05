@@ -1,10 +1,7 @@
 // @flow
-import { slug } from '../pages/_app';
+import type { TopicType } from '../types/TopicType';
 
-export type TopicType = {|
-  slug: string,
-  text: string,
-|}
+import { slug } from '../pages/_app';
 
 export const TOPICS: Array<TopicType> = [
   "Socratic Combat",

@@ -1,9 +1,9 @@
 // @flow
 import styles from '../../styles/TopicPage.module.scss';
 import type { Context } from '../../types/context';
-import type { QuestionType } from '../../components/QuestionView';
-import type { LessonType } from '../../components/LessonView';
-import type { TopicType } from '../../models/Topic';
+import type { QuestionType } from '../../types/QuestionType';
+import type { LessonType } from '../../types/LessonType';
+import type { TopicType } from '../../types/TopicType';
 import React, {type Node} from 'react';
 import Page from '../../components/PageWithNavigator';
 import TopicLink from '../../components/TopicLink';

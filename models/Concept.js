@@ -2,7 +2,7 @@
 import type { ConceptType } from '../types/ConceptType';
 
 export const CONCEPTS: Array<ConceptType> = [
-  "Socratic Combat",
+  "Socratic Garden",
 ].map((text, id) => {
   return {text, id};
 });

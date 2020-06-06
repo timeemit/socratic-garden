@@ -11,7 +11,7 @@ export default () => {
   const lesson = LessonFetch(0);
   const question = QuestionByLessonID(0);
   return (
-    <Page title="Socratic Combat">
+    <Page title="Socratic Garden">
       <div className="pure-u-1">
         <img style={{"maxHeight": "200px"}} className="pure-img centered" src="/logo.png" />
       </div>
@@ -22,7 +22,7 @@ export default () => {
 
       {/*
       <h1 className="header pure-u-1 centered-text">Empower Curiosity</h1>
-      <p className="pure-u-1">Socratic Combat puts students as the central navigators of their educational journey, where the menus of lessons and quizzes are highlighted with algorithmically measured signals that help guide students towards their own criteria for success.</p>
+      <p className="pure-u-1">Socratic Garden puts students as the central navigators of their educational journey, where the menus of lessons and quizzes are highlighted with algorithmically measured signals that help guide students towards their own criteria for success.</p>
       <div className="pure-u-1 pure-u-md-1-3 padding-side-sm">
         <pre><FontAwesomeIcon icon="check" style={{color: "green"}} /> Frequently Completed</pre>
         <p>helps highlight common concepts</p>
@@ -57,7 +57,7 @@ export default () => {
       </div>
 
       <div className="pure-u-1 pure-u-lg-1-2">
-        <p>Socratic Combat aims to answer these questions:</p>
+        <p>Socratic Garden aims to answer these questions:</p>
         <ul className="list">
           <li> 😯 Get precise engagement metrics </li>
           <li> 🧐 Quantify your impact on students </li>

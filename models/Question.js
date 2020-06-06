@@ -6,7 +6,7 @@ import { ChoiceIndices } from '../types/ChoiceTypes';
 const QUESTIONS: Array<QuestionType> = [
   {
     lesson_id: 0,
-    text: "What is Socratic Combat?",
+    text: "What is Socratic Garden?",
     choices: {
       [ChoiceIndices.first]: {
         text: "A martial arts video series",
@@ -18,14 +18,14 @@ const QUESTIONS: Array<QuestionType> = [
       },
       [ChoiceIndices.third]: {
         text: "A free learning platform",
-        response: "Yes, Socratic Combat is free for learners and instructors alike",
+        response: "Yes, Socratic Garden is free for learners and instructors alike",
       },
     },
     correct_choice: ChoiceIndices.third,
   },
   {
     lesson_id: 1,
-    text: "How does Socratic Combat improve itself?",
+    text: "How does Socratic Garden improve itself?",
     choices: {
       [ChoiceIndices.first]: {
         text: "Oversight from educational institutions",

@@ -13,7 +13,7 @@ export default () => {
   return (
     <Page title="Socratic Garden">
       <div className="pure-u-1">
-        <img style={{"maxHeight": "200px"}} className="pure-img centered" src="/logo.png" />
+        <img style={{"maxHeight": "100px"}} className="pure-img centered" src="/logo.png" />
       </div>
 
       <main className="pure-u-1">

@@ -8,11 +8,15 @@ export type Props = {
   grid?: boolean
 }
 
-export default ({ children, title, grid=false }: Props) => (
-  <section>
-    <Head>
-      <title>{title}</title>
-    </Head>
-    <div className={grid ? "pure-g" : ""}>{children}</div>
-  </section>
-)
+export default class Page extends React.PureComponent<Props> {
+  render() {
+    return (
+      <section>
+        <Head>
+          <title>{this.props.title}</title>
+        </Head>
+        <div className={this.props.grid ? "pure-g" : ""}>{this.props.children}</div>
+      </section>
+    );
+  }
+}

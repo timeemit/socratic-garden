@@ -18,6 +18,7 @@ NEED
 + Wikipedia
   - [ ] Provide Wiki titles and definitions from Concept Title
   - [ ] Automagically detect Wiki pages from lesson text
++ [ ] Afix the question to the top of the page
 
 WANT
 ----

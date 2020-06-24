@@ -196,7 +196,7 @@ export default class NewLesson extends React.Component<Props,State> {
             onChange={this.choiceChanger(index, "text")}>
           </textarea>
           <label htmlFor={index} className="pure-radio">
-            <div style={{display: "inline-block"}} className="pure-button">
+            <div className={`pure-button ${styles.correctChoiceSelector}`}>
             <input
               type="radio"
               name="choices"

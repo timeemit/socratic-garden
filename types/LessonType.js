@@ -2,10 +2,15 @@
 import type { ConceptType } from './ConceptType';
 import type { MediaURL } from './Media';
 
+export type LessonSectionType = {|
+  subtitle: ?string,
+  media: ?MediaURL,
+  text: string,
+|};
+
 export type LessonType = {|
   id: number,
-  media: MediaURL,
   concept: ConceptType,
   title: string,
-  text: string,
+  sections: Array<LessonSectionType>,
 |};

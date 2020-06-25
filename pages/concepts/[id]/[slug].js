@@ -53,7 +53,7 @@ export default class ConceptPage extends React.Component<Params> {
           <Link href="/lessons/[id]/[slug]" as={`/lessons/${lesson.id}/${slugger(lesson.title)}`}>
             <a className={`link ${styles.link}`} href="#">
               <h2 className={`header ${styles.header}`}>{question.text}</h2>
-              <span className={styles.content}>{lesson.text}</span>
+              <span className={styles.content}>{lesson.title}</span>
             </a>
           </Link>
         </div>

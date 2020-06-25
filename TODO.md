@@ -5,16 +5,16 @@ NEED
   - [ ] ~~Change "Concept" to "Skill"~~  Let's see how far we can get without this.
   - [ ] Tag Skills with "Concepts"?
 + Media
-  - [ ] Enable media for lessons
-  - [ ] Enable media for questions
+  - [x] Enable media for lessons
+  - [x] Enable media for questions
   - [ ] Put a background image / movie behind skills index
 + Deepen
   - [ ] Multiple questions per lesson
-  - [ ] Multiple lesson sections per page
+  - [x] Multiple lesson sections per page
 + Experimentation
   - [ ] Lesson versions
   - [ ] System versions
-+ [ ] Afix the question to the top of the page
++ [ ] ~~Afix the question to the top of the page~~  Maybe just have it appear? Or keep it at the bottom but always visible?
 + Wikipedia
   - [ ] Provide Wiki titles and definitions from Concept Title
   - [ ] Automagically detect Wiki pages from lesson text

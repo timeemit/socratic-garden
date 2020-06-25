@@ -14,6 +14,7 @@ const LESSONS: Array<LessonType> = [
     media: {
       url: "/logo.png",
       type: MediaTypes.IMAGE,
+      caption: "Fancy Logo, huh?",
     },
     concept: CONCEPTS[0],
     title: "A Free Learning Platform",
@@ -24,6 +25,7 @@ const LESSONS: Array<LessonType> = [
     media: {
       url: "/logo.png",
       type: MediaTypes.IMAGE,
+      caption: "Socratic Garden logo",
     },
     concept: CONCEPTS[0],
     title: "Continuously Self-Improving",

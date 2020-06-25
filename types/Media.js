@@ -9,5 +9,6 @@ export const MediaTypes = {
 export type MediaURL = {|
   url: string,
   type: $Values<typeof MediaTypes>,
+  caption: string,
 |};
 

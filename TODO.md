@@ -2,7 +2,7 @@ NEED
 ----
 
 + Data Structure
-  - [ ] Change "Concept" to "Skill"
+  - [ ] ~~Change "Concept" to "Skill"~~  Let's see how far we can get without this.
   - [ ] Tag Skills with "Concepts"?
 + Media
   - [ ] Enable media for lessons

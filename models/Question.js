@@ -7,6 +7,7 @@ const QUESTIONS: Array<QuestionType> = [
   {
     lesson_id: 0,
     text: "What is Socratic Garden?",
+    media: null,
     choices: {
       [ChoiceIndices.first]: {
         text: "A martial arts video series",
@@ -26,6 +27,7 @@ const QUESTIONS: Array<QuestionType> = [
   {
     lesson_id: 1,
     text: "How does Socratic Garden improve itself?",
+    media: null,
     choices: {
       [ChoiceIndices.first]: {
         text: "Oversight from educational institutions",
@@ -57,6 +59,7 @@ export function NavigationQuestion(lesson_id: number): QuestionType {
   return {
     lesson_id: -1,
     text: "What next?",
+    media: null,
     choices: {
       [ChoiceIndices.first]: {
         text: next.text,

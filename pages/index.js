@@ -2,7 +2,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import Page from '../components/Page';
+import PageWithNavigator from '../components/PageWithNavigator';
 import { LessonFetch } from '../models/Lesson';
 import { QuestionByLessonID } from '../models/Question';
 import ChallengeView from '../components/ChallengeView';
@@ -11,11 +11,7 @@ export default () => {
   const lesson = LessonFetch(0);
   const question = QuestionByLessonID(0);
   return (
-    <Page title="Socratic Garden">
-      <div className="pure-u-1">
-        <img style={{"maxHeight": "100px"}} className="pure-img centered" src="/logo.png" />
-      </div>
-
+    <PageWithNavigator title="Socratic Garden">
       <main className="pure-u-1">
         <ChallengeView lesson={lesson} question={question} />
       </main>
@@ -66,6 +62,6 @@ export default () => {
       </div>
 
       */}
-    </Page>
+    </PageWithNavigator>
   );
 }

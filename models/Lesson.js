@@ -5,17 +5,26 @@ import type  { LessonType } from '../types/LessonType';
 
 import { slug } from '../pages/_app';
 import { ChoiceIndices } from '../types/ChoiceTypes';
+import { MediaTypes } from '../types/Media';
 import { CONCEPTS } from './Concept';
 
 const LESSONS: Array<LessonType> = [
   {
     id: 0,
+    media: {
+      url: "/logo.png",
+      type: MediaTypes.IMAGE,
+    },
     concept: CONCEPTS[0],
     title: "A Free Learning Platform",
     text: "Socratic Garden aims to algorthmically synthesize informative lessons and quizzes into a dynamic curriculum personalized for learners.  Why not give it a try?",
   },
   {
     id: 1,
+    media: {
+      url: "/logo.png",
+      type: MediaTypes.IMAGE,
+    },
     concept: CONCEPTS[0],
     title: "Continuously Self-Improving",
     text: "As you assess yourself with quizzes alongside other learners, the platform improves itself continuously by identifying which resources are yielding the strongest student performance.",

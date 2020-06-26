@@ -3,6 +3,7 @@ import type { ConceptType } from '../types/ConceptType';
 
 export const CONCEPTS: Array<ConceptType> = [
   "Socratic Garden",
+  "Allele",
 ].map((text, id) => {
   return {text, id};
 });

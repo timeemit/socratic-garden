@@ -1,6 +1,7 @@
 // @flow
 
 import type  { QuestionType } from '../types/QuestionType';
+import { MediaTypes } from '../types/Media';
 import { ChoiceIndices } from '../types/ChoiceTypes';
 
 const QUESTIONS: Array<QuestionType> = [
@@ -10,8 +11,8 @@ const QUESTIONS: Array<QuestionType> = [
     media: null,
     choices: {
       [ChoiceIndices.first]: {
-        text: "A martial arts video series",
-        response: "No, the competition here is only of the mind",
+        text: "A search engine",
+        response: "No, we want you to learn how to answer your own answers",
       },
       [ChoiceIndices.second]: {
         text: "An e-commerce website",
@@ -26,20 +27,44 @@ const QUESTIONS: Array<QuestionType> = [
   },
   {
     lesson_id: 1,
-    text: "How does Socratic Garden improve itself?",
+    text: "So, what is an allele?",
     media: null,
     choices: {
       [ChoiceIndices.first]: {
-        text: "Oversight from educational institutions",
-        response: "No, we're not interested in the beauracracy",
+        text: "A fun way of saying 'all eels'",
+        response: "No, but that's a fun way to pronounce the word!",
       },
       [ChoiceIndices.second]: {
-        text: "Measuring impact on student performance",
-        response: "Yes, we believe that this is most important quality of any educational resource",
+        text: "One of several forms a gene can take after mutation",
+        response: "That's right!",
       },
       [ChoiceIndices.third]: {
-        text: "Venture capital funding",
-        response: "No, this is simply a community-driven project",
+        text: "The key trait to albinoism",
+        response: "No, alleles combine to express many different genetic traits",
+      },
+    },
+    correct_choice: ChoiceIndices.second,
+  },
+  {
+    lesson_id: 1,
+    text: "So, what is an allele?",
+    media: {
+      url: "/alleles/elf.png",
+      type: MediaTypes.IMAGE,
+      caption: "An archer she-elf with blue-black hair mates with a male-elf with heterozygous white hair, what are the possible outcomes for their offspring?",
+    },
+    choices: {
+      [ChoiceIndices.first]: {
+        text: "A fun way of saying 'all eels'",
+        response: "No, but that's a fun way to pronounce the word!",
+      },
+      [ChoiceIndices.second]: {
+        text: "One of several forms a gene can take after mutation",
+        response: "That's right!",
+      },
+      [ChoiceIndices.third]: {
+        text: "The key trait to albinoism",
+        response: "No, alleles combine to express many different genetic traits",
       },
     },
     correct_choice: ChoiceIndices.second,

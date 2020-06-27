@@ -56,6 +56,10 @@ export default class ChallengeView extends React.Component<Props,State> {
     let { question, finished } = this.state;
     if (question == null) return;
     finished.skipped.push(question.id);
+    window.gtag('event', 'skip', {
+      'event_category': 'choice',
+      'event_label': question.id,
+    });
     this.setState({ finished });
   }
 

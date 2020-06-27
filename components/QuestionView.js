@@ -30,7 +30,16 @@ export default class QuestionView extends React.Component<Props,State> {
     chosen.unshift(choice);
     this.setState({chosen, response});
     if (correct_choice === null || choice === correct_choice) {
+      window.gtag('event', 'correct', {
+        'event_category': 'choice',
+        'event_label': this.props.question.id,
+      });
       return this.props.onFinish();
+    } else {
+      window.gtag('event', 'incorrect', {
+        'event_category': 'choice',
+        'event_label': this.props.question.id,
+      });
     }
   }
 

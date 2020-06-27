@@ -1,4 +1,5 @@
 // @flow
+import styles from '../styles/ChallengeView.module.scss';
 import type { LessonType } from '../types/LessonType';
 import type { QuestionType } from '../types/QuestionType';
 import type { ConceptType } from '../types/ConceptType';
@@ -141,6 +142,6 @@ export default class ChallengeView extends React.Component<Props,State> {
       navigation_question.text = `No problem! ${message}`;
       navigation_question.choices[ChoiceIndices.first].text = next_question.text;
     }
-    return <em><a href="#" className="link" onClick={this.onSkip}>Skip this question</a></em>
+    return <em><button className={styles.buttonLink} onClick={this.onSkip}>Skip this question</button></em>
   }
 }

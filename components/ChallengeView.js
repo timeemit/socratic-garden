@@ -68,12 +68,12 @@ export default class ChallengeView extends React.Component<Props,State> {
     const lesson = NextLesson(this.props.lesson.id);
     const question = QuestionByLessonID(lesson.id);
     this.setState({question, finished: this.finishedInitialization()});
-    Router.push("/lessons/[id]/[slug]", `/lessons/${lesson.id}/${slug(lesson.title)}`);
-    return window.scrollTo({
-      top: 100,
-      left: 100,
+    window.scrollTo({
+      top: 0,
+      left: 0,
       behavior: 'smooth'
     });
+    return Router.push("/lessons/[id]/[slug]", `/lessons/${lesson.id}/${slug(lesson.title)}`);
   }
 
   render() {

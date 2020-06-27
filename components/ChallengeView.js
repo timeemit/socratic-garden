@@ -8,49 +8,78 @@ import { slug } from '../pages/_app';
 import LessonView from './LessonView';
 import { NextLesson } from '../models/Lesson';
 import { ConceptByText } from '../models/Concept';
-import { NavigationQuestion } from '../models/Question';
+import { QuestionByLessonID } from '../models/Question';
 import { ChoiceIndices } from '../types/ChoiceTypes';
 import QuestionView from './QuestionView';
 
 export type Props = {|
   lesson: LessonType,
-  question: QuestionType,
 |};
 
-type Finished = "answered" | "skipped";
+type Finished = {
+  answered: Array<number>,
+  skipped: Array<number>,
+}
 
 type State = {
-  finished: ?Finished,
+  finished: Finished,
+  question: ?QuestionType,
 };
 
 export default class ChallengeView extends React.Component<Props,State> {
-  state: State = {
-    finished: null,
+  finishedInitialization(): Finished {
+    return {answered: [], skipped: []};
   }
 
-  onFinish = () => {
-    this.setState({finished: "answered"});
+  nextQuestion() {
+    return QuestionByLessonID(this.props.lesson.id, this.state.finished.answered.concat(this.state.finished.skipped));
+  }
+  
+  constructor(props: Props) {
+    super(props);
+    const question = QuestionByLessonID(props.lesson.id);
+    this.state = {
+      finished: this.finishedInitialization(),
+      question,
+    }
+  }
+
+  onAnswer = () => {
+    let { question, finished } = this.state;
+    if (question == null) return;
+    finished.answered.push(question.id);
+    this.setState({ finished });
   }
 
   onSkip = () => {
-    this.setState({finished: "skipped"});
+    let { question, finished } = this.state;
+    if (question == null) return;
+    finished.skipped.push(question.id);
+    this.setState({ finished });
+  }
+
+  onNextQuestion = () => {
+    const question = this.nextQuestion();
+    this.setState({question});
   }
 
   onContinue = () => {
     const lesson = NextLesson(this.props.lesson.id);
-    this.setState({finished: null});
-    return Router.push("/lessons/[id]/[slug]", `/lessons/${lesson.id}/${slug(lesson.title)}`);
+    const question = QuestionByLessonID(lesson.id);
+    this.setState({question, finished: this.finishedInitialization()});
+    Router.push("/lessons/[id]/[slug]", `/lessons/${lesson.id}/${slug(lesson.title)}`);
+    return window.scrollTo({
+      top: 100,
+      left: 100,
+      behavior: 'smooth'
+    });
   }
 
   render() {
     return (
       <>
         <LessonView lesson={this.props.lesson} />
-        <QuestionView
-          key={this.props.question.lesson_id}
-          question={this.props.question}
-          onFinish={this.onFinish}
-        />
+        {this.renderQuestion()}
         <div className="centered-text">
           {this.renderNavigation()}
         </div>
@@ -58,20 +87,60 @@ export default class ChallengeView extends React.Component<Props,State> {
     );
   }
 
-  renderNavigation() {
-    if (this.state.finished === null) {
-      return <em><a href="#" className="link" onClick={this.onSkip}>Skip this question</a></em>
-    } else {
-      const { finished } = this.state;
-      let question = NavigationQuestion(this.props.question.lesson_id);
-      const message = (finished === "answered") ? "Great job!" : "No problem!";
-      question.text = `${message} ${question.text}`;
+  renderQuestion() {
+    const { question } = this.state;
+    if (question == null) {
+      return <strong>No one has created a question for this lesson yet.</strong>
+    }
+    return (
+      <QuestionView
+        key={question.id}
+        question={question}
+        onFinish={this.onAnswer}
+      />
+    );
+  }
 
+  renderNavigation() {
+    const { question, finished } = this.state;
+    let message = "Ready for the next question?";
+    const next_question = this.nextQuestion();
+    let navigation_question = {
+      id: -1,
+      lesson_id: -1,
+      text: message,
+      media: null,
+      choices: {
+        [ChoiceIndices.first]: {
+          text: "",
+          response: null,
+        },
+      },
+      correct_choice: null,
+    };
+
+    if (question == null || next_question == null) {
+      navigation_question.text = `You finished the lesson! Ready for the next one?`;
+      navigation_question.choices[ChoiceIndices.first].text = NextLesson(this.props.lesson.id).title;
       return <QuestionView
         key={-1}
-        question={question}
+        question={navigation_question}
         onFinish={this.onContinue}
-      />
+      />;
     }
+    if (finished.answered.includes(question.id)) {
+      navigation_question.text = `Great job! ${message}`;
+      navigation_question.choices[ChoiceIndices.first].text = next_question.text;
+      return <QuestionView
+        key={-2}
+        question={navigation_question}
+        onFinish={this.onNextQuestion}
+      />;
+    }
+    if (finished.skipped.includes(question.id)) {
+      navigation_question.text = `No problem! ${message}`;
+      navigation_question.choices[ChoiceIndices.first].text = next_question.text;
+    }
+    return <em><a href="#" className="link" onClick={this.onSkip}>Skip this question</a></em>
   }
 }

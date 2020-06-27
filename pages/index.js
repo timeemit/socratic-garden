@@ -13,7 +13,7 @@ export default () => {
   return (
     <PageWithNavigator title="Socratic Garden">
       <main className="pure-u-1">
-        <ChallengeView lesson={lesson} question={question} />
+        <ChallengeView lesson={lesson} />
       </main>
 
       {/*

@@ -17,18 +17,16 @@ import Page404 from '../../404';
 type Params = {|
   concept: ?ConceptType,
   lessons: Array<LessonType>,
-  questions: Array<QuestionType>,
 |};
 
 export async function getServerSideProps(context: Context): Promise<{|props: Params|}> {
   const { id } = context.params;
   const concept = ConceptByID(+id);
   if (concept == null) {
-    return { props: {concept, lessons: [], questions: []} };
+    return { props: {concept, lessons: [] } };
   }
   const lessons = LessonsByConcept(concept);
-  const questions = lessons.map(({id}) => QuestionByLessonID(id));
-  return { props: {concept, lessons, questions} };
+  return { props: {concept, lessons} };
 }
 
 export default class ConceptPage extends React.Component<Params> {
@@ -40,20 +38,19 @@ export default class ConceptPage extends React.Component<Params> {
     return (
       <Page title={concept.text}>
         <h1 className="pure-u-1 header"><ConceptLink concept={concept} /></h1>
-        {this.renderQuestionsWithLessons()}
+        {this.renderLessons()}
       </Page>
     );
   }
 
-  renderQuestionsWithLessons(): Node {
-    return this.props.questions.map((question, i) => {
-      const lesson = this.props.lessons[i];
+  renderLessons(): Node {
+    return this.props.lessons.map((lesson, i) => {
       return (
         <div key={i} className={`pure-u-lg-1-3 pure-u-1 ${styles.card}`}>
           <Link href="/lessons/[id]/[slug]" as={`/lessons/${lesson.id}/${slugger(lesson.title)}`}>
             <a className={`link ${styles.link}`} href="#">
-              <h2 className={`header ${styles.header}`}>{question.text}</h2>
-              <span className={styles.content}>{lesson.title}</span>
+              <h2 className={`header ${styles.header}`}>{lesson.title}</h2>
+              <span className={styles.content}>{lesson.sections[0].text}</span>
             </a>
           </Link>
         </div>

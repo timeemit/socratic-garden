@@ -4,6 +4,7 @@ import type { QuestionType } from '../types/QuestionType';
 import type { ConceptType } from '../types/ConceptType';
 import React from 'react';
 import ChoiceButton  from './ChoiceButton';
+import MediaView from './MediaView';
 
 type Props = {|
   question: QuestionType,
@@ -48,6 +49,7 @@ export default class QuestionView extends React.Component<Props,State> {
     });
     return (
       <section className="centered-text">
+        <MediaView media={this.props.question.media} />
         <h2 className="header">{this.props.question.text}</h2>
         <div className="pure-g">
           {choices_list}

@@ -10,7 +10,6 @@ import { CONCEPTS } from './Concept';
 
 const LESSONS: Array<LessonType> = [
   {
-    id: 0,
     title: "A Free Learning Platform",
     concept: CONCEPTS[0],
     sections: [
@@ -31,7 +30,6 @@ const LESSONS: Array<LessonType> = [
     ]
   },
   {
-    id: 1,
     title: "What are alleles?",
     concept: CONCEPTS[1],
     sections: [
@@ -60,7 +58,14 @@ const LESSONS: Array<LessonType> = [
       },
     ]
  },
-];
+].map(({title, concept, sections}, id) => {
+  return {
+    id,
+    title,
+    concept,
+    sections,
+  };
+});
 
 export function LessonFetch(id: number) {
   const lesson = LESSONS[id];

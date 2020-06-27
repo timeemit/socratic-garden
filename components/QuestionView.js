@@ -9,6 +9,7 @@ import MediaView from './MediaView';
 type Props = {|
   question: QuestionType,
   onFinish: () => void,
+  disabled: boolean,
 |};
 
 type State = {
@@ -44,7 +45,11 @@ export default class QuestionView extends React.Component<Props,State> {
         question={this.props.question}
         choice={this.props.question.choices[choice_index]}
         correct={choice_index === this.props.question.correct_choice}
-        chosen={this.state.chosen.includes(choice_index) || this.state.chosen.includes(this.props.question.correct_choice)}
+        chosen={
+          this.props.disabled
+            || this.state.chosen.includes(choice_index)
+            || this.state.chosen.includes(this.props.question.correct_choice)
+        }
       />;
     });
     return (

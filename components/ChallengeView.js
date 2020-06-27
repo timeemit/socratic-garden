@@ -97,6 +97,7 @@ export default class ChallengeView extends React.Component<Props,State> {
       <QuestionView
         key={question.id}
         question={question}
+        disabled={this.state.finished.skipped.includes(question.id)}
         onFinish={this.onAnswer}
       />
     );
@@ -122,10 +123,14 @@ export default class ChallengeView extends React.Component<Props,State> {
 
     if (question == null || next_question == null) {
       navigation_question.text = `You finished the lesson! Ready for the next one?`;
+      if (question != null && finished.skipped.includes(question.id)) {
+        navigation_question.text = `No problem. ${navigation_question.text}`;
+      }
       navigation_question.choices[ChoiceIndices.first].text = NextLesson(this.props.lesson.id).title;
       return <QuestionView
         key={-1}
         question={navigation_question}
+        disabled={false}
         onFinish={this.onContinue}
       />;
     }
@@ -135,12 +140,19 @@ export default class ChallengeView extends React.Component<Props,State> {
       return <QuestionView
         key={-2}
         question={navigation_question}
+        disabled={false}
         onFinish={this.onNextQuestion}
       />;
     }
     if (finished.skipped.includes(question.id)) {
       navigation_question.text = `No problem! ${message}`;
       navigation_question.choices[ChoiceIndices.first].text = next_question.text;
+      return <QuestionView
+        key={-3}
+        question={navigation_question}
+        disabled={false}
+        onFinish={this.onNextQuestion}
+      />;
     }
     return <em><button className={styles.buttonLink} onClick={this.onSkip}>Skip this question</button></em>
   }

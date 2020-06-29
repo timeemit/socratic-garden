@@ -1,5 +1,6 @@
 // @flow
 import styles from '../styles/ChallengeView.module.scss';
+import type { ElementRef } from 'react';
 import type { LessonType } from '../types/LessonType';
 import type { QuestionType } from '../types/QuestionType';
 import type { ConceptType } from '../types/ConceptType';
@@ -28,6 +29,8 @@ type State = {
 };
 
 export default class ChallengeView extends React.Component<Props,State> {
+  question: ?ElementRef<'div'> = null;
+
   finishedInitialization(): Finished {
     return {answered: [], skipped: []};
   }
@@ -66,6 +69,13 @@ export default class ChallengeView extends React.Component<Props,State> {
   onNextQuestion = () => {
     const question = this.nextQuestion();
     this.setState({question});
+    console.log(this.question);
+    // $FlowFixMe
+    this.question.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
   }
 
   onContinue = () => {
@@ -75,7 +85,7 @@ export default class ChallengeView extends React.Component<Props,State> {
     window.scrollTo({
       top: 0,
       left: 0,
-      behavior: 'smooth'
+      behavior: 'smooth',
     });
     return Router.push("/lessons/[id]/[slug]", `/lessons/${lesson.id}/${slug(lesson.title)}`);
   }
@@ -83,10 +93,14 @@ export default class ChallengeView extends React.Component<Props,State> {
   render() {
     return (
       <>
-        <LessonView lesson={this.props.lesson} />
-        {this.renderQuestion()}
-        <div className="centered-text">
-          {this.renderNavigation()}
+        <div className={styles.lesson}>
+          <LessonView lesson={this.props.lesson} />
+        </div>
+        <div ref={div => (this.question = div)} className={`${styles.questions}`}>
+          {this.renderQuestion()}
+          <div className="centered-text">
+            {this.renderNavigation()}
+          </div>
         </div>
       </>
     );

@@ -37,7 +37,7 @@ class LessonSectionView extends React.Component<SectionProps> {
 
 export default class LessonView extends React.Component<Props> {
   render() {
-    const sections = this.props.lesson.sections.map(section => <LessonSectionView section={section} />);
+    const sections = this.props.lesson.sections.map((section, i) => <LessonSectionView key={i} section={section} />);
     return (
       <section style={{margin: "50px 0"}}>
         <h1 className="header">{this.props.lesson.title}</h1>

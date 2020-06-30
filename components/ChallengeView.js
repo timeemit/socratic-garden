@@ -53,10 +53,7 @@ export default class ChallengeView extends React.Component<Props,State> {
     let { question, finished } = this.state;
     if (question == null) return;
     finished.answered.push(question.id);
-    this.setState(state => {
-      state.finished = finished;
-      return state;
-    }, () => {
+    this.setState({finished}, () => {
       // $FlowFixMe
       this.navigation.scrollIntoView({
         behavior: 'smooth',
@@ -72,10 +69,7 @@ export default class ChallengeView extends React.Component<Props,State> {
       'event_category': 'choice',
       'event_label': question.id,
     });
-    this.setState(state => {
-      state.finished = finished;
-      return state;
-    }, () => {
+    this.setState({finished}, () => {
       // $FlowFixMe
       this.navigation.scrollIntoView({
         behavior: 'smooth',

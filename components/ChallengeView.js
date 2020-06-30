@@ -30,6 +30,7 @@ type State = {
 
 export default class ChallengeView extends React.Component<Props,State> {
   question: ?ElementRef<'div'> = null;
+  navigation: ?ElementRef<'div'> = null;
 
   finishedInitialization(): Finished {
     return {answered: [], skipped: []};
@@ -52,7 +53,15 @@ export default class ChallengeView extends React.Component<Props,State> {
     let { question, finished } = this.state;
     if (question == null) return;
     finished.answered.push(question.id);
-    this.setState({ finished });
+    this.setState(state => {
+      state.finished = finished;
+      return state;
+    }, () => {
+      // $FlowFixMe
+      this.navigation.scrollIntoView({
+        behavior: 'smooth',
+      });
+    });
   }
 
   onSkip = () => {
@@ -63,13 +72,20 @@ export default class ChallengeView extends React.Component<Props,State> {
       'event_category': 'choice',
       'event_label': question.id,
     });
-    this.setState({ finished });
+    this.setState(state => {
+      state.finished = finished;
+      return state;
+    }, () => {
+      // $FlowFixMe
+      this.navigation.scrollIntoView({
+        behavior: 'smooth',
+      });
+    });
   }
 
   onNextQuestion = () => {
     const question = this.nextQuestion();
     this.setState({question});
-    console.log(this.question);
     // $FlowFixMe
     this.question.scrollTo({
       top: 0,
@@ -98,7 +114,7 @@ export default class ChallengeView extends React.Component<Props,State> {
         </div>
         <div ref={div => (this.question = div)} className={`${styles.questions}`}>
           {this.renderQuestion()}
-          <div className="centered-text">
+          <div ref={div => (this.navigation = div)} className="centered-text">
             {this.renderNavigation()}
           </div>
         </div>

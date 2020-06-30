@@ -67,7 +67,7 @@ export default class ChallengeView extends React.Component<Props,State> {
     finished.skipped.push(question.id);
     window.gtag('event', 'skip', {
       'event_category': 'choice',
-      'event_label': question.id,
+      'event_label': `/lessons/${this.props.lesson.id}`,
     });
     this.setState({finished}, () => {
       // $FlowFixMe
@@ -137,7 +137,7 @@ export default class ChallengeView extends React.Component<Props,State> {
     const next_question = this.nextQuestion();
     let navigation_question = {
       id: -1,
-      lesson_id: -1,
+      lesson_id: question?.lesson_id ?? -1,
       text: message,
       media: null,
       choices: {

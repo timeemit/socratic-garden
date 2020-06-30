@@ -37,10 +37,10 @@ library.add(
 // Listen to router events
 import Router from 'next/router';
 
-const handleRouteChangeComplete = (url) => {
+const send_url_to_google = (url) => {
   gtag('config',  'UA-164482043-1', {'page_path': url});
 }
-Router.events.on('routeChangeComplete', handleRouteChangeComplete);
+Router.events.on('routeChangeComplete', send_url_to_google);
 
 // Components for Rendering
 import Head from 'next/head';

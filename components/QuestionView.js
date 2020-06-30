@@ -3,6 +3,7 @@ import type { Choice, ChoiceIndex } from '../types/ChoiceTypes';
 import type { QuestionType } from '../types/QuestionType';
 import type { ConceptType } from '../types/ConceptType';
 import React from 'react';
+import NewChoiceDepth from '../utils/NewChoiceDepth';
 import ChoiceButton  from './ChoiceButton';
 import MediaView from './MediaView';
 
@@ -29,16 +30,24 @@ export default class QuestionView extends React.Component<Props,State> {
     const { response } = this.props.question.choices[choice];
     chosen.unshift(choice);
     this.setState({chosen, response});
+
+    let correct_choice_depth = JSON.parse(window.sessionStorage.correct_choice_depth ?? "{}");
     if (correct_choice === null || choice === correct_choice) {
+      if (correct_choice !== null) {
+        correct_choice_depth = NewChoiceDepth(correct_choice_depth);
+        window.sessionStorage.correct_choice_depth = JSON.stringify(correct_choice_depth);
+      }
       window.gtag('event', 'correct', {
         'event_category': 'choice',
-        'event_label': this.props.question.id,
+        'event_label': `/lessons/${this.props.question.lesson_id}`,
+        'value': correct_choice_depth.count,
       });
       return this.props.onFinish();
     } else {
       window.gtag('event', 'incorrect', {
         'event_category': 'choice',
-        'event_label': this.props.question.id,
+        'event_label': `/lessons/${this.props.question.lesson_id}`,
+        'value': correct_choice_depth.count,
       });
     }
   }

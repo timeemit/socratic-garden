@@ -57,7 +57,45 @@ const LESSONS: Array<LessonType> = [
         text: "Brown rabbits which have different alleles (genotype Bb) are heterozygous, and brown rabbits with identical alleles (BB) are homozygous. Albino rabbits with identical recessive alleles (bb) are also homozygous.",
       },
     ]
- },
+  },
+  {
+    title: "Vocabulary and Punnett Practice: Lord of the Genes",
+    concept: CONCEPTS[1],
+    sections: [
+      {
+        subtitle: null,
+        media: null,
+        text: "Below are three fictitious races of humanoid creatures: elves, hobbits, and orcs.  For each question, read the back story carefully to answer the questions.",
+      },
+      {
+        subtitle: "Elves",
+        media: {
+          url: "/alleles/elf.png",
+          type: MediaTypes.IMAGE,
+          caption: "Elves are elegant creatures, tall and thin yet very strong in body and mind",
+        },
+        text: "Most elves have a yellowish-white hair but a recessive allele exists, expressing as bluish-black. The majority of elves are also very tall, yet a few among them remain short like the child elves. Elves also have amazing eyesight, but blind elves are known to exist, owing to a rare recessive trait. And lastly, the elvish race of course is identified by their pointy ears, most have modestly pointed ears, but homozygous recessive individuals have extra long tops of ears. [H] Hair: [T] Tall-stature: [F] Far-sight: [E] Pointy Ears:",
+      },
+      {
+        subtitle: "Hobbits",
+        media: {
+          url: "/alleles/hobbit.png",
+          type: MediaTypes.IMAGE,
+          caption: "Hobbits are also known in middle earth as halflings, due to their short stature, even the older hobbits are no taller than children.",
+        },
+        text: "Most hobbits have curly hair but a mutation has been seen recently that codes for straight hair! The majority of hobbits have large and hairy tops to their feet, but there is a genetic condition that codes for baldness of the foot with growing old, thankfully it is a recessive trait. Lastly, although hobbits are known to be nimble and quick on their feet, a recessive allele exists that makes them much more clumsy. [H] Short-stature: [R] CuRly hair : [B] NOT bald feet: [N] Nimble:",
+      },
+      {
+        subtitle: "Orcs",
+        media: {
+          url: "/alleles/orc.png",
+          type: MediaTypes.IMAGE,
+          caption: "Orcs are mostly vile and nasty beings.",
+        },
+        text: "There is a small subset of orcs who are well mannered and eloquent, far from their more regularly seen belligerent trait. Most orcs have long canine teeth (both upper and lower) that stick out of their mouths. This is the dominant trait, however a recessive allele expresses as only having lower canines grow long enough to stick out of the mouth. You wouldn’t know it but orcs can have beautiful blue eyes but it is a rare trait to the more dominant yellow eyes. Orcs also have pointed ears, like the elves, it is a dominant trait over the rounded tip ears which are recessive. You don’t see female orcs so wizards suspect that there is little outward differences between female and male orcs. [B] belligerent: [T] canine teeth:[Y] yellow eyes: [E] pointy ears:",
+      },
+    ]
+  }
 ].map(({title, concept, sections}, id) => {
   return {
     id,

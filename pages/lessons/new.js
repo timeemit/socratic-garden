@@ -93,6 +93,7 @@ export default class NewLesson extends React.Component<Props,State> {
     const enabled = this.isValid() ? "" : "pure-button-disabled";
     return (
       <Page title="Create a lesson">
+        <h1>[ALPHA] <em>Warning: this form is not yet functional</em></h1>
         <form className="pure-form">
           <h1 className="pure-u-1 header">
             <input

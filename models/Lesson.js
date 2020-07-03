@@ -27,7 +27,7 @@ const LESSONS: Array<LessonType> = [
         media: {
           url: "/socratic-garden/wonder.png",
           type: MediaTypes.IMAGE,
-          caption: "Why not?",
+          caption: "Why Not?",
         },
         text: "It's a simple question, really.  More than a billion people spend the majority of their day at a school, costing either the student's family or government.",
       },
@@ -36,7 +36,7 @@ const LESSONS: Array<LessonType> = [
         media: {
           url: "/socratic-garden/money.png",
           type: MediaTypes.IMAGE,
-          caption: "Better lessons earn more",
+          caption: "Better Lessons Earn More",
         },
         text: "Contributors earn money for the engagement of their lessons: the more questions learners answer correctly after seeing a lesson, the more that lesson is worth.  Unlike other online platforms that pay you only for traffic volume, contributions to the Socratic Garden are measured by quality, not quantity.",
       },

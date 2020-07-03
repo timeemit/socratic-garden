@@ -6,6 +6,7 @@ import type { LessonType } from '../../../types/LessonType';
 import type { ConceptType } from '../../../types/ConceptType';
 import React, {type Node} from 'react';
 import Page from '../../../components/PageWithNavigator';
+import { LESSON_TEXT } from '../../../types/LessonType';
 import ConceptLink from '../../../components/ConceptLink';
 import { slug as slugger} from '../../../pages/_app';
 import { ConceptByID } from '../../../models/Concept';
@@ -50,11 +51,19 @@ export default class ConceptPage extends React.Component<Params> {
           <Link href="/lessons/[id]/[slug]" as={`/lessons/${lesson.id}/${slugger(lesson.title)}`}>
             <a className={`link ${styles.link}`} href="#">
               <h2 className={`header ${styles.header}`}>{lesson.title}</h2>
-              <span className={styles.content}>{lesson.sections[0].text}</span>
+              {this.renderTextPreview(lesson)}
             </a>
           </Link>
         </div>
       );
     });
+  }
+
+  renderTextPreview(lesson: LessonType): Node {
+    const first_text_section = lesson.sections.find((section) => section.type === LESSON_TEXT);
+    if (first_text_section == null || first_text_section.type !== LESSON_TEXT) {
+      return null;
+    }
+    return <span className={styles.content}>{first_text_section.content}</span>;
   }
 }

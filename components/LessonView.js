@@ -3,6 +3,7 @@ import type { LessonType, LessonSectionType } from '../types/LessonType';
 import type { ConceptType } from '../types/ConceptType';
 
 import React, { type Node } from 'react';
+import { LESSON_HEADER, LESSON_MEDIA, LESSON_TEXT } from '../types/LessonType';
 import { ConceptByText} from '../models/Concept';
 import MediaView from './MediaView';
 import ConceptLink from './ConceptLink';
@@ -16,22 +17,14 @@ type SectionProps = {|
 |}
 
 class LessonSectionView extends React.Component<SectionProps> {
-  renderSubtitle() {
-    const { subtitle } = this.props.section;
-    if (subtitle == null) return null;
-    return (
-      <h2 className="header">{this.props.section.subtitle}</h2>
-    );
-  }
-
   render() {
-    return (
-      <>
-        {this.renderSubtitle()}
-        <MediaView media={this.props.section.media} />
-        <p>{this.props.section.text}</p>
-      </>
-    );
+    const { section } = this.props;
+    if (section.type === LESSON_HEADER) {
+      return <h2 className="header">{section.content}</h2>;
+    } else if (section.type === LESSON_MEDIA) {
+      return <MediaView media={section.content} />;
+    }
+    return <p>{section.content}</p>;
   }
 }
 

@@ -15,7 +15,7 @@ export default class MediaView extends React.PureComponent<Props> {
     return (
       <div className={`pure-u-1`}>
         <img className={`pure-img centered ${styles.image}`} src={media.url} />
-        <strong className={`centered-text ${styles.caption}`}>{media.caption}</strong>
+        <em className={`centered-text ${styles.caption}`}>{media.caption}</em>
       </div>
     );
   }

@@ -18,44 +18,36 @@ const LESSONS: Array<LessonType> = [
         media: {
           url: "/logo.png",
           type: MediaTypes.IMAGE,
-          caption: "The logo is the silhouette of a lightbulb outlined by a multi-colored brain, symbolizing the platform's collaborative approach to epiphanies and understanding.",
+          caption: "brain + lightbulb = logo",
         },
         text: "The Socratic Garden is a socio-economic experiment to develop an online system that rewards contributors for helping people learn.",
       },
       {
-        subtitle: "What subjects do you cover?",
-        media: null,
-        text: "The platform is general enough for anyone to learn anything.  Although, biology is the first subject the platform is focused on, new subjects will become available as contributors come forth.",
+        subtitle: "Can free, high-quality, massively available learning material be a sustainable enterprise?",
+        media: {
+          url: "/socratic-garden/wonder.png",
+          type: MediaTypes.IMAGE,
+          caption: "Why not?",
+        },
+        text: "It's a simple question, really.  More than a billion people spend the majority of their day at a school, costing either the student's family or government.",
       },
       {
-        subtitle: "How much does it cost?",
-        media: null,
-        text: "Access to the Socratic Garden is free for anyone with an internet connection.",
-      },
-      {
-        subtitle: "Do you take donations?",
-        media: null,
-        text: "No.  The Socratic Garden aims to be a self-sustainable business that can focus entirely on motivating exceptional learning experiences.",
+        subtitle: "Great lessons are valuable!  Contributors here are paid accordingly.",
+        media: {
+          url: "/socratic-garden/money.png",
+          type: MediaTypes.IMAGE,
+          caption: "",
+        },
+        text: "Contributors earn money for the engagement of their lessons: the more questions learners answer correctly after seeing a lesson, the more that lesson is worth.  Unlike other online platforms that pay you only for traffic volume, contributions to the Socratic Garden are measured by quality, not quantity.",
       },
       {
         subtitle: "If the Socratic Garden is free, how does it cover costs?",
-        media: null,
-        text: "All of its initial costs are paid for out-of-pocket by its development team of one, Liam Norris.  With enough traffic, the platform should be able to generate revenue by delivering advertisements for jobs relevant to lessons learners are viewing.",
-      },
-      {
-        subtitle: "Why should anyone contribute?",
-        media: null,
-        text: "Contributors earn money for the engagement of their lessons: the more questions learners answer correctly after seeing a lesson, the more the lesson is worth.  Unlike other online platforms that pay you only for traffic volume, contributions to the Socratic Garden are measured by quality, not quantity.",
-      },
-      {
-        subtitle: "Why should anyone contribute?",
-        media: null,
-        text: "Contributors earn money for the engagement of their lessons: the more questions learners answer correctly after seeing a lesson, the more the lesson is worth.  Unlike other online platforms that pay you only for traffic volume, contributions to the Socratic Garden are measured by quality, not quantity.",
-      },
-      {
-        subtitle: "How can I become a contributor?",
-        media: null,
-        text: "Contributing to the platform is currently by invitation only, but you can apply using the link above.",
+        media: {
+          url: "/socratic-garden/chart.png",
+          type: MediaTypes.IMAGE,
+          caption: "Advertisements for Jobs",
+        },
+        text: "With enough traffic, delivering advertisements for jobs relevant to lessons learners are viewing should generate revenue that can then be redirected to rewarding contributors appropriately.",
       },
     ]
   },

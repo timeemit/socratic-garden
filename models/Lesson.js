@@ -36,7 +36,7 @@ const LESSONS: Array<LessonType> = [
         media: {
           url: "/socratic-garden/money.png",
           type: MediaTypes.IMAGE,
-          caption: "",
+          caption: "Better lessons earn more",
         },
         text: "Contributors earn money for the engagement of their lessons: the more questions learners answer correctly after seeing a lesson, the more that lesson is worth.  Unlike other online platforms that pay you only for traffic volume, contributions to the Socratic Garden are measured by quality, not quantity.",
       },

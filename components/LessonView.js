@@ -1,10 +1,11 @@
 // @flow
-import type { LessonType, LessonSectionType } from '../types/LessonType';
+import type { LessonType, LessonSectionType, LessonParagraphContentsType } from '../types/LessonType';
 import type { ConceptType } from '../types/ConceptType';
 
 import React, { type Node } from 'react';
 import { LESSON_HEADER, LESSON_MEDIA, LESSON_TEXT } from '../types/LessonType';
-import { ConceptByText} from '../models/Concept';
+import { LessonConceptIDs } from '../models/Lesson';
+import { ConceptByID, ConceptByText } from '../models/Concept';
 import MediaView from './MediaView';
 import ConceptLink from './ConceptLink';
 
@@ -16,6 +17,20 @@ type SectionProps = {|
   section: LessonSectionType,
 |}
 
+type ParagraphProps = {|
+  paragraph: LessonParagraphContentsType,
+|};
+
+class LessonParagraphView extends React.Component<ParagraphProps> {
+  render() {
+    const { paragraph } = this.props;
+    if (paragraph.type === LESSON_TEXT) {
+      return <span>{paragraph.content}</span>;
+    }
+    return <ConceptLink concept={paragraph.content} />;
+  }
+}
+
 class LessonSectionView extends React.Component<SectionProps> {
   render() {
     const { section } = this.props;
@@ -24,7 +39,7 @@ class LessonSectionView extends React.Component<SectionProps> {
     } else if (section.type === LESSON_MEDIA) {
       return <MediaView media={section.content} />;
     }
-    return <p>{section.content}</p>;
+    return section.content.map<Node>((span, i) => <LessonParagraphView key={i} paragraph={span} />);
   }
 }
 
@@ -34,9 +49,15 @@ export default class LessonView extends React.Component<Props> {
     return (
       <section style={{margin: "50px 0"}}>
         <h1 className="header">{this.props.lesson.title}</h1>
-        <ConceptLink concept={this.props.lesson.concept} />
+        <div>{this.renderConcepts()}</div>
         {sections}
       </section>
     );
+  }
+
+  renderConcepts() {
+    console.log(LessonConceptIDs(this.props.lesson));
+    const concepts: Array<ConceptType> = LessonConceptIDs(this.props.lesson).map(ConceptByID).filter(Boolean);
+    return concepts.map<Node>((concept, i) => <ConceptLink key={i} concept={concept} />);
   }
 }

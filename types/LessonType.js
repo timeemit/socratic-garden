@@ -5,6 +5,8 @@ import type { MediaURL } from './Media';
 export const LESSON_HEADER: 'HEADER' = 'HEADER';
 export const LESSON_MEDIA: 'MEDIA' = 'MEDIA';
 export const LESSON_TEXT: 'TEXT' = 'TEXT';
+export const LESSON_CONCEPT: 'CONCEPT' = 'CONCEPT';
+export const LESSON_PARAGRAPH: 'PARAGRAPH' = 'PARAGRAPH';
 
 type LessonHeaderType = {|
   type: typeof LESSON_HEADER,
@@ -21,11 +23,22 @@ type LessonTextType = {|
   content: string,
 |};
 
-export type LessonSectionType = LessonHeaderType | LessonMediaType | LessonTextType;
+type LessonConceptType = {|
+  type: typeof LESSON_CONCEPT,
+  content: ConceptType,
+|};
+
+type LessonParagraphType = {|
+  type: typeof LESSON_PARAGRAPH,
+  content: Array<LessonParagraphContentsType>,
+|};
+
+export type LessonParagraphContentsType = LessonTextType | LessonConceptType;
+
+export type LessonSectionType = LessonHeaderType | LessonMediaType | LessonParagraphType;
 
 export type LessonType = {|
   id: number,
-  concept: ConceptType,
   title: string,
   sections: Array<LessonSectionType>,
 |};

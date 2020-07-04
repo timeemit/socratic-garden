@@ -6,7 +6,7 @@ import type { LessonType } from '../../../types/LessonType';
 import type { ConceptType } from '../../../types/ConceptType';
 import React, {type Node} from 'react';
 import Page from '../../../components/PageWithNavigator';
-import { LESSON_TEXT } from '../../../types/LessonType';
+import { LESSON_PARAGRAPH, LESSON_TEXT } from '../../../types/LessonType';
 import ConceptLink from '../../../components/ConceptLink';
 import { slug as slugger} from '../../../pages/_app';
 import { ConceptByID } from '../../../models/Concept';
@@ -60,7 +60,11 @@ export default class ConceptPage extends React.Component<Params> {
   }
 
   renderTextPreview(lesson: LessonType): Node {
-    const first_text_section = lesson.sections.find((section) => section.type === LESSON_TEXT);
+    const first_paragraph_section = lesson.sections.find((section) => section.type === LESSON_PARAGRAPH);
+    if (first_paragraph_section == null) {
+      return null;
+    }
+    const first_text_section = first_paragraph_section.content.find((span) => span.type === LESSON_TEXT);
     if (first_text_section == null || first_text_section.type !== LESSON_TEXT) {
       return null;
     }

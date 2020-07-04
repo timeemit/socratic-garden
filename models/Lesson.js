@@ -2,20 +2,22 @@
 
 import type { ConceptType } from '../types/ConceptType';
 import type  { LessonType } from '../types/LessonType';
-import { LESSON_HEADER, LESSON_MEDIA, LESSON_TEXT } from '../types/LessonType';
+import { LESSON_PARAGRAPH, LESSON_HEADER, LESSON_MEDIA, LESSON_TEXT, LESSON_CONCEPT} from '../types/LessonType';
 import { slug } from '../pages/_app';
 import { ChoiceIndices } from '../types/ChoiceTypes';
 import { MediaTypes } from '../types/Media';
-import { CONCEPTS } from './Concept';
+import { CONCEPTS, ConceptByText } from './Concept';
 
 const LESSONS: Array<LessonType> = [
   {
     title: "What is the Socratic Garden?",
-    concept: CONCEPTS[0],
     sections: [
       {
-        type: LESSON_TEXT,
-        content: "The Socratic Garden is a socio-economic experiment to develop an online system that rewards contributors for helping people learn.",
+        type: LESSON_PARAGRAPH,
+        content: [{
+          type: LESSON_TEXT,
+          content: "The Socratic Garden is a socio-economic experiment to develop an online system that rewards contributors for helping people learn.",
+        }]
       },
       {
         type: LESSON_MEDIA,
@@ -38,8 +40,11 @@ const LESSONS: Array<LessonType> = [
         },
       },
       {
-        type: LESSON_TEXT,
-        content: "It's a simple question, really.  More than a billion people spend the majority of their day at a school, costing either the student's family or government.  But what about people that don't have such generous support infrastructure?",
+        type: LESSON_PARAGRAPH,
+        content: [{
+          type: LESSON_TEXT,
+          content: "It's a simple question, really.  More than a billion people spend the majority of their day at a school, costing either the student's family or government.  But what about people that don't have such generous support infrastructure?",
+        }],
       },
       {
         type: LESSON_HEADER,
@@ -54,8 +59,11 @@ const LESSONS: Array<LessonType> = [
         },
       },
       {
-        type: LESSON_TEXT,
-        content: "Contributors earn money for the engagement of their lessons: the more questions learners answer correctly after seeing a lesson, the more that lesson is worth.  Unlike other online platforms that pay you only for traffic volume, contributions to the Socratic Garden are measured by quality, not quantity.",
+        type: LESSON_PARAGRAPH,
+        content: [{
+          type: LESSON_TEXT,
+          content: "Contributors earn money for the engagement of their lessons: the more questions learners answer correctly after seeing a lesson, the more that lesson is worth.  Unlike other online platforms that pay you only for traffic volume, contributions to the Socratic Garden are measured by quality, not quantity.",
+        }]
       },
       {
         type: LESSON_HEADER,
@@ -70,18 +78,35 @@ const LESSONS: Array<LessonType> = [
         },
       },
       {
-        type: LESSON_TEXT,
-        content: "With enough traffic, delivering advertisements for jobs relevant to lessons learners are viewing should generate revenue that can then be redirected to rewarding contributors appropriately.",
+        type: LESSON_PARAGRAPH,
+        content: [{
+          type: LESSON_TEXT,
+          content: "With enough traffic, delivering advertisements for jobs relevant to lessons learners are viewing should generate revenue that can then be redirected to rewarding contributors appropriately.",
+        }],
       },
     ]
   },
   {
     title: "What are alleles?",
-    concept: CONCEPTS[1],
     sections: [
       {
-        type: LESSON_TEXT,
-        content: "Genes often have different forms – slightly different nucleotide sequences – known as alleles. In some rabbits, an alternative form of the gene for fur color makes non-functional tyrosinase. A change in the sequence of As, Ts, Cs, and Gs changes the sequence of amino acids in the protein and alters or destroys its activity. This allele is recessive and can cause lack of pigment – resulting in an albino rabbit. Let's refer to the dominant gene for brown fur as B and the recessive gene for albinism as b.",
+        type: LESSON_PARAGRAPH,
+        content: [{
+          type: LESSON_TEXT,
+            content: "Genes often have different forms – slightly different nucleotide sequences – known as ",
+        }, {
+          type: LESSON_CONCEPT,
+          content: ConceptByText("Alleles"),
+        }, {
+          type: LESSON_TEXT,
+          content: ".  In some rabbits, an alternative form of the ",
+        }, {
+          type: LESSON_CONCEPT,
+          content: ConceptByText("Gene"),
+        }, {
+          type: LESSON_TEXT,
+            content: " for fur color makes non-functional tyrosinase. A change in the sequence of As, Ts, Cs, and Gs changes the sequence of amino acids in the protein and alters or destroys its activity. This allele is recessive and can cause lack of pigment – resulting in an albino rabbit. Let's refer to the dominant gene for brown fur as B and the recessive gene for albinism as b.",
+        }]
       },
       {
         type: LESSON_HEADER,
@@ -96,8 +121,17 @@ const LESSONS: Array<LessonType> = [
         },
       },
       {
-        type: LESSON_TEXT,
-        content: "Mendel showed that humans and rabbits have two copies of each gene, or 'heritable unit' – one from each of our parents. The two alleles we receive make up our genotype. For simple Mendelian traits, our genotype determines our physical appearance, or phenotype, for that trait. A rabbit having two copies of the mutant, recessive gene cannot make tyrosinase – or melanin; its genotype is bb, and its phenotype is albino. A rabbit having either one or two copies of the gene for tyrosinase makes melanin; its genotype is either Bb or BB, and in either case, because B is dominant, its phenotype is brown.",
+        type: LESSON_PARAGRAPH,
+        content: [{
+          type: LESSON_TEXT,
+          content: "Mendel showed that humans and rabbits have two copies of each gene, or 'heritable unit' – one from each of our parents. The two alleles we receive make up our ",
+        },{
+          type: LESSON_CONCEPT,
+          content: ConceptByText("Genotype"),
+        },{
+          type: LESSON_TEXT,
+          content: ". For simple Mendelian traits, our genotype determines our physical appearance, or phenotype, for that trait. A rabbit having two copies of the mutant, recessive gene cannot make tyrosinase – or melanin; its genotype is bb, and its phenotype is albino. A rabbit having either one or two copies of the gene for tyrosinase makes melanin; its genotype is either Bb or BB, and in either case, because B is dominant, its phenotype is brown.",
+        }],
       },
       {
         type: LESSON_HEADER,
@@ -112,18 +146,23 @@ const LESSONS: Array<LessonType> = [
         },
       },
       {
-        type: LESSON_TEXT,
-        content: "Brown rabbits which have different alleles (genotype Bb) are heterozygous, and brown rabbits with identical alleles (BB) are homozygous. Albino rabbits with identical recessive alleles (bb) are also homozygous.",
+        type: LESSON_PARAGRAPH,
+        content: [{
+          type: LESSON_TEXT,
+          content: "Brown rabbits which have different alleles (genotype Bb) are heterozygous, and brown rabbits with identical alleles (BB) are homozygous. Albino rabbits with identical recessive alleles (bb) are also homozygous.",
+        }]
       },
     ]
   },
   {
     title: "Vocabulary and Punnett Practice: Lord of the Genes",
-    concept: CONCEPTS[1],
     sections: [
       {
-        type: LESSON_TEXT,
-        content: "Below are three fictitious races of humanoid creatures: elves, hobbits, and orcs.  For each question, read the back story carefully to answer the questions.",
+        type: LESSON_PARAGRAPH,
+        content: [{
+          type: LESSON_TEXT,
+          content: "Below are three fictitious races of humanoid creatures: elves, hobbits, and orcs.  For each question, read the back story carefully to answer the questions.",
+        }]
       },
       {
         type: LESSON_HEADER,
@@ -138,8 +177,11 @@ const LESSONS: Array<LessonType> = [
         },
       },
       {
-        type: LESSON_TEXT,
-        content: "Most elves have a yellowish-white hair but a recessive allele exists, expressing as bluish-black. The majority of elves are also very tall, yet a few among them remain short like the child elves. Elves also have amazing eyesight, but blind elves are known to exist, owing to a rare recessive trait. And lastly, the elvish race of course is identified by their pointy ears, most have modestly pointed ears, but homozygous recessive individuals have extra long tops of ears. [H] Hair: [T] Tall-stature: [F] Far-sight: [E] Pointy Ears:",
+        type: LESSON_PARAGRAPH,
+        content: [{
+          type: LESSON_TEXT,
+          content: "Most elves have a yellowish-white hair but a recessive allele exists, expressing as bluish-black. The majority of elves are also very tall, yet a few among them remain short like the child elves. Elves also have amazing eyesight, but blind elves are known to exist, owing to a rare recessive trait. And lastly, the elvish race of course is identified by their pointy ears, most have modestly pointed ears, but homozygous recessive individuals have extra long tops of ears. [H] Hair: [T] Tall-stature: [F] Far-sight: [E] Pointy Ears:",
+        }]
       },
       {
         type: LESSON_HEADER,
@@ -154,8 +196,11 @@ const LESSONS: Array<LessonType> = [
         },
       },
       {
-        type: LESSON_TEXT,
-        content: "Most hobbits have curly hair but a mutation has been seen recently that codes for straight hair! The majority of hobbits have large and hairy tops to their feet, but there is a genetic condition that codes for baldness of the foot with growing old, thankfully it is a recessive trait. Lastly, although hobbits are known to be nimble and quick on their feet, a recessive allele exists that makes them much more clumsy. [H] Short-stature: [R] CuRly hair : [B] NOT bald feet: [N] Nimble:",
+        type: LESSON_PARAGRAPH,
+        content: [{
+          type: LESSON_TEXT,
+          content: "Most hobbits have curly hair but a mutation has been seen recently that codes for straight hair! The majority of hobbits have large and hairy tops to their feet, but there is a genetic condition that codes for baldness of the foot with growing old, thankfully it is a recessive trait. Lastly, although hobbits are known to be nimble and quick on their feet, a recessive allele exists that makes them much more clumsy. [H] Short-stature: [R] CuRly hair : [B] NOT bald feet: [N] Nimble:",
+        }],
       },
       {
         type: LESSON_HEADER,
@@ -170,8 +215,11 @@ const LESSONS: Array<LessonType> = [
         },
       },
       {
-        type: LESSON_TEXT,
-        content: "There is a small subset of orcs who are well mannered and eloquent, far from their more regularly seen belligerent trait. Most orcs have long canine teeth (both upper and lower) that stick out of their mouths. This is the dominant trait, however a recessive allele expresses as only having lower canines grow long enough to stick out of the mouth. You wouldn’t know it but orcs can have beautiful blue eyes but it is a rare trait to the more dominant yellow eyes. Orcs also have pointed ears, like the elves, it is a dominant trait over the rounded tip ears which are recessive. You don’t see female orcs so wizards suspect that there is little outward differences between female and male orcs. [B] belligerent: [T] canine teeth:[Y] yellow eyes: [E] pointy ears:",
+        type: LESSON_PARAGRAPH,
+        content: [{
+          type: LESSON_TEXT,
+          content: "There is a small subset of orcs who are well mannered and eloquent, far from their more regularly seen belligerent trait. Most orcs have long canine teeth (both upper and lower) that stick out of their mouths. This is the dominant trait, however a recessive allele expresses as only having lower canines grow long enough to stick out of the mouth. You wouldn’t know it but orcs can have beautiful blue eyes but it is a rare trait to the more dominant yellow eyes. Orcs also have pointed ears, like the elves, it is a dominant trait over the rounded tip ears which are recessive. You don’t see female orcs so wizards suspect that there is little outward differences between female and male orcs. [B] belligerent: [T] canine teeth:[Y] yellow eyes: [E] pointy ears:",
+        }]
       },
     ]
   }
@@ -179,7 +227,6 @@ const LESSONS: Array<LessonType> = [
   return {
     id,
     title,
-    concept,
     sections,
   };
 });
@@ -196,5 +243,23 @@ export function NextLesson(id: number) {
 }
 
 export function LessonsByConcept(concept: ConceptType): Array<LessonType> {
-  return LESSONS.filter((lesson) => lesson.concept.text === concept.text);
+  return LESSONS.filter((lesson) => {
+    return LessonConceptIDs(lesson).includes(concept.id);
+  });
+}
+
+export function LessonConceptIDs(lesson: LessonType): Array<number> {
+  const concept_ids = lesson.sections.map(section => {
+    if (section.type === LESSON_PARAGRAPH) {
+      return section.content.map<?number>(span => {
+        if (span.type === LESSON_CONCEPT) {
+          return span.content.id;
+        }
+      }).filter(id => id != null);
+    }
+    return [];
+  });
+  // Unique Values
+  // $FlowFixMe
+  return Array.from(new Set(concept_ids.flat()));
 }

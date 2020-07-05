@@ -16,7 +16,7 @@ export default class ConceptLink extends React.Component<Props> {
     const disabled = this.props.disabled === true ? "pure-button-disabled" : "";
     return (
       <Link href="/concepts/[id]/[slug]" as={`/concepts/${this.props.concept.id}/${slug(this.props.concept.text)}`}>
-        <a className={`pure-button ${styles.conceptLink} ${disabled}`}>{this.props.concept.text}</a>
+        <a className={`pure-button ${styles.conceptLink} ${disabled}`}>{this.props.concept.as}</a>
       </Link>
     );
   }

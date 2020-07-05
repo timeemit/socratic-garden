@@ -25,7 +25,7 @@ class LessonParagraphView extends React.Component<ParagraphProps> {
   render() {
     const { paragraph } = this.props;
     if (paragraph.type === LESSON_TEXT) {
-      return <span>{paragraph.content}</span>;
+      return paragraph.content;
     }
     return <ConceptLink concept={paragraph.content} />;
   }
@@ -39,7 +39,11 @@ class LessonSectionView extends React.Component<SectionProps> {
     } else if (section.type === LESSON_MEDIA) {
       return <MediaView media={section.content} />;
     }
-    return section.content.map<Node>((span, i) => <LessonParagraphView key={i} paragraph={span} />);
+    return (
+      <span style={{whitespace: "pre"}}>
+        {section.content.map<Node>((span, i) => <LessonParagraphView key={i} paragraph={span} />)}
+      </span>
+    );
   }
 }
 
@@ -56,7 +60,6 @@ export default class LessonView extends React.Component<Props> {
   }
 
   renderConcepts() {
-    console.log(LessonConceptIDs(this.props.lesson));
     const concepts: Array<ConceptType> = LessonConceptIDs(this.props.lesson).map(ConceptByID).filter(Boolean);
     return concepts.map<Node>((concept, i) => <ConceptLink key={i} concept={concept} />);
   }

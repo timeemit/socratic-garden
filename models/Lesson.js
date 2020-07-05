@@ -149,7 +149,19 @@ const LESSONS: Array<LessonType> = [
         type: LESSON_PARAGRAPH,
         content: [{
           type: LESSON_TEXT,
-          content: "Brown rabbits which have different alleles (genotype Bb) are heterozygous, and brown rabbits with identical alleles (BB) are homozygous. Albino rabbits with identical recessive alleles (bb) are also homozygous.",
+          content: "Brown rabbits which have different alleles (genotype Bb) are "
+        },{
+          type: LESSON_CONCEPT,
+          content: ConceptByText("Heterozygous"),
+        },{
+          type: LESSON_TEXT,
+          content: ", and brown rabbits with identical alleles (BB) are homozygous. Albino rabbits with identical recessive alleles (bb) are ",
+        },{
+          type: LESSON_CONCEPT,
+          content: ConceptByText("Homozygous"),
+        },{
+          type: LESSON_TEXT,
+          content: ".",
         }]
       },
     ]
@@ -180,7 +192,19 @@ const LESSONS: Array<LessonType> = [
         type: LESSON_PARAGRAPH,
         content: [{
           type: LESSON_TEXT,
-          content: "Most elves have a yellowish-white hair but a recessive allele exists, expressing as bluish-black. The majority of elves are also very tall, yet a few among them remain short like the child elves. Elves also have amazing eyesight, but blind elves are known to exist, owing to a rare recessive trait. And lastly, the elvish race of course is identified by their pointy ears, most have modestly pointed ears, but homozygous recessive individuals have extra long tops of ears. [H] Hair: [T] Tall-stature: [F] Far-sight: [E] Pointy Ears:",
+          content: "Most elves have a yellowish-white hair but a recessive ",
+        },{
+          type: LESSON_CONCEPT,
+          content: ConceptByText("allele"),
+        },{
+          type: LESSON_TEXT,
+          content: " exists, expressing as bluish-black. The majority of elves are also very tall, yet a few among them remain short like the child elves. Elves also have amazing eyesight, but blind elves are known to exist, owing to a rare recessive trait. And lastly, the elvish race of course is identified by their pointy ears, most have modestly pointed ears, but ",
+        },{
+          type: LESSON_CONCEPT,
+          content: ConceptByText("homozygous"),
+        },{
+          type: LESSON_TEXT,
+          content: " recessive individuals have extra long tops of ears. [H] Hair: [T] Tall-stature: [F] Far-sight: [E] Pointy Ears:",
         }]
       },
       {
@@ -199,7 +223,13 @@ const LESSONS: Array<LessonType> = [
         type: LESSON_PARAGRAPH,
         content: [{
           type: LESSON_TEXT,
-          content: "Most hobbits have curly hair but a mutation has been seen recently that codes for straight hair! The majority of hobbits have large and hairy tops to their feet, but there is a genetic condition that codes for baldness of the foot with growing old, thankfully it is a recessive trait. Lastly, although hobbits are known to be nimble and quick on their feet, a recessive allele exists that makes them much more clumsy. [H] Short-stature: [R] CuRly hair : [B] NOT bald feet: [N] Nimble:",
+          content: "Most hobbits have curly hair but a mutation has been seen recently that codes for straight hair! The majority of hobbits have large and hairy tops to their feet, but there is a genetic condition that codes for baldness of the foot with growing old, thankfully it is a recessive trait. Lastly, although hobbits are known to be nimble and quick on their feet, a recessive ",
+        }, {
+          type: LESSON_CONCEPT,
+          content: ConceptByText("allele"),
+        },{
+          type: LESSON_TEXT,
+          content: " exists that makes them much more clumsy. [H] Short-stature: [R] CuRly hair : [B] NOT bald feet: [N] Nimble:",
         }],
       },
       {
@@ -218,7 +248,13 @@ const LESSONS: Array<LessonType> = [
         type: LESSON_PARAGRAPH,
         content: [{
           type: LESSON_TEXT,
-          content: "There is a small subset of orcs who are well mannered and eloquent, far from their more regularly seen belligerent trait. Most orcs have long canine teeth (both upper and lower) that stick out of their mouths. This is the dominant trait, however a recessive allele expresses as only having lower canines grow long enough to stick out of the mouth. You wouldn’t know it but orcs can have beautiful blue eyes but it is a rare trait to the more dominant yellow eyes. Orcs also have pointed ears, like the elves, it is a dominant trait over the rounded tip ears which are recessive. You don’t see female orcs so wizards suspect that there is little outward differences between female and male orcs. [B] belligerent: [T] canine teeth:[Y] yellow eyes: [E] pointy ears:",
+          content: "There is a small subset of orcs who are well mannered and eloquent, far from their more regularly seen belligerent trait. Most orcs have long canine teeth (both upper and lower) that stick out of their mouths. This is the dominant trait, however a recessive ",
+        }, {
+          type: LESSON_CONCEPT,
+          content: ConceptByText("allele"),
+        },{
+          type: LESSON_TEXT,
+          content: " expresses as only having lower canines grow long enough to stick out of the mouth. You wouldn’t know it but orcs can have beautiful blue eyes--a rare trait to the more dominant yellow eyes. Orcs also have pointed ears, like the elves, it is a dominant trait over the rounded tip ears which are recessive. You don’t see female orcs so wizards suspect that there is little outward differences between female and male orcs. [B] belligerent: [T] canine teeth:[Y] yellow eyes: [E] pointy ears:",
         }]
       },
     ]

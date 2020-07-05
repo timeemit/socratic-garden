@@ -39,6 +39,7 @@ export default class ConceptPage extends React.Component<Params> {
     return (
       <Page title={concept.text}>
         <h1 className="pure-u-1 header"><ConceptLink concept={concept} /></h1>
+        <em className="pure-u-1">{concept.definition}</em>
         {this.renderLessons()}
       </Page>
     );
@@ -61,7 +62,7 @@ export default class ConceptPage extends React.Component<Params> {
 
   renderTextPreview(lesson: LessonType): Node {
     const first_paragraph_section = lesson.sections.find((section) => section.type === LESSON_PARAGRAPH);
-    if (first_paragraph_section == null) {
+    if (first_paragraph_section == null || first_paragraph_section.type !== LESSON_PARAGRAPH) {
       return null;
     }
     const first_text_section = first_paragraph_section.content.find((span) => span.type === LESSON_TEXT);

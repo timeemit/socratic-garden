@@ -5,4 +5,5 @@ export type ConceptType = {|
   text: string,
   definition: string,
   aliases: Array<string>,
+  as: ?string,
 |}

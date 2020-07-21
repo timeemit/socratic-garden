@@ -13,20 +13,24 @@
     "@fortawesome/free-regular-svg-icons": "^5.13.0",
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "@fortawesome/react-fontawesome": "^0.1.9",
-    "next": "^9.3.5",
+    "babel-eslint": "8.2.6",
+    "babel-plugin-transform-flow-strip-types": "6.22.0",
+    "bcrypt": "^5.0.0",
+    "flow-bin": "0.77.0",
+    "next": "^9.4.4",
     "purecss": "^1.0.1",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "sass": "^1.26.5",
+    "sequelize": "^6.3.3",
     "slug": "^2.1.1",
-    "babel-eslint": "8.2.6",
-    "babel-plugin-transform-flow-strip-types": "6.22.0",
-    "flow-bin": "0.77.0"
+    "sqlite3": "^5.0.0"
   },
-  "devDependencies": {
+  "devDependencies": {},
+  "engines": {
+    "node": "14.1.x"
   },
-  "engines" : {
-    "node" : "14.1.x"
-  },
-  "cacheDirectories": [".next/cache"]
+  "cacheDirectories": [
+    ".next/cache"
+  ]
 }

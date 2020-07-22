@@ -3,6 +3,11 @@ import type { ConceptType } from '../types/ConceptType';
 
 export const CONCEPTS: Array<ConceptType> = [
   {
+    text: "Socratic Garden",
+    definition: "An online textbook that rewards engaging instruction.",
+    aliases: [],
+  },
+  {
     text: "Allele",
     definition: "An allele is a variant form of a given gene, meaning it is one of two or more versions of a known mutation at the same place on a chromosome",
     aliases: ["Alleles", "allele"]

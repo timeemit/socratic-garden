@@ -16,7 +16,13 @@ const LESSONS: Array<LessonType> = [
         type: LESSON_PARAGRAPH,
         content: [{
           type: LESSON_TEXT,
-          content: "The Socratic Garden is a socio-economic experiment to develop an online system that rewards contributors for helping people learn.",
+          content: "The ",
+        },{
+          type: LESSON_CONCEPT,
+          content: ConceptByText("Socratic Garden"),
+        },{
+          type: LESSON_TEXT,
+          content: " is an online textbook that rewards engaging instruction.",
         }]
       },
       {
@@ -62,7 +68,13 @@ const LESSONS: Array<LessonType> = [
         type: LESSON_PARAGRAPH,
         content: [{
           type: LESSON_TEXT,
-          content: "Contributors earn money for the engagement of their lessons: the more questions learners answer correctly after seeing a lesson, the more that lesson is worth.  Unlike other online platforms that pay you only for traffic volume, contributions to the Socratic Garden are measured by quality, not quantity.",
+          content: "Contributors earn money for the engagement of their lessons: the more questions learners answer correctly after seeing a lesson, the more that lesson is worth.  Unlike other online platforms that pay you only for traffic volume, contributions to the ",
+        },{
+          type: LESSON_CONCEPT,
+          content: ConceptByText("Socratic Garden"),
+        },{
+          type: LESSON_TEXT,
+          content: " are rewarded for quality, not quantity.",
         }]
       },
       {

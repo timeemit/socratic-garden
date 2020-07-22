@@ -3,7 +3,6 @@
 import Connection from '../../../db/Connection';
 
 export default (req: any, res: any) => {
-  console.log(req.method);
   if (req.method === 'POST') {
     return post(req, res);
   } else {
@@ -12,7 +11,6 @@ export default (req: any, res: any) => {
 }
 
 const post = async (req, res) => {
-  console.log(req.body);
   const connection = await Connection;
   try {
     const user = await connection.instance.models.User.create(req.body);

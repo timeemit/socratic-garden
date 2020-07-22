@@ -9,16 +9,22 @@ const models = [
 class Connection {
   instance: ?Sequelize;
 
+  async connect(): Promise<Sequelize> {
+    const postgres = process.env.POSTGRES_URL;
+    const connection = postgres ?? {
+      dialect: 'sqlite',
+      storage: './database.sqlite',
+    }
+    const instance = new Sequelize(connection);
+    await instance.authenticate();
+    return instance;
+  }
+
   async init(): Promise<self> {
     let instance = null;
     while (instance == null) {
       try {
-        instance = new Sequelize({
-          dialect: 'sqlite',
-          storage: './database.sqlite',
-        });
-
-        await instance.authenticate();
+        instance = await this.connect();
 
         models.forEach(model => {
           if (instance == null) return;

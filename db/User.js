@@ -17,7 +17,7 @@ export default class User extends Model {
     },
     password: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
       set(value: string) {
         const hash = bcrypt.hashSync(value, SALT_ROUNDS);
         this.setDataValue('password', hash);

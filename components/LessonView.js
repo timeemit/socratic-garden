@@ -2,6 +2,7 @@
 import type { LessonType, LessonSectionType, LessonParagraphContentsType } from '../types/LessonType';
 import type { ConceptType } from '../types/ConceptType';
 
+import styles from '../styles/LessonView.module.scss';
 import React, { type Node } from 'react';
 import { LESSON_HEADER, LESSON_MEDIA, LESSON_TEXT } from '../types/LessonType';
 import { LessonConceptIDs } from '../models/Lesson';
@@ -35,14 +36,14 @@ class LessonSectionView extends React.Component<SectionProps> {
   render() {
     const { section } = this.props;
     if (section.type === LESSON_HEADER) {
-      return <h2 className="header">{section.content}</h2>;
+      return <h2 className={`header ${styles.section}`}>{section.content}</h2>;
     } else if (section.type === LESSON_MEDIA) {
-      return <MediaView media={section.content} />;
+      return <MediaView className={styles.section} media={section.content} />;
     }
     return (
-      <span style={{whitespace: "pre"}}>
+      <div className={styles.section}>
         {section.content.map<Node>((span, i) => <LessonParagraphView key={i} paragraph={span} />)}
-      </span>
+      </div>
     );
   }
 }

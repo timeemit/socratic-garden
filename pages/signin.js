@@ -8,11 +8,12 @@ export default function Page() {
     {loading && <>Loading...</>}
     {!loading && !session && <>
       Not signed in <br/>
-      <button onClick={signIn}>Sign in</button>
+      <button className="pure-button" onClick={signIn}>Sign in</button>
     </>}
     {!loading && session && <>
       Signed in as {session.user.email} <br/>
-      <button onClick={signOut}>Sign out</button>
+        <pre>{JSON.stringify(session.user)}</pre>
+      <button className="pure-button" onClick={signOut}>Sign out</button>
     </>}
   </>
 }

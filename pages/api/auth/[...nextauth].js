@@ -15,10 +15,10 @@ let options = {
       clientId: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_SECRET,
     }),
-    Providers.LinkedIn({
-      clientId: process.env.LINKEDIN_ID,
-      clientSecret: process.env.LINKEDIN_SECRET,
-    }),
+    // Providers.LinkedIn({
+    //   clientId: process.env.LINKEDIN_ID,
+    //   clientSecret: process.env.LINKEDIN_SECRET,
+    // }),
   ],
 }
 

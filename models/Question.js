@@ -7,7 +7,7 @@ import { ChoiceIndices } from '../types/ChoiceTypes';
 const QUESTIONS: Array<QuestionType> = [
   {
     lesson_id: 0,
-    text: "What is Socratic Garden?",
+    text: "What is the Socratic Garden?",
     media: null,
     choices: {
       [ChoiceIndices.first]: {

@@ -10,7 +10,7 @@ import { CONCEPTS, ConceptByText } from './Concept';
 
 const LESSONS: Array<LessonType> = [
   {
-    title: "What is the Socratic Garden?",
+    title: "Online Learning Powered by Merit",
     sections: [
       {
         type: LESSON_PARAGRAPH,
@@ -29,7 +29,7 @@ const LESSONS: Array<LessonType> = [
       },
       {
         type: LESSON_HEADER,
-        content: "Can free, high-quality, massively available learning material be a sustainable enterprise?",
+        content: "Where Learners Work Towards Jobs, not Pedagogy",
       },
       {
         type: LESSON_MEDIA,
@@ -43,12 +43,12 @@ const LESSONS: Array<LessonType> = [
         type: LESSON_PARAGRAPH,
         content: [{
           type: LESSON_TEXT,
-          content: "It's a simple question, really.  More than a billion people spend the majority of their day at a school, costing either the student's family or government.  But what about people that don't have such generous support infrastructure?",
+          content: "What's more valuable: A certificate of accomplishment or a paying job?  Learners on the Socratic Garden will receive recommendations for employment opportunities relevant to the studies they're interested in.",
         }],
       },
       {
         type: LESSON_HEADER,
-        content: "Great lessons are valuable!  Contributors here are paid accordingly.",
+        content: "Where Instructors are Rewarded for Outcomes, not Signups",
       },
       {
         type: LESSON_MEDIA,
@@ -62,12 +62,12 @@ const LESSONS: Array<LessonType> = [
         type: LESSON_PARAGRAPH,
         content: [{
           type: LESSON_TEXT,
-          content: "Contributors earn money for the engagement of their lessons: the more questions learners answer correctly after seeing a lesson, the more that lesson is worth.  Unlike other online platforms that pay you only for traffic volume, contributions to the Socratic Garden are measured by quality, not quantity.",
+          content: "Unlike other online platforms that pay you only for traffic volume, contributions to the Socratic Garden are measured by quality, not quantity.  Contributors here can earn for the engagement of their lessons: the more questions learners answer correctly after seeing a lesson, the more that lesson is worth.",
         }]
       },
       {
         type: LESSON_HEADER,
-        content: "If the Socratic Garden is free, how does it cover costs?",
+        content: "Where Employers Hire Hardworking Talent, not Resumes",
       },
       {
         type: LESSON_MEDIA,
@@ -81,7 +81,7 @@ const LESSONS: Array<LessonType> = [
         type: LESSON_PARAGRAPH,
         content: [{
           type: LESSON_TEXT,
-          content: "With enough traffic, delivering advertisements for jobs relevant to lessons learners are viewing should generate revenue that can then be redirected to rewarding contributors appropriately.",
+          content: "Great students make a great workforce.  Job applications coming from the Socratic Garden will be augmented with anlaytics we've collected around student performance to enhance hiring signal.",
         }],
       },
     ]

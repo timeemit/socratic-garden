@@ -13,7 +13,7 @@ type LessonHeaderType = {|
   content: string,
 |};
 
-type LessonMediaType = {|
+export type LessonMediaType = {|
   type: typeof LESSON_MEDIA,
   content: MediaURL,
 |};

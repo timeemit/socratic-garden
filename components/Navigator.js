@@ -12,14 +12,20 @@ export default class Navigator extends React.PureComponent<{}> {
           <Link href="/">
             <img className={styles.homeLogo} src="/logo-no-text.png" />
           </Link>
+          <Link href="/courses">
+            <a href="/courses" className={styles.headerPurple}>
+              <FontAwesomeIcon icon="book" transform="left-3" />
+              <span className={styles.span}>Courses</span>
+            </a>
+          </Link>
           <Link href="/concepts">
-            <a href="#" className={styles.headerPurple}>
+            <a href="/concepts" className={styles.headerRed}>
               <FontAwesomeIcon icon="book" transform="left-3" />
               <span className={styles.span}>Concepts</span>
             </a>
           </Link>
-            <Link href="/lessons/new">
-            <a href="#" className={styles.headerBlue}>
+          <Link href="/lessons/new">
+            <a href="/lessons/new" className={styles.headerBlue}>
               <FontAwesomeIcon icon="edit" transform="left-3" />
               <span className={styles.span}>Submit a Lesson</span>
             </a>

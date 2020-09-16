@@ -50,7 +50,7 @@ export default class ConceptPage extends React.Component<Params> {
       return (
         <div key={i} className={`pure-u-lg-1-3 pure-u-1 ${styles.card}`}>
           <Link href="/lessons/[id]/[slug]" as={`/lessons/${lesson.id}/${slugger(lesson.title)}`}>
-            <a className={`link ${styles.link}`} href="#">
+            <a className={`link ${styles.link}`} href="">
               <h2 className={`header ${styles.header}`}>{lesson.title}</h2>
               {this.renderTextPreview(lesson)}
             </a>

@@ -2,7 +2,7 @@
 
 import type { ConceptType } from '../types/ConceptType';
 import type  { LessonType } from '../types/LessonType';
-import { LESSON_PARAGRAPH, LESSON_HEADER, LESSON_MEDIA, LESSON_TEXT, LESSON_CONCEPT} from '../types/LessonType';
+import { LESSON_PARAGRAPH, LESSON_HEADER, LESSON_MEDIA, LESSON_TEXT, LESSON_CONCEPT } from '../types/LessonType';
 import { slug } from '../pages/_app';
 import { ChoiceIndices } from '../types/ChoiceTypes';
 import { MediaTypes } from '../types/Media';

@@ -1,6 +1,5 @@
-// @flow
 
-import type { CourseType } from '../types/CourseType';
+import { CourseType } from '../types/CourseType';
 
 export const COURSES: Array<CourseType> = [
   {

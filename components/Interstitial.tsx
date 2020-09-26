@@ -1,16 +1,15 @@
-// @flow
 import styles from '../styles/Interstitial.module.scss';
-import React, { type Node } from 'react';
+import React, { Node } from 'react';
 import Closeable from './Closeable';
 
-type Props = {|
+type Props = {
   content: Node,
   reveal: boolean,
-  onCancel: () => void,
-|};
+  onCancel: (() => void)
+};
 
 export default class Interstitial extends React.PureComponent<Props> {
-  onClickToIgnore = (e: SyntheticEvent<>) => {
+  onClickToIgnore = (e: React.SyntheticEvent) => {
     e.stopPropagation();
   }
 

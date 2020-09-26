@@ -1,10 +1,9 @@
-// @flow
 import styles from '../../styles/CoursePage.module.scss';
-import type { Context } from '../../types/context';
-import type { CourseType } from '../../types/CourseType';
-import type { LessonType } from '../../types/LessonType';
-import { type LessonMediaType, LESSON_MEDIA } from '../../types/LessonType';
-import React, {type Node} from 'react';
+import { Context } from '../../types/context';
+import { CourseType } from '../../types/CourseType';
+import { LessonType } from '../../types/LessonType';
+import { LessonMediaType, LESSON_MEDIA } from '../../types/LessonType';
+import React from 'react';
 import Page from '../../components/PageWithNavigator';
 import ConceptLink from '../../components/ConceptLink';
 import MediaView from '../../components/MediaView';
@@ -14,11 +13,13 @@ import { LessonFetch } from '../../models/Lesson';
 import Link from 'next/link';
 import Page404 from '../404';
 
-type Params = {|
-  courses: Array<CourseType>,
-|};
+type Params = {
+  courses: Array<CourseType>
+};
 
-export async function getServerSideProps(context: Context): Promise<{|props: Params|}> {
+export async function getServerSideProps(context: Context): Promise<{
+  props: Params
+}> {
   return { props: { courses: COURSES } };
 }
 
@@ -32,7 +33,7 @@ export default class CoursePage extends React.Component<Params> {
     );
   }
 
-  renderCourses(): Node {
+  renderCourses() {
     return this.props.courses.map((course, i) => {
       const lesson = LessonFetch(course.lesson_ids[0]);
       return (
@@ -52,7 +53,7 @@ export default class CoursePage extends React.Component<Params> {
     });
   }
 
-  renderMediaPreview(lesson: LessonType): Node {
+  renderMediaPreview(lesson: LessonType) {
     const media = lesson.sections.filter((section) => section.type === LESSON_MEDIA);
     return media.map((shiny, i) => (
       <div className={`pure-u-1-4 ${styles.mediaContainer}`}>

@@ -1,15 +1,14 @@
-// @flow
 import styles from '../styles/ConceptLink.module.scss';
-import type { ConceptType } from '../types/ConceptType';
+import { ConceptType } from '../types/ConceptType';
 
 import React from 'react';
 import Link from 'next/link';
 import { slug } from '../pages/_app';
 
-type Props = {|
+type Props = {
   concept: ConceptType,
-  disabled?: boolean,
-|};
+  disabled?: boolean
+};
 
 export default class ConceptLink extends React.Component<Props> {
   render() {

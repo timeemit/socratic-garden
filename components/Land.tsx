@@ -1,13 +1,15 @@
-// @flow
-import React, { type Node } from 'react';
+import React, { Node } from 'react';
 import Page from '../components/Page';
 
 type Props = {
   children: Node,
-  title: string,
-}
+  title: string
+};
 
-export default ({ children, title }: Props) => (
+export default ({
+  children,
+  title
+}: Props) => (
   <section>
     <Page title={title} grid={true}>
       {children}

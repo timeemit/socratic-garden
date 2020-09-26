@@ -1,4 +1,3 @@
-// @flow
 import styles from '../styles/Navigator.module.scss';
 import React from 'react';
 import Link from 'next/link';

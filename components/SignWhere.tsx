@@ -1,4 +1,3 @@
-// @flow
 import styles from '../styles/SignWare.module.scss'
 
 import React from 'react';
@@ -8,22 +7,20 @@ const Direction = {
   up: "up",
 };
 
-type Props = {|
-
-|};
+type Props = {};
 
 type State = {
-  direction: $Values<typeof Direction>,
+  direction: typeof Direction[keyof typeof Direction],
   username: string,
-  password: string,
+  password: string
 };
 
-export default class Gateway extends React.Component<Props,State> {
+export default class Gateway extends React.Component<Props, State> {
   state: State = {
     direction: Direction.up,
     username: "",
     password: "",
-  }
+  };
 
   render() {
     return (

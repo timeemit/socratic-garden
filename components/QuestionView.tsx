@@ -1,28 +1,27 @@
-// @flow
-import type { Choice, ChoiceIndex } from '../types/ChoiceTypes';
-import type { QuestionType } from '../types/QuestionType';
-import type { ConceptType } from '../types/ConceptType';
+import { Choice, ChoiceIndex } from '../types/ChoiceTypes';
+import { QuestionType } from '../types/QuestionType';
+import { ConceptType } from '../types/ConceptType';
 import React from 'react';
 import NewChoiceDepth from '../utils/NewChoiceDepth';
 import ChoiceButton  from './ChoiceButton';
 import MediaView from './MediaView';
 
-type Props = {|
+type Props = {
   question: QuestionType,
-  onFinish: () => void,
-  disabled: boolean,
-|};
+  onFinish: (() => void),
+  disabled: boolean
+};
 
 type State = {
   chosen: Array<ChoiceIndex>,
-  response: ?string,
+  response: string | null
 };
 
-export default class QuestionView extends React.Component<Props,State> {
+export default class QuestionView extends React.Component<Props, State> {
   state: State = {
     chosen: [],
     response: null,
-  }
+  };
 
   onChoice = (choice: ChoiceIndex) => {
     let { chosen } = this.state;
@@ -31,7 +30,8 @@ export default class QuestionView extends React.Component<Props,State> {
     chosen.unshift(choice);
     this.setState({chosen, response});
 
-    let correct_choice_depth = JSON.parse(window.sessionStorage.correct_choice_depth ?? "{}");
+    let correct_choice_depth = JSON.parse(// Auto generated from flowToTs. Please clean me!
+    window.sessionStorage.correct_choice_depth !== null && window.sessionStorage.correct_choice_depth !== undefined ? window.sessionStorage.correct_choice_depth : "{}");
     if (correct_choice === null || choice === correct_choice) {
       if (correct_choice !== null) {
         correct_choice_depth = NewChoiceDepth(correct_choice_depth);

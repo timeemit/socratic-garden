@@ -1,14 +1,13 @@
-// @flow
 import styles from '../../styles/NewLesson.module.scss'
 import button_styles from '../../styles/ChoiceButton.module.scss'
-import type { LessonType } from '../../types/LessonType';
-import type { QuestionType } from '../../types/QuestionType';
-import type { Props as Params } from '../../components/ChallengeView';
-import type { NewProps, OptionProps, ChosenProps } from '../../components/Autocomplete';
-import type { ConceptType } from '../../types/ConceptType';
-import type { Choice, ChoiceIndex } from '../../types/ChoiceTypes';
+import { LessonType } from '../../types/LessonType';
+import { QuestionType } from '../../types/QuestionType';
+import { Props as Params } from '../../components/ChallengeView';
+import { NewProps, OptionProps, ChosenProps } from '../../components/Autocomplete';
+import { ConceptType } from '../../types/ConceptType';
+import { Choice, ChoiceIndex } from '../../types/ChoiceTypes';
 
-import React, { type Node } from 'react';
+import React, { Node } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Page from '../../components/PageWithNavigator';
 import { ChoiceIndices } from '../../types/ChoiceTypes';
@@ -20,19 +19,21 @@ import Interstitial from '../../components/Interstitial';
 import SignWhere from '../../components/SignWhere';
 import { ConceptsByText, CreateConceptByText } from '../../models/Concept';
 
-type Props = {||};
+type Props = {};
 
 type State = {
   lesson_title: string,
   lesson_text: string,
   concepts: Array<ConceptType>,
   question_text: string,
-  choices: {[ChoiceIndex]: Choice},
-  correct_choice: ?ChoiceIndex,
-  reveal_interstitial: boolean,
+  choices: {
+    [K in ChoiceIndex]: Choice;
+  },
+  correct_choice: ChoiceIndex | null,
+  reveal_interstitial: boolean
 };
 
-export default class NewLesson extends React.Component<Props,State> {
+export default class NewLesson extends React.Component<Props, State> {
   state: State = {
     lesson_title: "",
     lesson_text: "",
@@ -47,18 +48,18 @@ export default class NewLesson extends React.Component<Props,State> {
     reveal_interstitial: false,
   };
 
-  textChanger = (field: ("lesson_title" | "lesson_text" | "question_text" | "correct_choice")): (SyntheticEvent<HTMLInputElement> => void) => {
-    return (e: SyntheticEvent<HTMLInputElement>) => {
+  textChanger = (field: "lesson_title" | "lesson_text" | "question_text" | "correct_choice"): ((syntheticEvent: React.SyntheticEvent) => void) => {
+    return (e: React.SyntheticEvent) => {
       return this.setState({[field]: e.currentTarget.value});
-    }
+    };
   }
 
-  choiceChanger = (index: ChoiceIndex, field: $Keys<Choice> ): (SyntheticEvent<HTMLInputElement> => void) => {
-    return (e: SyntheticEvent<HTMLInputElement>) => {
+  choiceChanger = (index: ChoiceIndex, field: keyof Choice): ((syntheticEvent: React.SyntheticEvent) => void) => {
+    return (e: React.SyntheticEvent) => {
       let { choices } = this.state;
       choices[index][field] = e.currentTarget.value;
       return this.setState({ choices });
-    }
+    };
   }
 
   isValid() {
@@ -69,7 +70,7 @@ export default class NewLesson extends React.Component<Props,State> {
     //   Object.values(this.state.choices).every(choice => !Object.values(choice).includes(""))
   }
 
-  onConceptChoice = (chosen_concept: ?ConceptType) => {
+  onConceptChoice = (chosen_concept: ConceptType | null) => {
     let { concepts } = this.state;
     if (chosen_concept != null) {
       concepts.push(chosen_concept);
@@ -84,7 +85,7 @@ export default class NewLesson extends React.Component<Props,State> {
     this.setState({concepts});
   }
 
-  onSubmit = (e: SyntheticEvent<>) => {
+  onSubmit = (e: React.SyntheticEvent) => {
     e.stopPropagation;
     this.setState({reveal_interstitial: true});
   }
@@ -115,21 +116,28 @@ export default class NewLesson extends React.Component<Props,State> {
               display={(concept) => concept.text}
               width="200px"
               placeholder="...on the concept of...?"
-              option={({value, display}: OptionProps<ConceptType>) => {
+              option={({
+                value,
+                display
+              }: OptionProps<ConceptType>) => {
                 return (
                   <div className={styles.option}>
                     {display}
                   </div>
                 );
               }}
-              new={({display}: NewProps) => {
+              new={({
+                display
+              }: NewProps) => {
                 return (
                   <div className={styles.option}>
                     <FontAwesomeIcon icon="plus" /> Add "{display}"
                   </div>
                 );
               }}
-              chosen={({value}: ChosenProps<ConceptType>) => {
+              chosen={({
+                value
+              }: ChosenProps<ConceptType>) => {
                 return (
                   <div className={styles.conceptLink}>
                     <ConceptLink concept={value} disabled={true} />

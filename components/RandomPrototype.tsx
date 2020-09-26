@@ -1,14 +1,13 @@
-// @flow
-import React, { type Node } from 'react';
+import React, { Node } from 'react';
 import Head from 'next/head';
 
 type Props = {
-	children?: Node
+  children?: Node
 };
 
 type State = {
-	image: number,
-	viewed_images: Array<number>,
+  image: number,
+  viewed_images: Array<number>
 };
 
 const IMAGES = [
@@ -102,7 +101,7 @@ const IMAGES = [
   },
 ];
 
-export default class RandomPrototype extends React.Component<Props,State> {
+export default class RandomPrototype extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
     const image = RandomPrototype.randomImage();
@@ -112,24 +111,24 @@ export default class RandomPrototype extends React.Component<Props,State> {
     };
   }
 
-  static imageIndices(): Array<number> {
+  static imageIndices function(): Array<number> {
     return [...Array(IMAGES.length).keys()];
   }
 
-  static randomImage(): number {
+  static randomImage function(): number {
     return RandomPrototype.choose(RandomPrototype.imageIndices());
   }
 
-  static choose(candidates: Array<number>): number {
+  static choose function(candidates: Array<number>): number {
     return candidates[Math.floor(Math.random() * 10) % candidates.length]
   }
 
-  randomDifferentImage(): number {
+  randomDifferentImage function(): number {
     const candidates = RandomPrototype.imageIndices().filter((image) => image !== this.state.image);
     return RandomPrototype.choose(candidates);
   }
 
-  unseenImages(): Array<number> {
+  unseenImages function(): Array<number> {
     return RandomPrototype.imageIndices().filter((image) => !this.state.viewed_images.includes(image));
   }
 

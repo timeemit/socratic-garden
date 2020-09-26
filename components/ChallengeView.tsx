@@ -1,9 +1,8 @@
-// @flow
 import styles from '../styles/ChallengeView.module.scss';
-import type { ElementRef } from 'react';
-import type { LessonType } from '../types/LessonType';
-import type { QuestionType } from '../types/QuestionType';
-import type { ConceptType } from '../types/ConceptType';
+import { ElementRef } from 'react';
+import { LessonType } from '../types/LessonType';
+import { QuestionType } from '../types/QuestionType';
+import { ConceptType } from '../types/ConceptType';
 import Router from 'next/router'
 import React from 'react';
 import { slug } from '../pages/_app';
@@ -14,23 +13,23 @@ import { QuestionByLessonID } from '../models/Question';
 import { ChoiceIndices } from '../types/ChoiceTypes';
 import QuestionView from './QuestionView';
 
-export type Props = {|
-  lesson: LessonType,
-|};
+export type Props = {
+  lesson: LessonType
+};
 
 type Finished = {
   answered: Array<number>,
-  skipped: Array<number>,
-}
+  skipped: Array<number>
+};
 
 type State = {
   finished: Finished,
-  question: ?QuestionType,
+  question: QuestionType | null
 };
 
-export default class ChallengeView extends React.Component<Props,State> {
-  question: ?ElementRef<'div'> = null;
-  navigation: ?ElementRef<'div'> = null;
+export default class ChallengeView extends React.Component<Props, State> {
+  question: ElementRef<"div"> | null = null;
+  navigation: ElementRef<"div"> | null = null;
 
   finishedInitialization(): Finished {
     return {answered: [], skipped: []};
@@ -137,7 +136,11 @@ export default class ChallengeView extends React.Component<Props,State> {
     const next_question = this.nextQuestion();
     let navigation_question = {
       id: -1,
-      lesson_id: question?.lesson_id ?? -1,
+      lesson_id: // Auto generated from flowToTs. Please clean me!
+      // Auto generated from flowToTs. Please clean me!
+      (question === null || question === undefined ? undefined : question.lesson_id) !== null && // Auto generated from flowToTs. Please clean me!
+      (question === null || question === undefined ? undefined : question.lesson_id) !== undefined ? // Auto generated from flowToTs. Please clean me!
+      question === null || question === undefined ? undefined : question.lesson_id : -1,
       text: message,
       media: null,
       choices: {

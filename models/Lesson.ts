@@ -1,7 +1,6 @@
-// @flow
 
-import type { ConceptType } from '../types/ConceptType';
-import type  { LessonType } from '../types/LessonType';
+import { ConceptType } from '../types/ConceptType';
+import { LessonType } from '../types/LessonType';
 import { LESSON_PARAGRAPH, LESSON_HEADER, LESSON_MEDIA, LESSON_TEXT, LESSON_CONCEPT } from '../types/LessonType';
 import { slug } from '../pages/_app';
 import { ChoiceIndices } from '../types/ChoiceTypes';
@@ -259,7 +258,7 @@ const LESSONS: Array<LessonType> = [
       },
     ]
   }
-].map(({title, concept, sections}, id) => {
+].map(({title, sections}, id) => {
   return {
     id,
     title,
@@ -287,7 +286,7 @@ export function LessonsByConcept(concept: ConceptType): Array<LessonType> {
 export function LessonConceptIDs(lesson: LessonType): Array<number> {
   const concept_ids = lesson.sections.map(section => {
     if (section.type === LESSON_PARAGRAPH) {
-      return section.content.map<?number>(span => {
+      return section.content.map(span => {
         if (span.type === LESSON_CONCEPT) {
           return span.content.id;
         }

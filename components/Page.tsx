@@ -1,12 +1,11 @@
-// @flow
-import React, { type Node } from 'react'
+import React, { Node } from 'react';
 import Head from 'next/head'
 
 export type Props = {
   children: Node,
   title: string,
   grid?: boolean
-}
+};
 
 export default class Page extends React.PureComponent<Props> {
   render() {

@@ -1,5 +1,4 @@
-// @flow
-import type { ConceptType } from '../types/ConceptType';
+import { ConceptType } from '../types/ConceptType';
 
 export const CONCEPTS: Array<ConceptType> = [
   {
@@ -42,7 +41,7 @@ export function ConceptByText(text: string): ConceptType {
   }
 };
 
-export function ConceptByID(id: number): ?ConceptType {
+export function ConceptByID(id: number): ConceptType | null {
   return CONCEPTS.find((concept) => concept.id === id);
 };
 

@@ -1,26 +1,25 @@
-// @flow
-import type { LessonType, LessonSectionType, LessonParagraphContentsType } from '../types/LessonType';
-import type { ConceptType } from '../types/ConceptType';
+import { LessonType, LessonSectionType, LessonParagraphContentsType } from '../types/LessonType';
+import { ConceptType } from '../types/ConceptType';
 
 import styles from '../styles/LessonView.module.scss';
-import React, { type Node } from 'react';
+import React, { Node } from 'react';
 import { LESSON_HEADER, LESSON_MEDIA, LESSON_TEXT } from '../types/LessonType';
 import { LessonConceptIDs } from '../models/Lesson';
 import { ConceptByID, ConceptByText } from '../models/Concept';
 import MediaView from './MediaView';
 import ConceptLink from './ConceptLink';
 
-type Props = {|
-  lesson: LessonType,
-|};
+type Props = {
+  lesson: LessonType
+};
 
-type SectionProps = {|
-  section: LessonSectionType,
-|}
+type SectionProps = {
+  section: LessonSectionType
+};
 
-type ParagraphProps = {|
-  paragraph: LessonParagraphContentsType,
-|};
+type ParagraphProps = {
+  paragraph: LessonParagraphContentsType
+};
 
 class LessonParagraphView extends React.Component<ParagraphProps> {
   render() {

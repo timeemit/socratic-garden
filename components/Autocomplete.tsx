@@ -1,45 +1,44 @@
-// @flow
 import styles from '../styles/Autocomplete.module.scss';
-import type { ComponentType } from 'react';
+import { ComponentType } from 'react';
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Closeable from './Closeable';
 
 export type OptionProps<T> = {
   value: T,
-  display: string,
+  display: string
 };
 
 export type NewProps = {
-  display: string,
+  display: string
 };
 
 export type ChosenProps<T> = {
-  value: T,
-}
+  value: T
+};
 
-type Props<P> = {|
+type Props<P> = {
   values: Array<P>,
-  width: string, // Pixels
+  width: string // Pixels,
   placeholder: string,
   option: ComponentType<OptionProps<P>>,
   new: ComponentType<NewProps>,
   chosen: ComponentType<ChosenProps<P>>,
-  retrieve: (value: string) => Array<P>,
-  create: (value: string) => P,
-  display: (value: P) => string,
-  onChoice: (value: ?P) => void,
-  onRemoval: (value: P) => void,
-|};
+  retrieve: ((value: string) => Array<P>),
+  create: ((value: string) => P),
+  display: ((value: P) => string),
+  onChoice: ((value: P | null) => void),
+  onRemoval: ((value: P) => void)
+};
 
 type State<S> = {
   value: string,
   reveal: boolean,
-  options: Array<S>,
+  options: Array<S>
 };
 
-export default class Autocomplete<A,B> extends React.Component<Props<A|B>,State<A|B>> {
-  constructor(props: Props<A|B>) {
+export default class Autocomplete<A, B> extends React.Component<Props<A | B>, State<A | B>> {
+  constructor(props: Props<A | B>) {
     super(props);
     this.state = {
       value: "",
@@ -48,33 +47,33 @@ export default class Autocomplete<A,B> extends React.Component<Props<A|B>,State<
     };
   }
 
-  getUniqueOptions(value: string): Array<A|B> {
+  getUniqueOptions(value: string): Array<A | B> {
     const displays = this.props.values.map(this.props.display);
     return this.props.retrieve(value).filter((option) => !displays.includes(this.props.display(option)));
   }
 
-  onFocus = (e: SyntheticEvent<> ) => {
+  onFocus = (e: React.SyntheticEvent ) => {
     const options = this.getUniqueOptions(this.state.value);
     this.setState({options, reveal: true});
   }
 
-  onBlur = (e: SyntheticEvent<> ) => {
+  onBlur = (e: React.SyntheticEvent ) => {
     this.setState({reveal: false})
   }
 
-  onChange = (e: SyntheticEvent<HTMLInputElement> ) => {
+  onChange = (e: React.SyntheticEvent ) => {
     const value = e.currentTarget.value;
     const options = this.getUniqueOptions(value);
     this.setState({options, value});
   }
 
-  onChoice = (value: A|B) => { 
+  onChoice = (value: A | B) => { 
     this.props.onChoice(value);
     const options = this.getUniqueOptions("");
     this.setState({options, reveal: false, value: ""});
   }
 
-  onRemoval = (value: A|B) => {
+  onRemoval = (value: A | B) => {
     this.props.onRemoval(value);
   }
 

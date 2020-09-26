@@ -1,6 +1,5 @@
-// @flow
 
-import type  { QuestionType } from '../types/QuestionType';
+import { QuestionType } from '../types/QuestionType';
 import { MediaTypes } from '../types/Media';
 import { ChoiceIndices } from '../types/ChoiceTypes';
 
@@ -116,7 +115,7 @@ const QUESTIONS: Array<QuestionType> = [
   };
 });
 
-export function QuestionByLessonID(lesson_id?: number, completed?: Array<number>): ?QuestionType {
+export function QuestionByLessonID(lesson_id?: number, completed?: Array<number>): QuestionType | null {
   return QUESTIONS.find((question) => {
     return question.lesson_id === lesson_id && (completed == null || !completed.includes(question.id))
   });

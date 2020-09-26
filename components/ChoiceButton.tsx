@@ -1,20 +1,19 @@
-// @flow
 import styles from '../styles/ChoiceButton.module.scss';
-import type { ChoiceIndex, Choice } from '../types/ChoiceTypes';
-import type { QuestionType } from '../types/QuestionType';
+import { ChoiceIndex, Choice } from '../types/ChoiceTypes';
+import { QuestionType } from '../types/QuestionType';
 import { slug } from '../pages/_app';
 import React from 'react';
 import Link from 'next/link';
 
-type Props = {|
+type Props = {
   className: string,
-  onChoice: (ChoiceIndex) => void,
+  onChoice: ((choiceIndex: ChoiceIndex) => void),
   question: QuestionType,
   choice: Choice,
   index: ChoiceIndex,
   correct: boolean,
-  chosen: boolean,
-|};
+  chosen: boolean
+};
 
 export default class ChoiceButton extends React.PureComponent<Props> {
   onClick = () => {

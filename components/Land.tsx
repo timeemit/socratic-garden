@@ -1,15 +1,14 @@
-import React, { Node } from 'react';
+import React from 'react';
 import Page from '../components/Page';
 
 type Props = {
-  children: Node,
   title: string
 };
 
 export default ({
   children,
   title
-}: Props) => (
+}) => (
   <section>
     <Page title={title} grid={true}>
       {children}

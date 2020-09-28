@@ -1,8 +1,7 @@
-// @flow
 
 type CorrectChoiceDepth = {
   expiration: string,
-  count: number,
+  count: number
 };
 
 export default (correct_choice_depth?: CorrectChoiceDepth): CorrectChoiceDepth => {
@@ -21,5 +20,5 @@ export default (correct_choice_depth?: CorrectChoiceDepth): CorrectChoiceDepth =
     }
   }
   return { count, expiration: expiration.toISOString() };
-}
+};
 

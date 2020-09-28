@@ -4,7 +4,7 @@ import { QuestionType } from '../../../types/QuestionType';
 import { Props as Params } from '../../../components/ChallengeView';
 
 import React from 'react';
-import Page from '../../../components/PageWithNavigator';
+import PageWithNavigator from '../../../components/PageWithNavigator';
 import { ChoiceIndices } from '../../../types/ChoiceTypes';
 import { LessonFetch } from '../../../models/Lesson';
 import ChallengeView from '../../../components/ChallengeView';
@@ -19,10 +19,10 @@ export async function getServerSideProps(context: Context): Promise<{
 
 export default (params: Params) => {
   return (
-    <Page title={params.lesson.title}>
+    <PageWithNavigator title={params.lesson.title}>
       <main className="pure-u-1">
         <ChallengeView lesson={params.lesson} />
       </main>
-    </Page>
+    </PageWithNavigator>
   );
 }

@@ -3,7 +3,7 @@ import { QuestionType } from '../../types/QuestionType';
 import { LessonType } from '../../types/LessonType';
 import { ConceptType } from '../../types/ConceptType';
 import React from 'react';
-import Page from '../../components/PageWithNavigator';
+import PageWithNavigator from '../../components/PageWithNavigator';
 import ConceptLink from '../../components/ConceptLink';
 import { slug as slugger} from '../../pages/_app';
 import { CONCEPTS } from '../../models/Concept';
@@ -25,10 +25,10 @@ export async function getServerSideProps(context: Context): Promise<{
 export default class ConceptsPage extends React.Component<Params> {
   render() {
     return (
-      <Page title="Concepts">
+      <PageWithNavigator title="Concepts">
         <h1 className="pure-u-1 header">Concepts</h1>
         {this.renderConcepts()}
-      </Page>
+      </PageWithNavigator>
     );
   }
 

@@ -1,8 +1,7 @@
-import React, { Node } from 'react';
+import React from 'react';
 import Head from 'next/head'
 
 export type Props = {
-  children: Node,
   title: string,
   grid?: boolean
 };

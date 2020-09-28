@@ -1,44 +1,8 @@
-// @flow
-import type { ConceptType } from './ConceptType';
-import type { MediaURL } from './Media';
-
-export const LESSON_HEADER: 'HEADER' = 'HEADER';
-export const LESSON_MEDIA: 'MEDIA' = 'MEDIA';
-export const LESSON_TEXT: 'TEXT' = 'TEXT';
-export const LESSON_CONCEPT: 'CONCEPT' = 'CONCEPT';
-export const LESSON_PARAGRAPH: 'PARAGRAPH' = 'PARAGRAPH';
-
-type LessonHeaderType = {|
-  type: typeof LESSON_HEADER,
-  content: string,
-|};
-
-export type LessonMediaType = {|
-  type: typeof LESSON_MEDIA,
-  content: MediaURL,
-|};
-
-type LessonTextType = {|
-  type: typeof LESSON_TEXT,
-  content: string,
-|};
-
-type LessonConceptType = {|
-  type: typeof LESSON_CONCEPT,
-  content: ConceptType,
-|};
-
-type LessonParagraphType = {|
-  type: typeof LESSON_PARAGRAPH,
-  content: Array<LessonParagraphContentsType>,
-|};
-
-export type LessonParagraphContentsType = LessonTextType | LessonConceptType;
-
-export type LessonSectionType = LessonHeaderType | LessonMediaType | LessonParagraphType;
-
-export type LessonType = {|
-  id: number,
-  title: string,
-  sections: Array<LessonSectionType>,
-|};
+"use strict";
+exports.__esModule = true;
+exports.LESSON_PARAGRAPH = exports.LESSON_CONCEPT = exports.LESSON_TEXT = exports.LESSON_MEDIA = exports.LESSON_HEADER = void 0;
+exports.LESSON_HEADER = 'HEADER';
+exports.LESSON_MEDIA = 'MEDIA';
+exports.LESSON_TEXT = 'TEXT';
+exports.LESSON_CONCEPT = 'CONCEPT';
+exports.LESSON_PARAGRAPH = 'PARAGRAPH';

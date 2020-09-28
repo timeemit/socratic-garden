@@ -1,14 +1,8 @@
-// @flow
-
-export const ChoiceIndices = {
-  first: "1",
-  second: "2",
-  third: "3",
+"use strict";
+exports.__esModule = true;
+exports.ChoiceIndices = void 0;
+exports.ChoiceIndices = {
+    first: "1",
+    second: "2",
+    third: "3"
 };
-
-export type Choice = {|
-  text: string,
-  response: ?string,
-|};
-
-export type ChoiceIndex = $Values<typeof ChoiceIndices>;

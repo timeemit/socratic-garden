@@ -3,17 +3,15 @@ import button_styles from '../../styles/ChoiceButton.module.scss'
 import { LessonType } from '../../types/LessonType';
 import { QuestionType } from '../../types/QuestionType';
 import { Props as Params } from '../../components/ChallengeView';
-import { NewProps, OptionProps, ChosenProps } from '../../components/Autocomplete';
 import { ConceptType } from '../../types/ConceptType';
 import { Choice, ChoiceIndex } from '../../types/ChoiceTypes';
 
-import React, { Node } from 'react';
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Page from '../../components/PageWithNavigator';
 import { ChoiceIndices } from '../../types/ChoiceTypes';
 import { LessonFetch } from '../../models/Lesson';
 import { QuestionByLessonID } from '../../models/Question';
-import Autocomplete from '../../components/Autocomplete';
 import ConceptLink from '../../components/ConceptLink';
 import Interstitial from '../../components/Interstitial';
 import SignWhere from '../../components/SignWhere';
@@ -48,14 +46,24 @@ export default class NewLesson extends React.Component<Props, State> {
     reveal_interstitial: false,
   };
 
-  textChanger = (field: "lesson_title" | "lesson_text" | "question_text" | "correct_choice"): ((syntheticEvent: React.SyntheticEvent) => void) => {
-    return (e: React.SyntheticEvent) => {
-      return this.setState({[field]: e.currentTarget.value});
-    };
-  }
+  onTitleChange = (e: React.FormEvent<HTMLInputElement>) => {
+    return this.setState({lesson_title: e.currentTarget.value});
+  };
 
-  choiceChanger = (index: ChoiceIndex, field: keyof Choice): ((syntheticEvent: React.SyntheticEvent) => void) => {
-    return (e: React.SyntheticEvent) => {
+  onLessonTextChange = (e: React.FormEvent<HTMLTextAreaElement>) => {
+    return this.setState({lesson_text: e.currentTarget.value});
+  };
+
+  onQuestionTextChange = (e: React.FormEvent<HTMLInputElement>) => {
+    return this.setState({question_text: e.currentTarget.value});
+  };
+
+  onCorrectChoiceChange = (e: React.FormEvent<HTMLInputElement>) => {
+    return this.setState({correct_choice: e.currentTarget.value});
+  };
+
+  choiceChanger = (index: ChoiceIndex, field: keyof Choice) => {
+    return (e) => {
       let { choices } = this.state;
       choices[index][field] = e.currentTarget.value;
       return this.setState({ choices });
@@ -85,7 +93,7 @@ export default class NewLesson extends React.Component<Props, State> {
     this.setState({concepts});
   }
 
-  onSubmit = (e: React.SyntheticEvent) => {
+  onSubmit = (e) => {
     e.stopPropagation;
     this.setState({reveal_interstitial: true});
   }
@@ -103,57 +111,20 @@ export default class NewLesson extends React.Component<Props, State> {
               placeholder="Title for your Great Lesson..."
               required
               spellCheck
-              onChange={this.textChanger("lesson_title")}
+              onChange={this.onTitleChange}
             />
           </h1>
           <div className="pure-u-1">
-            <Autocomplete
-              values={this.state.concepts}
-              onChoice={this.onConceptChoice}
-              onRemoval={this.onConceptRemoval}
-              retrieve={ConceptsByText}
-              create={CreateConceptByText}
-              display={(concept) => concept.text}
-              width="200px"
-              placeholder="...on the concept of...?"
-              option={({
-                value,
-                display
-              }: OptionProps<ConceptType>) => {
-                return (
-                  <div className={styles.option}>
-                    {display}
-                  </div>
-                );
-              }}
-              new={({
-                display
-              }: NewProps) => {
-                return (
-                  <div className={styles.option}>
-                    <FontAwesomeIcon icon="plus" /> Add "{display}"
-                  </div>
-                );
-              }}
-              chosen={({
-                value
-              }: ChosenProps<ConceptType>) => {
-                return (
-                  <div className={styles.conceptLink}>
-                    <ConceptLink concept={value} disabled={true} />
-                  </div>
-                )
-              }}
-            />
+            ...Choices
           </div>
           <div className="pure-u-1">
             <textarea
               className={`pure-u-1 ${styles.textArea} ${styles.isValid}`}
               placeholder="...that pushes a student's understanding forward in just a few seconds"
-              minLength="2"
+              minLength={2}
               required
               spellCheck
-              onChange={this.textChanger("lesson_text")}>
+              onChange={this.onLessonTextChange}>
             </textarea>
           </div>
           <h2 className="pure-u-1 header centered-text">
@@ -163,7 +134,7 @@ export default class NewLesson extends React.Component<Props, State> {
               placeholder="What question will encourage deeper thought?"
               required
               spellCheck
-              onChange={this.textChanger("question_text")}
+              onChange={this.onQuestionTextChange}
             />
           </h2>
           {this.renderChoices()}
@@ -174,12 +145,10 @@ export default class NewLesson extends React.Component<Props, State> {
           </button>
         </form>
         <Interstitial
-          content={
-            <SignWhere />
-          }
           reveal={this.state.reveal_interstitial}
-          onCancel={() => this.setState({reveal_interstitial: false})}
-        />
+          onCancel={() => this.setState({reveal_interstitial: false})}>
+          <SignWhere />
+        </Interstitial>
       </Page>
     );
   }
@@ -187,7 +156,7 @@ export default class NewLesson extends React.Component<Props, State> {
   renderChoices() {
     const choice_labels = ["A", "B", "C"];
     const choice_indices = [ChoiceIndices.first, ChoiceIndices.second, ChoiceIndices.third];
-    return choice_indices.map<Node>((index, i) => {
+    return choice_indices.map((index, i) => {
       let is_correct = "Expected?";
       if (this.state.correct_choice == index) {
         is_correct = "Expected!";
@@ -198,7 +167,6 @@ export default class NewLesson extends React.Component<Props, State> {
         <div className="pure-u-1 pure-u-lg-1-3 centered-text" key={index}>
           <textarea
             className={`centered-text ${button_styles.button} ${styles.choiceTextArea} ${styles.isValid}`}
-            type="text"
             placeholder={`Possible Answer ${choice_labels[i]}`}
             required
             spellCheck
@@ -211,14 +179,13 @@ export default class NewLesson extends React.Component<Props, State> {
               name="choices"
               id={index}
               value={index}
-              onChange={this.textChanger("correct_choice")}
+              onChange={this.onCorrectChoiceChange}
             />
             <div><span>{is_correct}</span></div>
             </div>
           </label>
           <textarea
             className={`centered-text ${button_styles.button} ${styles.choiceTextArea} ${styles.isValid}`}
-            type="text"
             placeholder={`Response to Answer ${choice_labels[i]}`}
             required
             spellCheck

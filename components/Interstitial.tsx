@@ -1,9 +1,8 @@
 import styles from '../styles/Interstitial.module.scss';
-import React, { Node } from 'react';
+import React from 'react';
 import Closeable from './Closeable';
 
 type Props = {
-  content: Node,
   reveal: boolean,
   onCancel: (() => void)
 };
@@ -24,7 +23,7 @@ export default class Interstitial extends React.PureComponent<Props> {
       <div className={classes.join(" ")} onClick={this.props.onCancel}>
         <div className={styles.interstitial} onClick={this.onClickToIgnore}>
           <Closeable size="2x" reveal={false} className={`${styles.frame} ${styles.closable}`} onClose={this.props.onCancel}>
-            {this.props.content}
+            {this.props.children}
           </Closeable>
         </div>
       </div>

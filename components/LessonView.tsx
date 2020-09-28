@@ -2,7 +2,7 @@ import { LessonType, LessonSectionType, LessonParagraphContentsType } from '../t
 import { ConceptType } from '../types/ConceptType';
 
 import styles from '../styles/LessonView.module.scss';
-import React, { Node } from 'react';
+import React from 'react';
 import { LESSON_HEADER, LESSON_MEDIA, LESSON_TEXT } from '../types/LessonType';
 import { LessonConceptIDs } from '../models/Lesson';
 import { ConceptByID, ConceptByText } from '../models/Concept';
@@ -41,7 +41,7 @@ class LessonSectionView extends React.Component<SectionProps> {
     }
     return (
       <div className={styles.section}>
-        {section.content.map<Node>((span, i) => <LessonParagraphView key={i} paragraph={span} />)}
+        {section.content.map((span, i) => <LessonParagraphView key={i} paragraph={span} />)}
       </div>
     );
   }
@@ -61,6 +61,6 @@ export default class LessonView extends React.Component<Props> {
 
   renderConcepts() {
     const concepts: Array<ConceptType> = LessonConceptIDs(this.props.lesson).map(ConceptByID).filter(Boolean);
-    return concepts.map<Node>((concept, i) => <ConceptLink key={i} concept={concept} />);
+    return concepts.map((concept, i) => <ConceptLink key={i} concept={concept} />);
   }
 }

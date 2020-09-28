@@ -1,9 +1,2 @@
-// @flow
-
-export type ConceptType = {|
-  id: number,
-  text: string,
-  definition: string,
-  aliases: Array<string>,
-  as: ?string,
-|}
+"use strict";
+exports.__esModule = true;

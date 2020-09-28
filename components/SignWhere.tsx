@@ -47,7 +47,7 @@ export default class Gateway extends React.Component<Props, State> {
           required />
         <a className="pure-u-1-2 centered-text" href="#" onClick={() => this.setState({direction: Direction.up})}>Sign Up</a>
         <div className="pure-u-1-2 centered-text">
-          <input className="pure-input-1" className="pure-button pure-button-primary" type="button" value="Sign In" />
+          <input className="pure-input-1 pure-button pure-button-primary" type="button" value="Sign In" />
         </div>
       </form>
     );
@@ -61,7 +61,7 @@ export default class Gateway extends React.Component<Props, State> {
         <input className="pure-input-1-2" type="password" placeholder="password" required />
         <a className="pure-u-1-2 centered-text" href="#" onClick={() => this.setState({direction: Direction.in})}>Sign In</a>
         <div className="pure-u-1-2 centered-text">
-          <input className="pure-input-1 centered-text" className="pure-button pure-button-primary" type="button" value="Sign Up" />
+          <input className="pure-input-1 centered-text pure-button pure-button-primary" type="button" value="Sign Up" />
         </div>
       </form>
     );

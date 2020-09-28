@@ -3,8 +3,8 @@ import { Context } from '../../../types/context';
 import { QuestionType } from '../../../types/QuestionType';
 import { LessonType } from '../../../types/LessonType';
 import { ConceptType } from '../../../types/ConceptType';
-import React, { Node } from 'react';
-import Page from '../../../components/PageWithNavigator';
+import React from 'react';
+import PageWithNavigator from '../../../components/PageWithNavigator';
 import { LESSON_PARAGRAPH, LESSON_TEXT } from '../../../types/LessonType';
 import ConceptLink from '../../../components/ConceptLink';
 import { slug as slugger} from '../../../pages/_app';
@@ -38,15 +38,15 @@ export default class ConceptPage extends React.Component<Params> {
       return <Page404 />;
     };
     return (
-      <Page title={concept.text}>
+      <PageWithNavigator title={concept.text}>
         <h1 className="pure-u-1 header"><ConceptLink concept={concept} /></h1>
         <em className="pure-u-1">{concept.definition}</em>
         {this.renderLessons()}
-      </Page>
+      </PageWithNavigator>
     );
   }
 
-  renderLessons(): Node {
+  renderLessons() {
     return this.props.lessons.map((lesson, i) => {
       return (
         <div key={i} className={`pure-u-lg-1-3 pure-u-1 ${styles.card}`}>
@@ -61,7 +61,7 @@ export default class ConceptPage extends React.Component<Params> {
     });
   }
 
-  renderTextPreview(lesson: LessonType): Node {
+  renderTextPreview(lesson: LessonType) {
     const first_paragraph_section = lesson.sections.find((section) => section.type === LESSON_PARAGRAPH);
     if (first_paragraph_section == null || first_paragraph_section.type !== LESSON_PARAGRAPH) {
       return null;

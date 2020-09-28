@@ -4,7 +4,7 @@ import { CourseType } from '../../types/CourseType';
 import { LessonType } from '../../types/LessonType';
 import { LessonMediaType, LESSON_MEDIA } from '../../types/LessonType';
 import React from 'react';
-import Page from '../../components/PageWithNavigator';
+import PageWithNavigator from '../../components/PageWithNavigator';
 import ConceptLink from '../../components/ConceptLink';
 import MediaView from '../../components/MediaView';
 import { slug as slugger} from '../../pages/_app';
@@ -26,10 +26,10 @@ export async function getServerSideProps(context: Context): Promise<{
 export default class CoursePage extends React.Component<Params> {
   render() {
     return (
-      <Page title="Courses on Socratic Garden">
+      <PageWithNavigator title="Courses on Socratic Garden">
         <h1 className="pure-u-1 header">Courses</h1>
         {this.renderCourses()}
-      </Page>
+      </PageWithNavigator>
     );
   }
 
@@ -54,9 +54,9 @@ export default class CoursePage extends React.Component<Params> {
   }
 
   renderMediaPreview(lesson: LessonType) {
-    const media = lesson.sections.filter((section) => section.type === LESSON_MEDIA);
+    const media: LessonMediaType[] = lesson.sections.filter((section): section is LessonMediaType => section.type === LESSON_MEDIA);
     return media.map((shiny, i) => (
-      <div className={`pure-u-1-4 ${styles.mediaContainer}`}>
+      <div key={i} className={`pure-u-1-4 ${styles.mediaContainer}`}>
         <img className={`pure-img centered ${styles.media}`} src={shiny.content.url} />
       </div>
     ));

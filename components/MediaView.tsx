@@ -1,7 +1,7 @@
 import styles from '../styles/Media.module.scss';
 import { MediaURL } from '../types/Media';
 
-import React, { Node } from 'react';
+import React from 'react';
 
 type Props = {
   className?: string,

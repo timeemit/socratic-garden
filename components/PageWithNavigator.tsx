@@ -1,13 +1,12 @@
-import React, { Node } from 'react';
+import React, { FunctionComponent } from 'react';
 import Page, { Props } from './Page';
 import Navigator from './Navigator'
 
 export default ({
   children,
   title,
-  grid
-}: Props) =>  (
-  <Page title={title} grid={grid}>
+}) =>  (
+  <Page title={title}>
     <Navigator />
     {children}
   </Page>

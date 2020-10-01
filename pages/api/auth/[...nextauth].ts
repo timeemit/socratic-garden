@@ -1,7 +1,7 @@
 import NextAuth from 'next-auth'
 import Providers from 'next-auth/providers'
 
-let options = {
+const options = {
   database: process.env.DATABASE_URL,
   secret: process.env.AUTH_SECRET,
   session: { 
@@ -11,10 +11,14 @@ let options = {
     },
   },
   providers: [
-    Providers.Google({
-      clientId: process.env.GOOGLE_ID,
-      clientSecret: process.env.GOOGLE_SECRET,
+    Providers.Email({
+      server: process.env.EMAIL_SERVER,
+      from: process.env.EMAIL_FROM,
     }),
+    // Providers.Google({
+    //   clientId: process.env.GOOGLE_ID,
+    //   clientSecret: process.env.GOOGLE_SECRET,
+    // }),
     // Providers.LinkedIn({
     //   clientId: process.env.LINKEDIN_ID,
     //   clientSecret: process.env.LINKEDIN_SECRET,
@@ -22,15 +26,12 @@ let options = {
   ],
 }
 
-if ("ADMIN_USERNAME" in process.env) {
+if (process.env.ENVIRONMENT == "local") {
   options.providers.push(Providers.Credentials({
-    name: 'Socratic Garden',
-    credentials: {
-      email: { label: "Email", type: "email", placeholder: "me@example.com" },
-      password: {  label: "Password", type: "password" }
-    },
+    name: 'Dev Super Powers',
+    credentials: { },
     authorize: async (credentials) => {
-      return Promise.resolve({ id: 0, name: "Liam Norris", email: "liam@socratic.garden" });
+      return Promise.resolve({ id: 0, name: "dev", email: "dev@socratic.garden" });
     }
   }));
 }

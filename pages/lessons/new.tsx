@@ -14,7 +14,6 @@ import { LessonFetch } from '../../models/Lesson';
 import { QuestionByLessonID } from '../../models/Question';
 import ConceptLink from '../../components/ConceptLink';
 import Interstitial from '../../components/Interstitial';
-import SignWhere from '../../components/SignWhere';
 import { ConceptsByText, CreateConceptByText } from '../../models/Concept';
 
 type Props = {};
@@ -147,7 +146,6 @@ export default class NewLesson extends React.Component<Props, State> {
         <Interstitial
           reveal={this.state.reveal_interstitial}
           onCancel={() => this.setState({reveal_interstitial: false})}>
-          <SignWhere />
         </Interstitial>
       </Page>
     );

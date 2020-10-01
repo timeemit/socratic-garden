@@ -5,33 +5,43 @@ import 'purecss/build/grids-responsive.css';
 // Global CSS
 import '../styles/_app.scss';
 
+// Next Auth
+import { Provider } from 'next-auth/client'
+
 // Font Awesome
 import { config as fontAwesomeConfig } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css'; // Import the CSS
 fontAwesomeConfig.autoAddCss = false;
 
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faCheck, faArrowUp, faFireAlt, faChartLine, faEdit, faQuestion, faBook, faPlus } from '@fortawesome/free-solid-svg-icons';
-import { faClock, faTimesCircle } from '@fortawesome/free-regular-svg-icons';
+import {  faCheck, faArrowUp, faFireAlt, faChartLine, faEdit, faQuestion, faBook, faPlus, faSignInAlt, faSack } from '@fortawesome/pro-solid-svg-icons';
+import { faFile, faClock, faTimesCircle } from '@fortawesome/pro-regular-svg-icons';
+import {} from '@fortawesome/pro-light-svg-icons';
 
 // Slugger
 import slug from 'slug';
+
+// CSRF
+import { csrfToken as getCsrfToken } from 'next-auth/client'
 
 slug.defaults.modes.pretty.lower = true;
 
 export { slug };
 
 library.add(
-  faCheck,
   faArrowUp,
-  faFireAlt,
-  faClock,
-  faChartLine,
-  faEdit,
-  faQuestion,
   faBook,
-  faTimesCircle,
+  faChartLine,
+  faCheck,
+  faClock,
+  faEdit,
+  faFireAlt,
   faPlus,
+  faQuestion,
+  faSack,
+  faSignInAlt,
+  faFile,
+  faTimesCircle,
 );
 
 // Listen to router events
@@ -44,16 +54,21 @@ Router.events.on('routeChangeComplete', send_url_to_google);
 
 // Components for Rendering
 import Head from 'next/head';
+import App from 'next/app'
 import React from 'react';
+import Navigator from '../components/Navigator'
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps, csrfToken }) {
   return (
     <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
-      <Component {...pageProps} />
+      <Provider session={pageProps.session}>
+        <Navigator csrfToken={csrfToken} />
+        <Component {...pageProps} />
+      </Provider>
 
       <footer className="footer centered-text">Copyright © 2020</footer>
 
@@ -63,6 +78,12 @@ function MyApp({ Component, pageProps }) {
       {/* End of Google Tag */}
     </>
   );
+}
+
+MyApp.getInitialProps = async (context) => {
+  const csrfToken = await getCsrfToken(context);
+  const appProps = await App.getInitialProps(context);
+  return { ...appProps, csrfToken };
 }
 
 export default MyApp;

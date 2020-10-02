@@ -6,7 +6,7 @@ import { LessonFetch } from '../models/Lesson';
 import { QuestionByLessonID } from '../models/Question';
 import ChallengeView from '../components/ChallengeView';
 
-export default () => {
+const Index = () => {
   const lesson = LessonFetch(0);
   const question = QuestionByLessonID(0);
   return (
@@ -63,4 +63,6 @@ export default () => {
       */}
     </PageWithNavigator>
   );
-}
+};
+
+export default Index;

@@ -1,4 +1,3 @@
-
 export const MediaTypes = {
   IMAGE: "image",
   VIDEO: "video",
@@ -6,8 +5,7 @@ export const MediaTypes = {
 };
 
 export type MediaURL = {
-  url: string,
-  type: typeof MediaTypes[keyof typeof MediaTypes],
-  caption: string
+  url: string;
+  type: typeof MediaTypes[keyof typeof MediaTypes];
+  caption: string;
 };
-

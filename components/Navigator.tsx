@@ -1,34 +1,42 @@
-import styles from '../styles/Navigator.module.scss';
-import React from 'react';
-import Link from 'next/link';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Interstitial from './Interstitial';
-import { Direction } from './SignWhere';
-import SignIn from './SignIn';
-import SignUp from './SignUp';
+import styles from "../styles/Navigator.module.scss";
+import React from "react";
+import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Interstitial from "./Interstitial";
+import { Direction } from "./SignWhere";
+import SignIn from "./SignIn";
+import SignUp from "./SignUp";
 
 type Props = {
-  csrfToken: string,
-}
+  csrfToken: string;
+};
 
 type State = {
-  interstitial: boolean,
-  direction: Direction,
-}
+  interstitial: boolean;
+  direction: Direction;
+};
 
 export default class Navigator extends React.Component<Props, State> {
   state: State = {
     interstitial: false,
     direction: Direction.up,
-  }
+  };
 
   render() {
     return (
       <header>
         <Interstitial reveal={this.state.interstitial} onCancel={this.onHide}>
-          {this.state.direction === Direction.in ?
-          (<SignIn onChange={this.onChangeToSignUp} csrfToken={this.props.csrfToken} />) :
-          (<SignUp onChange={this.onChangeToSignIn} csrfToken={this.props.csrfToken} />)}
+          {this.state.direction === Direction.in ? (
+            <SignIn
+              onChange={this.onChangeToSignUp}
+              csrfToken={this.props.csrfToken}
+            />
+          ) : (
+            <SignUp
+              onChange={this.onChangeToSignIn}
+              csrfToken={this.props.csrfToken}
+            />
+          )}
         </Interstitial>
         <nav className={styles.nav}>
           <Link href="/">
@@ -62,26 +70,26 @@ export default class Navigator extends React.Component<Props, State> {
   onShowSignUp = () => {
     this.setState({
       interstitial: true,
-      direction: Direction.up
+      direction: Direction.up,
     });
-  }
+  };
 
   onShowSignIn = () => {
     this.setState({
       interstitial: true,
-      direction: Direction.in
+      direction: Direction.in,
     });
-  }
+  };
 
   onHide = () => {
-    this.setState({interstitial: false});
-  }
+    this.setState({ interstitial: false });
+  };
 
   onChangeToSignUp = () => {
-    this.setState({direction: Direction.up});
-  }
+    this.setState({ direction: Direction.up });
+  };
 
   onChangeToSignIn = () => {
-    this.setState({direction: Direction.in});
-  }
+    this.setState({ direction: Direction.in });
+  };
 }

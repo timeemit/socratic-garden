@@ -1,24 +1,28 @@
-import { LessonType, LessonSectionType, LessonParagraphContentsType } from '../types/LessonType';
-import { ConceptType } from '../types/ConceptType';
+import {
+  LessonType,
+  LessonSectionType,
+  LessonParagraphContentsType,
+} from "../types/LessonType";
+import { ConceptType } from "../types/ConceptType";
 
-import styles from '../styles/LessonView.module.scss';
-import React from 'react';
-import { LESSON_HEADER, LESSON_MEDIA, LESSON_TEXT } from '../types/LessonType';
-import { LessonConceptIDs } from '../models/Lesson';
-import { ConceptByID, ConceptByText } from '../models/Concept';
-import MediaView from './MediaView';
-import ConceptLink from './ConceptLink';
+import styles from "../styles/LessonView.module.scss";
+import React from "react";
+import { LESSON_HEADER, LESSON_MEDIA, LESSON_TEXT } from "../types/LessonType";
+import { LessonConceptIDs } from "../models/Lesson";
+import { ConceptByID, ConceptByText } from "../models/Concept";
+import MediaView from "./MediaView";
+import ConceptLink from "./ConceptLink";
 
 type Props = {
-  lesson: LessonType
+  lesson: LessonType;
 };
 
 type SectionProps = {
-  section: LessonSectionType
+  section: LessonSectionType;
 };
 
 type ParagraphProps = {
-  paragraph: LessonParagraphContentsType
+  paragraph: LessonParagraphContentsType;
 };
 
 class LessonParagraphView extends React.Component<ParagraphProps> {
@@ -41,7 +45,9 @@ class LessonSectionView extends React.Component<SectionProps> {
     }
     return (
       <div className={styles.section}>
-        {section.content.map((span, i) => <LessonParagraphView key={i} paragraph={span} />)}
+        {section.content.map((span, i) => (
+          <LessonParagraphView key={i} paragraph={span} />
+        ))}
       </div>
     );
   }
@@ -49,9 +55,11 @@ class LessonSectionView extends React.Component<SectionProps> {
 
 export default class LessonView extends React.Component<Props> {
   render() {
-    const sections = this.props.lesson.sections.map((section, i) => <LessonSectionView key={i} section={section} />);
+    const sections = this.props.lesson.sections.map((section, i) => (
+      <LessonSectionView key={i} section={section} />
+    ));
     return (
-      <section style={{margin: "50px 0"}}>
+      <section style={{ margin: "50px 0" }}>
         <h1 className="header">{this.props.lesson.title}</h1>
         <div>{this.renderConcepts()}</div>
         {sections}
@@ -60,7 +68,11 @@ export default class LessonView extends React.Component<Props> {
   }
 
   renderConcepts() {
-    const concepts: Array<ConceptType> = LessonConceptIDs(this.props.lesson).map(ConceptByID).filter(Boolean);
-    return concepts.map((concept, i) => <ConceptLink key={i} concept={concept} />);
+    const concepts: Array<ConceptType> = LessonConceptIDs(this.props.lesson)
+      .map(ConceptByID)
+      .filter(Boolean);
+    return concepts.map((concept, i) => (
+      <ConceptLink key={i} concept={concept} />
+    ));
   }
 }

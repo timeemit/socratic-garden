@@ -1,4 +1,4 @@
-import PageWithNavigator from '../components/PageWithNavigator';
+import PageWithNavigator from "../components/PageWithNavigator";
 
 export default () => {
   return (
@@ -6,4 +6,4 @@ export default () => {
       <h1 className="header">404 - Page Not Found</h1>
     </PageWithNavigator>
   );
-}
+};

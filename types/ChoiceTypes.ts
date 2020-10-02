@@ -1,4 +1,3 @@
-
 export const ChoiceIndices = {
   first: "1",
   second: "2",
@@ -6,8 +5,8 @@ export const ChoiceIndices = {
 };
 
 export type Choice = {
-  text: string,
-  response: string | null
+  text: string;
+  response: string | null;
 };
 
 export type ChoiceIndex = typeof ChoiceIndices[keyof typeof ChoiceIndices];

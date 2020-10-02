@@ -1,7 +1,7 @@
-import { LessonType } from './LessonType';
+import { LessonType } from "./LessonType";
 
 export type CourseType = {
-  title: string,
-  objective: string,
-  lesson_ids: Array<number>
+  title: string;
+  objective: string;
+  lesson_ids: Array<number>;
 };

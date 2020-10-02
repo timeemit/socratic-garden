@@ -3,18 +3,20 @@
   // font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
   // font-family: Verdana, Geneva, sans-serif;
   line-height: 2em;
-  li p { line-height: 0.8em; }
+  li p {
+    line-height: 0.8em;
+  }
   text-align: justify;
 }
 
 @font-face {
-  font-family: 'AvenirNextBold';
-  src: url('/Avenir-Next-LT-Pro-Bold.ttf');
+  font-family: "AvenirNextBold";
+  src: url("/Avenir-Next-LT-Pro-Bold.ttf");
 }
 
 @font-face {
-  font-family: 'AvenirNextRegular';
-  src: url('/Avenir-Next-Regular.ttf');
+  font-family: "AvenirNextRegular";
+  src: url("/Avenir-Next-Regular.ttf");
 }
 
 $yellow-primary: rgb(252, 175, 23);
@@ -49,7 +51,8 @@ footer.footer {
   padding: 0 1em;
 }
 
-ul.list, ol.list {
+ul.list,
+ol.list {
   list-style-type: none;
 }
 
@@ -60,9 +63,15 @@ a.link {
   }
 }
 
-h1.header, h2.header, h3.header, h4.header, h5.header, h6.header {
+h1.header,
+h2.header,
+h3.header,
+h4.header,
+h5.header,
+h6.header {
   color: $logo-text;
-  &, #__next .pure-g &[class *= "pure-u"] {
-    font-family: 'AvenirNextBold';
+  &,
+  #__next .pure-g &[class*="pure-u"] {
+    font-family: "AvenirNextBold";
   }
 }

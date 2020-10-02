@@ -1,4 +1,5 @@
-input.isValid, textarea.isValid {
+input.isValid,
+textarea.isValid {
   &:valid {
     border: solid green 1px;
   }

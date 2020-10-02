@@ -1,15 +1,16 @@
-
 type CorrectChoiceDepth = {
-  expiration: string,
-  count: number
+  expiration: string;
+  count: number;
 };
 
-export default (correct_choice_depth?: CorrectChoiceDepth): CorrectChoiceDepth => {
+export default (
+  correct_choice_depth?: CorrectChoiceDepth
+): CorrectChoiceDepth => {
   const now = new Date();
 
   let expiration = new Date();
   expiration.setTime(Date.parse(expiration.toISOString()));
-  expiration.setMinutes( expiration.getMinutes() + 30 );
+  expiration.setMinutes(expiration.getMinutes() + 30);
 
   let count = 1;
   if (correct_choice_depth != null) {
@@ -21,4 +22,3 @@ export default (correct_choice_depth?: CorrectChoiceDepth): CorrectChoiceDepth =
   }
   return { count, expiration: expiration.toISOString() };
 };
-

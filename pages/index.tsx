@@ -1,10 +1,10 @@
-import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import PageWithNavigator from '../components/PageWithNavigator';
-import { LessonFetch } from '../models/Lesson';
-import { QuestionByLessonID } from '../models/Question';
-import ChallengeView from '../components/ChallengeView';
+import PageWithNavigator from "../components/PageWithNavigator";
+import { LessonFetch } from "../models/Lesson";
+import { QuestionByLessonID } from "../models/Question";
+import ChallengeView from "../components/ChallengeView";
 
 const Index = () => {
   const lesson = LessonFetch(0);

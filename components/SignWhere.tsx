@@ -1,21 +1,21 @@
-import styles from '../styles/SignWare.module.scss'
+import styles from "../styles/SignWare.module.scss";
 
-import React from 'react';
-import SignIn from './SignIn';
-import SignUp from './SignUp';
+import React from "react";
+import SignIn from "./SignIn";
+import SignUp from "./SignUp";
 
 export enum Direction {
-  in="in",
-  up="up",
-};
+  in = "in",
+  up = "up",
+}
 
 type Props = {
-  direction: Direction,
-  csrfToken: string,
+  direction: Direction;
+  csrfToken: string;
 };
 
 type State = {
-  direction: Direction,
+  direction: Direction;
 };
 
 export default class SignWhere extends React.Component<Props, State> {
@@ -26,18 +26,26 @@ export default class SignWhere extends React.Component<Props, State> {
   render() {
     return (
       <div className="centered-text">
-        {this.state.direction === Direction.in ?
-          (<SignIn onChange={this.onChangeToSignUp} csrfToken={this.props.csrfToken} />) :
-          (<SignUp onChange={this.onChangeToSignIn} csrfToken={this.props.csrfToken} />)}
+        {this.state.direction === Direction.in ? (
+          <SignIn
+            onChange={this.onChangeToSignUp}
+            csrfToken={this.props.csrfToken}
+          />
+        ) : (
+          <SignUp
+            onChange={this.onChangeToSignIn}
+            csrfToken={this.props.csrfToken}
+          />
+        )}
       </div>
     );
   }
 
   onChangeToSignUp = () => {
-    this.setState({direction: Direction.in});
-  }
+    this.setState({ direction: Direction.in });
+  };
 
   onChangeToSignIn = () => {
-    this.setState({direction: Direction.up});
-  }
+    this.setState({ direction: Direction.up });
+  };
 }

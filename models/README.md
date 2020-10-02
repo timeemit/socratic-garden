@@ -1,36 +1,31 @@
-Schemas
-=======
+# Schemas
 
-Concept
------
+## Concept
 
-+ slug (string)
-+ name (string)
-+ description (?string)
+- slug (string)
+- name (string)
+- description (?string)
 
-User
-----
+## User
 
-+ id (something unique)
-+ email (string)
-+ name (string)
-+ confirmed_at (?datetime)
+- id (something unique)
+- email (string)
+- name (string)
+- confirmed_at (?datetime)
 
-Lesson
-------
+## Lesson
 
-+ id (something unique)
-+ concept_id (foreign key)
-+ title (string)
-+ text (string)
+- id (something unique)
+- concept_id (foreign key)
+- title (string)
+- text (string)
 
-Question
---------
+## Question
 
-+ id (something unique)
-+ concept_id (foreign key)
-+ text (string)
-+ correct_answer (Choice)
-+ incorrect_answers (Choices)
-+ hint (string)
-+ explanation (string)
+- id (something unique)
+- concept_id (foreign key)
+- text (string)
+- correct_answer (Choice)
+- incorrect_answers (Choices)
+- hint (string)
+- explanation (string)

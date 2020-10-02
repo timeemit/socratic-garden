@@ -1,25 +1,27 @@
-import { Context } from '../../types/context';
-import { QuestionType } from '../../types/QuestionType';
-import { LessonType } from '../../types/LessonType';
-import { ConceptType } from '../../types/ConceptType';
-import React from 'react';
-import PageWithNavigator from '../../components/PageWithNavigator';
-import ConceptLink from '../../components/ConceptLink';
-import { slug as slugger} from '../../pages/_app';
-import { CONCEPTS } from '../../models/Concept';
-import { LessonsByConcept } from '../../models/Lesson';
-import { QuestionByLessonID } from '../../models/Question';
-import Link from 'next/link';
-import Page404 from '../404';
+import { Context } from "../../types/context";
+import { QuestionType } from "../../types/QuestionType";
+import { LessonType } from "../../types/LessonType";
+import { ConceptType } from "../../types/ConceptType";
+import React from "react";
+import PageWithNavigator from "../../components/PageWithNavigator";
+import ConceptLink from "../../components/ConceptLink";
+import { slug as slugger } from "../../pages/_app";
+import { CONCEPTS } from "../../models/Concept";
+import { LessonsByConcept } from "../../models/Lesson";
+import { QuestionByLessonID } from "../../models/Question";
+import Link from "next/link";
+import Page404 from "../404";
 
 type Params = {
-  concepts: Array<ConceptType>
+  concepts: Array<ConceptType>;
 };
 
-export async function getServerSideProps(context: Context): Promise<{
-  props: Params
+export async function getServerSideProps(
+  context: Context
+): Promise<{
+  props: Params;
 }> {
-  return { props: {concepts: CONCEPTS} };
+  return { props: { concepts: CONCEPTS } };
 }
 
 export default class ConceptsPage extends React.Component<Params> {

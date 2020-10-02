@@ -1,3 +1,4 @@
+// @format
 import { Choice, ChoiceIndex } from "../types/ChoiceTypes";
 import { QuestionType } from "../types/QuestionType";
 import { ConceptType } from "../types/ConceptType";

@@ -1,3 +1,4 @@
+// @format
 import styles from "../styles/ConceptLink.module.scss";
 import { ConceptType } from "../types/ConceptType";
 

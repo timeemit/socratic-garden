@@ -1,3 +1,4 @@
+// @format
 Test links with
 
 ```

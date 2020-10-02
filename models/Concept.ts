@@ -1,3 +1,4 @@
+// @format
 import { ConceptType } from "../types/ConceptType";
 
 export const CONCEPTS: Array<ConceptType> = [

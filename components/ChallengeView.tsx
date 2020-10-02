@@ -1,3 +1,4 @@
+// @format
 import styles from "../styles/ChallengeView.module.scss";
 import { ElementRef } from "react";
 import { LessonType } from "../types/LessonType";

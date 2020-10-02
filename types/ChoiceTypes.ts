@@ -1,3 +1,4 @@
+// @format
 export const ChoiceIndices = {
   first: "1",
   second: "2",

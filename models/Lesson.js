@@ -1,3 +1,4 @@
+// @format
 "use strict";
 exports.__esModule = true;
 exports.LessonConceptIDs = exports.LessonsByConcept = exports.NextLesson = exports.LessonFetch = void 0;

@@ -1,3 +1,4 @@
+// @format
 import styles from "../styles/Closeable.module.scss";
 
 import React from "react";

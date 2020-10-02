@@ -1,3 +1,4 @@
+// @format
 import styles from "../../styles/NewLesson.module.scss";
 import button_styles from "../../styles/ChoiceButton.module.scss";
 import { LessonType } from "../../types/LessonType";

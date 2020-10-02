@@ -1,3 +1,4 @@
+// @format
 import { QuestionType } from "../types/QuestionType";
 import { MediaTypes } from "../types/Media";
 import { ChoiceIndices } from "../types/ChoiceTypes";

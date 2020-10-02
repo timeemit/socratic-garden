@@ -1,3 +1,4 @@
+// @format
 import { Choice, ChoiceIndex } from "./ChoiceTypes";
 import { MediaURL } from "./Media";
 

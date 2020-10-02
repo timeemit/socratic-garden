@@ -1,3 +1,4 @@
+// @format
 import { ConceptType } from "./ConceptType";
 import { MediaURL } from "./Media";
 

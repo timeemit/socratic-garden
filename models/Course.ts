@@ -1,3 +1,4 @@
+// @format
 import { CourseType } from "../types/CourseType";
 
 export const COURSES: Array<CourseType> = [

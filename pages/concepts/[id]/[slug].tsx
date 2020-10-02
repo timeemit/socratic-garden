@@ -1,3 +1,4 @@
+// @format
 import styles from "../../../styles/ConceptPage.module.scss";
 import { Context } from "../../../types/context";
 import { QuestionType } from "../../../types/QuestionType";

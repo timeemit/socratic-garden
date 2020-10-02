@@ -1,3 +1,4 @@
+// @format
 import styles from "../styles/Interstitial.module.scss";
 import React from "react";
 import Closeable from "./Closeable";

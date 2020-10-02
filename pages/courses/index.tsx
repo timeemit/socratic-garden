@@ -1,3 +1,4 @@
+// @format
 import styles from "../../styles/CoursePage.module.scss";
 import { Context } from "../../types/context";
 import { CourseType } from "../../types/CourseType";

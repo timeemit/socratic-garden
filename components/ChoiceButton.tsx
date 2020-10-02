@@ -1,3 +1,4 @@
+// @format
 import styles from "../styles/ChoiceButton.module.scss";
 import { ChoiceIndex, Choice } from "../types/ChoiceTypes";
 import { QuestionType } from "../types/QuestionType";

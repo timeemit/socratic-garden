@@ -1,3 +1,4 @@
+// @format
 import PageWithNavigator from "../components/PageWithNavigator";
 
 export default () => {

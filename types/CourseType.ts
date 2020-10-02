@@ -1,3 +1,4 @@
+// @format
 import { LessonType } from "./LessonType";
 
 export type CourseType = {

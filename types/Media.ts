@@ -1,3 +1,4 @@
+// @format
 export const MediaTypes = {
   IMAGE: "image",
   VIDEO: "video",

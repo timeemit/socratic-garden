@@ -1,3 +1,4 @@
+// @format
 "use strict";
 var _a, _b, _c, _d, _e;
 exports.__esModule = true;

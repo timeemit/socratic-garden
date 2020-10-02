@@ -1,3 +1,4 @@
+// @format
 # What is the Socratic Garden?
 
 The Socratic Garden is a socio-economic experiment to develop an online system that rewards contributors for helping people learn.

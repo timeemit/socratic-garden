@@ -1,3 +1,4 @@
+// @format
 import styles from "../styles/Media.module.scss";
 import { MediaURL } from "../types/Media";
 

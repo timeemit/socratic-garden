@@ -1,3 +1,4 @@
+// @format
 import styles from "../styles/SignWare.module.scss";
 
 import React from "react";

@@ -1,3 +1,4 @@
+// @format
 type CorrectChoiceDepth = {
   expiration: string;
   count: number;

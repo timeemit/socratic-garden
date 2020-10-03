@@ -33,7 +33,7 @@ export default class SignIn extends React.PureComponent<Props> {
           <input
             className="pure-input-1 pure-button"
             type="button"
-            value="Sign Up"
+            value="Sign In"
             onClick={this.props.onChange}
           />
         </div>

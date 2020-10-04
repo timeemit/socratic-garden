@@ -9,6 +9,9 @@ import "../styles/_app.scss";
 // Next Auth
 import { Provider } from "next-auth/client";
 
+// Draft JS
+import 'draft-js/dist/Draft.css';
+
 // Font Awesome
 import { config as fontAwesomeConfig } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css"; // Import the CSS
@@ -78,6 +81,7 @@ function MyApp({ Component, pageProps, csrfToken }) {
   return (
     <>
       <Head>
+        <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 

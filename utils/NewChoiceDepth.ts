@@ -4,7 +4,7 @@ type CorrectChoiceDepth = {
   count: number;
 };
 
-export default (
+const NewChoiceDepth =  (
   correct_choice_depth?: CorrectChoiceDepth
 ): CorrectChoiceDepth => {
   const now = new Date();
@@ -23,3 +23,5 @@ export default (
   }
   return { count, expiration: expiration.toISOString() };
 };
+
+export default NewChoiceDepth;

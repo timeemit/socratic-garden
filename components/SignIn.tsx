@@ -23,7 +23,7 @@ export default class SignIn extends React.PureComponent<Props> {
 
         <h1>Sign In</h1>
         <input
-          className="pure-input-1"
+          className={`pure-input-1 ${styles.input}`}
           type="email"
           name="email"
           placeholder="my@email.com"
@@ -31,7 +31,7 @@ export default class SignIn extends React.PureComponent<Props> {
         />
         <div className="pure-u-1-2 centered-text">
           <input
-            className="pure-input-1 pure-button"
+            className={`pure-input-1 centered-text pure-button ${styles.input}`}
             type="button"
             value="Sign Up"
             onClick={this.props.onChange}
@@ -39,9 +39,8 @@ export default class SignIn extends React.PureComponent<Props> {
         </div>
         <div className="pure-u-1-2 centered-text">
           <button
-            className="pure-input-1 centered-text pure-button pure-button-primary"
-            type="submit"
-          >
+            className={`pure-input-1 centered-text pure-button pure-button-primary ${styles.input}`}
+            type="submit">
             Sign In
           </button>
         </div>

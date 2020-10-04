@@ -25,8 +25,7 @@ export default class Interstitial extends React.PureComponent<Props> {
             size="2x"
             reveal={false}
             className={`${styles.frame} ${styles.closable}`}
-            onClose={this.props.onCancel}
-          >
+            onClose={this.props.onCancel}>
             {this.props.children}
           </Closeable>
         </div>

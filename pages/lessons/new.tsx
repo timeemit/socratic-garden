@@ -36,8 +36,12 @@ const placeholder = convertFromRaw({
 class MyEditor extends React.Component {
   state = {
     editorState: EditorState.createWithContent(placeholder),
+    editor: false,
   };
 
+  componentDidMount() {
+    this.setState({editor: true});  // Workaround for Draft JS on SSR
+  }
 
 	onChange = (editorState) => {
 		return this.setState({editorState});
@@ -55,6 +59,9 @@ class MyEditor extends React.Component {
   }
 
   render() {
+    if (!this.state.editor) {
+      return null;
+    }
     return (
       <Editor
         editorState={this.state.editorState}

@@ -1,19 +1,43 @@
+// @format
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Editor, ContentState, EditorState, RichUtils, convertFromHTML} from 'draft-js';
+import {Editor, ContentState, EditorState, RichUtils, convertFromRaw} from 'draft-js';
 
-const placeholder = `
-  <div>
-    <h1>The Greatest Lesson</h1>
-    <div>I have learned</div>
-    <div><em>in life</em></div>
-    <div>is that I still have</div>
-    <div><strong>a lot to learn.</strong></div>
-  </div>
-`;
+const placeholder = convertFromRaw({
+  entityMap: {},
+  blocks: [
+    {
+      text: 'The Greatest Lesson I have learned in life',
+      key: 'two',
+      type: 'paragraph',
+      entityRanges: [],
+      depth: 0,
+      inlineStyleRanges: [
+        {style: 'ITALIC', offset: 4, length: 16},
+      ],
+    },{
+      text: 'is that I still have a lot to learn',
+      key: 'four',
+      type: 'paragraph',
+      entityRanges: [],
+      depth: 0,
+      inlineStyleRanges: [],
+    },{
+      text: '- Socrates',
+      key: 'five',
+      type: 'blockquote',
+      entityRanges: [],
+      depth: 0,
+      inlineStyleRanges: [],
+    }
+  ]
+})
 
 class MyEditor extends React.Component {
-  state = { editorState: EditorState.createEmpty() };
+  state = {
+    editorState: EditorState.createWithContent(placeholder),
+  };
+
 
 	onChange = (editorState) => {
 		return this.setState({editorState});

@@ -10,21 +10,30 @@ const placeholder = convertFromRaw({
   entityMap: {},
   blocks: [
     {
-      text: 'The Greatest Lesson I have learned in life',
+      text: 'A Great Person Once Said...',
+      key: 'one',
+      type: 'header-two',
+      entityRanges: [],
+      depth: 0,
+      inlineStyleRanges: [],
+    },{
+      text: '"The greatest lesson I have learned in life...',
       key: 'two',
       type: 'paragraph',
       entityRanges: [],
       depth: 0,
       inlineStyleRanges: [
-        {style: 'ITALIC', offset: 4, length: 16},
+        {style: 'BOLD', offset: 5, length: 15},
       ],
     },{
-      text: 'is that I still have a lot to learn',
+      text: '...is that I still have a lot to learn."',
       key: 'four',
       type: 'paragraph',
       entityRanges: [],
       depth: 0,
-      inlineStyleRanges: [],
+      inlineStyleRanges: [
+        {style: 'BOLD', offset: 30, length: 8},
+      ],
     },{
       text: '- Socrates',
       key: 'five',
@@ -32,6 +41,15 @@ const placeholder = convertFromRaw({
       entityRanges: [],
       depth: 0,
       inlineStyleRanges: [],
+    },{
+      text: '(you can edit these lines yourself!)',
+      key: 'six',
+      type: 'paragraph',
+      entityRanges: [],
+      depth: 0,
+      inlineStyleRanges: [
+        {style: 'ITALIC', offset: 0, length: 36},
+      ],
     }
   ]
 })
@@ -72,9 +90,15 @@ class MyEditor extends React.Component {
   }
 
   forceFocus = () => {
-    console.log('Focusing');
     this.domEditor?.current?.focus();
   };
+
+  blockStyleFn(contentBlock) {
+    return {
+      'header-one': 'header',
+      'header-two': 'header',
+    }[contentBlock.getType()];
+  }
 
   onHeaderClick = () => {
     this.onChange(RichUtils.toggleBlockType(this.state.editorState, 'header-two'));
@@ -85,7 +109,6 @@ class MyEditor extends React.Component {
   }
 
   onBoldClick = () => {
-    console.log('Boldly Clicking');
     this.onChange(RichUtils.toggleInlineStyle(this.state.editorState, 'BOLD'));
   }
 
@@ -111,22 +134,45 @@ class MyEditor extends React.Component {
     }
     return (
       <>
-        <h1 className="header">Write a New Lesson</h1>
+        <h1 className="header">The Title of Your Next Lesson (edit this!)</h1>
+        <hr />
         <div className={`pure-button-group ${styles.buttonGroup}`} role="toolbar" aria-label="Styles">
           <button className="pure-button"><FontAwesomeIcon icon="heading" onClick={this.onHeaderClick} /></button>
         </div>
         <div className={`pure-button-group ${styles.buttonGroup}`} role="toolbar" aria-label="Styles">
-          <button className={`pure-button ${this.isBold() ? "pure-button-active" : null}`} onClick={this.onBoldClick}><FontAwesomeIcon icon="bold" /></button>
-          <button className={`pure-button ${this.isItalic() ? "pure-button-active" : null}`} onClick={this.onItalicClick}><FontAwesomeIcon icon="italic" /></button>
-          <button className={`pure-button ${this.isUnderline() ? "pure-button-active" : null}`} onClick={this.onUnderlineClick}><FontAwesomeIcon icon="underline" /></button>
+          <button
+            className={`pure-button ${this.isBold() ? "pure-button-active" : null}`}
+            onClick={this.onBoldClick}>
+            <FontAwesomeIcon icon="bold" />
+          </button>
+          <button
+            className={`pure-button ${this.isItalic() ? "pure-button-active" : null}`}
+            onClick={this.onItalicClick}>
+            <FontAwesomeIcon icon="italic" />
+          </button>
+          <button
+            className={`pure-button ${this.isUnderline() ? "pure-button-active" : null}`}
+            onClick={this.onUnderlineClick}>
+            <FontAwesomeIcon icon="underline" />
+          </button>
         </div>
-        <hr />
         <Editor
           editorState={this.state.editorState}
           handleKeyCommand={this.handleKeyCommand}
           onChange={this.onChange}
+          blockStyleFn={this.blockStyleFn}
           ref={this.domEditor} />
         <hr />
+        <h2 className="header">Whose quote is this? (edit this!)</h2>
+          <div key={0}>Heroditus (edit this!)</div>
+          <div key={1}>Socrates (edit this!)</div>
+          <div key={2}>Plato (edit this!)</div>
+        <hr />
+        <div className={`pure-button-group ${styles.buttonGroup}`} role="group" aria-label="Styles">
+          <button className="pure-button">Discard</button>
+          <button className="pure-button pure-button-primary">Preview</button>
+        </div>
+
       </>
     );
   }

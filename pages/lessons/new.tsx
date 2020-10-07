@@ -100,6 +100,11 @@ class MyEditor extends React.Component {
     }[contentBlock.getType()];
   }
 
+  isHeader(): boolean {
+    const selectedKey = this.state.editorState.getSelection().getStartKey();
+    return this.state.editorState.getCurrentContent().getBlockForKey(selectedKey).getType() === "header-two";
+  }
+
   onHeaderClick = () => {
     this.onChange(RichUtils.toggleBlockType(this.state.editorState, 'header-two'));
   }
@@ -137,7 +142,11 @@ class MyEditor extends React.Component {
         <h1 className="header">The Title of Your Next Lesson (edit this!)</h1>
         <hr />
         <div className={`pure-button-group ${styles.buttonGroup}`} role="toolbar" aria-label="Styles">
-          <button className="pure-button"><FontAwesomeIcon icon="heading" onClick={this.onHeaderClick} /></button>
+          <button
+            className={`pure-button ${this.isHeader() ? "pure-button-active" : null}`}
+            onClick={this.onHeaderClick}>
+            <FontAwesomeIcon icon="heading" />
+          </button>
         </div>
         <div className={`pure-button-group ${styles.buttonGroup}`} role="toolbar" aria-label="Styles">
           <button

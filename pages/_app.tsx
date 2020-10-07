@@ -19,20 +19,24 @@ fontAwesomeConfig.autoAddCss = false;
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
-  faCheck,
   faArrowUp,
-  faFireAlt,
-  faChartLine,
-  faEdit,
-  faQuestion,
+  faBold,
   faBook,
+  faChartLine,
+  faCheck,
+  faEdit,
+  faFireAlt,
+  faHeading,
+  faItalic,
   faPlus,
-  faSignInAlt,
+  faQuestion,
   faSack,
+  faSignInAlt,
+  faUnderline,
 } from "@fortawesome/pro-solid-svg-icons";
 import {
-  faFile,
   faClock,
+  faFile,
   faTimesCircle,
 } from "@fortawesome/pro-regular-svg-icons";
 import {} from "@fortawesome/pro-light-svg-icons";
@@ -49,18 +53,22 @@ export { slug };
 
 library.add(
   faArrowUp,
+  faBold,
   faBook,
   faChartLine,
   faCheck,
   faClock,
   faEdit,
+  faFile,
   faFireAlt,
+  faHeading,
+  faItalic,
   faPlus,
   faQuestion,
   faSack,
   faSignInAlt,
-  faFile,
-  faTimesCircle
+  faTimesCircle,
+  faUnderline,
 );
 
 // Listen to router events

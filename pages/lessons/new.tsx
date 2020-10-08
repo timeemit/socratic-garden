@@ -17,33 +17,18 @@ const placeholder = convertFromRaw({
       depth: 0,
       inlineStyleRanges: [],
     },{
-      text: '"The greatest lesson I have learned in life...',
+      text: '"The greatest lesson I have learned in life is that I still have a lot to learn." - Socrates',
       key: 'two',
       type: 'paragraph',
       entityRanges: [],
       depth: 0,
       inlineStyleRanges: [
         {style: 'BOLD', offset: 5, length: 15},
+        {style: 'ITALIC', offset: 65, length: 15},
       ],
     },{
-      text: '...is that I still have a lot to learn."',
-      key: 'four',
-      type: 'paragraph',
-      entityRanges: [],
-      depth: 0,
-      inlineStyleRanges: [
-        {style: 'BOLD', offset: 30, length: 8},
-      ],
-    },{
-      text: '- Socrates',
-      key: 'five',
-      type: 'blockquote',
-      entityRanges: [],
-      depth: 0,
-      inlineStyleRanges: [],
-    },{
-      text: '(you can edit these lines yourself!)',
-      key: 'six',
+      text: '(You can edit this lesson!)',
+      key: 'three',
       type: 'paragraph',
       entityRanges: [],
       depth: 0,
@@ -139,7 +124,7 @@ class MyEditor extends React.Component {
     }
     return (
       <>
-        <h1 className="header">The Title of Your Next Lesson (edit this!)</h1>
+        <h1 className="header">The Title of Your Next Lesson (You can edit this title!)</h1>
         <hr />
         <div className={`pure-button-group ${styles.buttonGroup}`} role="toolbar" aria-label="Styles">
           <button
@@ -172,13 +157,28 @@ class MyEditor extends React.Component {
           blockStyleFn={this.blockStyleFn}
           ref={this.domEditor} />
         <hr />
-        <h2 className="header">Whose quote is this? (edit this!)</h2>
-          <div key={0}>Heroditus (edit this!)</div>
-          <div key={1}>Socrates (edit this!)</div>
-          <div key={2}>Plato (edit this!)</div>
+        <h2 className="header">Whose quote is this? (You can edit this question!)</h2>
+        <div className="pure-g">
+          <div key={0} className="pure-u-1-8"><strong>Correct?</strong></div>
+          <div key={1} className="pure-u-1-4"><strong>Choice?</strong></div>
+          <div key={2} className="pure-u-5-8"><strong>Response?</strong></div>
+          <div key={3} className="pure-u-1-8"><input type="radio" name="choice-0" value="first" /></div>
+          <div key={4} className="pure-u-1-4">Heroditus (You can edit this choice!)</div>
+          <div key={5} className="pure-u-5-8">No, but Heroditus is well-known for his medical oath (You can edit this response!)</div>
+          <div key={6} className="pure-u-1-8"><input type="radio" name="choice-0" value="second" checked={true} /> </div>
+          <div key={7} className="pure-u-1-4">Socrates (You can edit this choice!)</div>
+          <div key={8} className="pure-u-5-8">Yes! And Socrates loved learning through inquiry (You can edit this response!)</div>
+          <div key={9} className="pure-u-1-8"><input type="radio" name="choice-0" value="third" /></div>
+          <div key={9} className="pure-u-1-4">Euclid (You can edit this choice!)</div>
+          <div key={9} className="pure-u-5-8">No, but Euclid wrote the foundational treatise for Geometry (You can edit this response!)</div>
+        </div>
+        <button className="pure-button"><FontAwesomeIcon icon="minus" transform="left-4 down-1" /> Remove Question</button>
+        <hr />
+        <button className="pure-button"><FontAwesomeIcon icon="plus" transform="left-2" /> Add Another Question</button>
         <hr />
         <div className={`pure-button-group ${styles.buttonGroup}`} role="group" aria-label="Styles">
-          <button className="pure-button">Discard</button>
+          <button className="pure-button">Discard Lesson</button>
+          <button className="pure-button">Save For Later</button>
           <button className="pure-button pure-button-primary">Preview</button>
         </div>
 

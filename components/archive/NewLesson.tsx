@@ -1,5 +1,5 @@
 // @format
-import styles from "../../styles/NewLesson.module.scss";
+import styles from "../../styles/ArchivedNewLesson.module.scss";
 import button_styles from "../../styles/ChoiceButton.module.scss";
 import { LessonType } from "../../types/LessonType";
 import { QuestionType } from "../../types/QuestionType";

@@ -1,0 +1,13 @@
+// @format
+
+.editable {
+  display: flex;
+  .editable {
+    display: none;
+  }
+  &:hover {
+    .editable {
+      display: inline;
+    }
+  }
+}

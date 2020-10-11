@@ -7,17 +7,6 @@
   margin-right: 2em;
 }
 
-.editable {
-  .editable {
-    display: none;
-  }
-  &:hover {
-    .editable {
-      display: inline;
-    }
-  }
-}
-
 .cancel {
   background-color: app.$red-primary;
   color: white;

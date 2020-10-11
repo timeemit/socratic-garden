@@ -1,20 +1,35 @@
 // @format
 import styles from '../../styles/NewLesson.module.scss';
+import { EditorState } from 'draft-js';
+
 import React from 'react';
+import Editable from '../../components/Editable';
 import LessonEditor from '../../components/LessonEditor';
 import ConceptLink from '../../components/ConceptLink';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import createEditorStateWithText from '../../utils/createEditorStateWithText';
 
-class MyEditor extends React.Component {
+interface State {
+  title: EditorState,
+}
+
+class MyEditor extends React.Component<{}, State> {
+  state: State = {
+    title: createEditorStateWithText("Your Next Lesson"),
+  }
+
+  onChangeTitle = (title: EditorState) => {
+    this.setState({title});
+  }
+
   render() {
     return (
       <div className="pure-g">
         <div className="pure-u-1-8 marginal">
           <strong>Lesson Title</strong>
         </div>
-        <h1 className={`pure-u-7-8 header ${styles.editable}`}>
-          <span>Your Next Lesson</span>
-          <span className={styles.editable}><FontAwesomeIcon icon="pencil" size="xs" transform="right-5" /></span>
+        <h1 className={`pure-u-7-8 header`}>
+          <Editable editorState={this.state.title} onChange={this.onChangeTitle} />
         </h1>
         <hr className="pure-u-1" />
         <div className="pure-u-1-8 marginal"><strong>Lesson Content</strong></div>
@@ -65,11 +80,11 @@ class MyEditor extends React.Component {
           </div>
         </div>
         <div className="pure-u-1">
-          <a href="#"><em>Remove Question</em></a>
+          <button className="pure-button"><FontAwesomeIcon icon="minus" transform="left-2" /> Remove Question</button>
         </div>
         <hr className="pure-u-1" />
         <div className={`pure-u-1 pure-button-group ${styles.buttonGroup}`} role="group" aria-label="Controls">
-          <button className="pure-button"><FontAwesomeIcon icon="plus" transform="left-2" /> Add Another Question</button>
+          <button className="pure-button"><FontAwesomeIcon icon="plus" transform="left-2" /> Add Question</button>
           <button className="pure-button pure-button-primary">Preview</button>
         </div>
         <br />

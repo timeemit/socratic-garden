@@ -4,7 +4,7 @@ import { EditorState } from 'draft-js';
 import { ChoiceIndex, ChoiceIndices } from '../../types/ChoiceTypes';
 
 import React from 'react';
-import Editable from '../../components/Editable';
+import EditableText from '../../components/EditableText';
 import LessonEditor from '../../components/LessonEditor';
 import { QuestionEditor, QuestionState } from '../../components/QuestionEditor';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -65,7 +65,7 @@ export default class MyEditor extends React.Component<{}, State> {
           <strong>Lesson Title</strong>
         </div>
         <h1 className={`pure-u-7-8 header`}>
-          <Editable editorState={this.state.title} onChange={this.onChangeTitle} />
+          <EditableText editorState={this.state.title} onChange={this.onChangeTitle} />
         </h1>
         <hr className="pure-u-1" />
         <div className="pure-u-1-8 marginal"><strong>Lesson Content</strong></div>

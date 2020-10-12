@@ -4,7 +4,7 @@ import React from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ChoiceIndex, ChoiceIndices } from '../types/ChoiceTypes';
 import { ChoiceEditor, ChoiceState, ChoiceChange } from './ChoiceEditor';
-import Editable from './Editable';
+import EditableText from './EditableText';
 
 export interface QuestionState {
   text: EditorState,
@@ -41,7 +41,7 @@ export class QuestionEditor extends React.Component<Props> {
           <div><strong>A Question</strong></div>
         </div>
         <h2 className="pure-u-7-8 header">
-          <Editable editorState={this.props.text} onChange={this.onQuestionChange} />
+          <EditableText editorState={this.props.text} onChange={this.onQuestionChange} />
         </h2>
         <div className="pure-u-1-8 marginal">
           <div><strong>Some Choices</strong></div>

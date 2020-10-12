@@ -3,7 +3,7 @@ import { EditorState } from 'draft-js';
 import { ChoiceIndex } from '../types/ChoiceTypes';
 
 import React from 'react';
-import Editable from './Editable';
+import EditableText from './EditableText';
 
 export interface ChoiceState {
   text: EditorState,
@@ -51,10 +51,10 @@ export class ChoiceEditor extends React.Component<Props> {
       <>
         <div key={3} className="pure-u-1-8 centered-text"><input type="radio" name="choice_0" value="first" /></div>
         <div key={4} className="pure-u-1-4">
-          <Editable editorState={this.props.text} onChange={this.onTextChange} />
+          <EditableText editorState={this.props.text} onChange={this.onTextChange} />
         </div>
         <div key={5} className="pure-u-5-8">
-          <Editable editorState={this.props.response} onChange={this.onResponseChange} />
+          <EditableText editorState={this.props.response} onChange={this.onResponseChange} />
         </div>
       </>
     );

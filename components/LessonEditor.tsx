@@ -3,7 +3,8 @@ import styles from '../styles/editor.module.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Editor, ContentState, EditorState, RichUtils, convertFromRaw} from 'draft-js';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import Editable from './Editable';
 
 const placeholder = convertFromRaw({
   entityMap: {},
@@ -115,14 +116,14 @@ export default class LessonEditor extends React.Component {
     }
     return (
       <>
-        <div className={`pure-button-group ${styles.buttonGroup}`} role="toolbar" aria-label="Styles">
+        <div className={`pure-button-group ${styles.buttonGroup}`} role="toolbar" aria-label="Block Styles">
           <button
             className={`pure-button ${this.isHeader() ? "pure-button-active" : null}`}
             onClick={this.onHeaderClick}>
             <FontAwesomeIcon icon="heading" />
           </button>
         </div>
-        <div className={`pure-button-group ${styles.buttonGroup}`} role="toolbar" aria-label="Styles">
+        <div className={`pure-button-group ${styles.buttonGroup}`} role="toolbar" aria-label="Inline Styles">
           <button
             className={`pure-button ${this.isBold() ? "pure-button-active" : null}`}
             onClick={this.onBoldClick}>
@@ -139,12 +140,14 @@ export default class LessonEditor extends React.Component {
             <FontAwesomeIcon icon="underline" />
           </button>
         </div>
-        <Editor
-          editorState={this.state.editorState}
-          handleKeyCommand={this.handleKeyCommand}
-          onChange={this.onChange}
-          blockStyleFn={this.blockStyleFn}
-          ref={this.domEditor} />
+        <Editable>
+          <Editor
+            editorState={this.state.editorState}
+            handleKeyCommand={this.handleKeyCommand}
+            onChange={this.onChange}
+            blockStyleFn={this.blockStyleFn}
+            ref={this.domEditor} />
+        </Editable>
       </>
     );
   }

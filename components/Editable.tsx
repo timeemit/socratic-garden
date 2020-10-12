@@ -13,6 +13,7 @@ interface Props {
 
 interface State {
   editor: boolean,
+  focused: boolean,
 }
 
 export default class Editable extends React.PureComponent<Props, State> {
@@ -20,6 +21,7 @@ export default class Editable extends React.PureComponent<Props, State> {
 
   state = {
     editor: false,
+    focused: false,
   };
 
   constructor(props) {
@@ -29,20 +31,29 @@ export default class Editable extends React.PureComponent<Props, State> {
 
   componentDidMount() {
     this.setState({editor: true});  // Workaround for Draft JS on SSR
-    this.forceFocus();
   }
 
-  forceFocus = () => {
-    this.domEditor?.current?.focus();
-  };
+  onFocus = () => {
+    this.setState({focused: true});
+  }
+
+  onBlur = () => {
+    this.setState({focused: false});
+  }
 
   render() {
+    const style = [styles.editable];
+    if (this.state.focused) {
+      style.push(styles.focused);
+    }
     return (
-      <span className={styles.editable}>
+      <span className={style.join(' ')}>
         <Editor
           editorState={this.props.editorState}
           onChange={this.props.onChange}
           handleReturn={() => {return 'handled';}}
+          onFocus={this.onFocus}
+          onBlur={this.onBlur}
           ref={this.domEditor} />
         <span className={styles.editable}><FontAwesomeIcon icon="pencil" size="xs" transform="right-5" /></span>
       </span>

@@ -1,25 +1,61 @@
 // @format
 import styles from '../../styles/NewLesson.module.scss';
 import { EditorState } from 'draft-js';
+import { ChoiceIndex, ChoiceIndices } from '../../types/ChoiceTypes';
 
 import React from 'react';
 import Editable from '../../components/Editable';
 import LessonEditor from '../../components/LessonEditor';
-import ConceptLink from '../../components/ConceptLink';
+import { QuestionEditor, QuestionState } from '../../components/QuestionEditor';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import createEditorStateWithText from '../../utils/createEditorStateWithText';
 
 interface State {
   title: EditorState,
+  questions: Array<QuestionState>,
 }
 
-class MyEditor extends React.Component<{}, State> {
+export default class MyEditor extends React.Component<{}, State> {
   state: State = {
     title: createEditorStateWithText("Your Next Lesson"),
+    questions: [{
+      text: createEditorStateWithText("Whose quote is this?"),
+      choices: {
+        [ChoiceIndices.first]: {
+          text: createEditorStateWithText("Heroditus"),
+          response: createEditorStateWithText("No, but Heroditus is well-known for his medical oath"),
+        },
+        [ChoiceIndices.second]: {
+          text: createEditorStateWithText("Socrates"),
+          response: createEditorStateWithText("Yes! And Socrates loved learning through inquiry"),
+        },
+        [ChoiceIndices.third]: {
+          text: createEditorStateWithText("Euclid"),
+          response: createEditorStateWithText("No, but Euclid wrote the foundational treatise for Geometry"),
+        }
+      },
+      correct: ChoiceIndices.second,
+    }],
   }
 
   onChangeTitle = (title: EditorState) => {
     this.setState({title});
+  }
+
+  onQuestionChange = (index: number, text: EditorState, correct: ChoiceIndex) => {
+    this.setState((state) => {
+      const {questions} = this.state;
+      questions[index].text = text;
+      return {...state, questions};
+    });
+  }
+
+  onChoiceChange = (questionIndex: number, choiceIndex: ChoiceIndex, text: EditorState, response: EditorState) => {
+    this.setState((state) => {
+      const {questions} = this.state;
+      questions[questionIndex].choices[choiceIndex] = {text, response};
+      return {...state, questions};
+    });
   }
 
   render() {
@@ -35,53 +71,7 @@ class MyEditor extends React.Component<{}, State> {
         <div className="pure-u-1-8 marginal"><strong>Lesson Content</strong></div>
         <div className="pure-u-7-8"><LessonEditor /></div>
         <hr className="pure-u-1" />
-        <div className="pure-u-1-8 marginal">
-          <div><strong>A Question</strong></div>
-        </div>
-        <h2 className={`pure-u-7-8 header ${styles.editable}`}>
-          <span>Whose quote is this?</span>
-          <span className={styles.editable}><FontAwesomeIcon icon="pencil" transform="right-5" /></span>
-        </h2>
-        <div className="pure-u-1-8 marginal">
-          <div><strong>Some Choices</strong></div>
-        </div>
-        <div className="pure-u-7-8 header">
-          <div className="pure-g">
-            <div key={0} className="pure-u-1-8 centered-text"><strong>Correct?</strong></div>
-            <div key={1} className="pure-u-1-4"><strong>Choice?</strong></div>
-            <div key={2} className="pure-u-5-8"><strong>Response?</strong></div>
-            <div key={3} className="pure-u-1-8 centered-text"><input type="radio" name="choice_0" value="first" /></div>
-            <div key={4} className={`pure-u-1-4 ${styles.editable}`}>
-              <span>Heroditus</span> 
-              <span className={styles.editable}><FontAwesomeIcon icon="pencil" transform="right-5" /></span>
-            </div>
-            <div key={5} className={`pure-u-5-8 ${styles.editable}`}>
-              <span>No, but Heroditus is well-known for his medical oath</span>
-              <span className={styles.editable}><FontAwesomeIcon icon="pencil" transform="right-5" /></span>
-            </div>
-            <div key={6} className="pure-u-1-8 centered-text"><input type="radio" name="choice_0" value="second" /> </div>
-            <div key={7} className={`pure-u-1-4 ${styles.editable}`}>
-              <span>Socrates</span>
-              <span className={styles.editable}><FontAwesomeIcon icon="pencil" transform="right-5" /></span>
-            </div>
-            <div key={8} className={`pure-u-5-8 ${styles.editable}`}>
-              <span>Yes! And Socrates loved learning through inquiry</span>
-              <span className={styles.editable}><FontAwesomeIcon icon="pencil" transform="right-5" /></span>
-            </div>
-            <div key={9} className="pure-u-1-8 centered-text"><input type="radio" name="choice_0" value="third" /></div>
-            <div key={10} className={`pure-u-1-4 ${styles.editable}`}>
-              <span>Euclid</span>
-              <span className={styles.editable}><FontAwesomeIcon icon="pencil" transform="right-5" /></span>
-            </div>
-            <div key={11} className={`pure-u-5-8 ${styles.editable}`}>
-              <span>No, but Euclid wrote the foundational treatise for Geometry</span>
-              <span className={styles.editable}><FontAwesomeIcon icon="pencil" transform="right-5" /></span>
-            </div>
-          </div>
-        </div>
-        <div className="pure-u-1">
-          <button className="pure-button"><FontAwesomeIcon icon="minus" transform="left-2" /> Remove Question</button>
-        </div>
+        {this.renderQuestions()}
         <hr className="pure-u-1" />
         <div className={`pure-u-1 pure-button-group ${styles.buttonGroup}`} role="group" aria-label="Controls">
           <button className="pure-button"><FontAwesomeIcon icon="plus" transform="left-2" /> Add Question</button>
@@ -95,6 +85,18 @@ class MyEditor extends React.Component<{}, State> {
       </div>
     );
   }
-}
 
-export default MyEditor;
+  renderQuestions() {
+    return this.state.questions.map((question, i) => {
+      const {text, choices, correct} = question;
+      return <QuestionEditor
+        key={i}
+        index={i}
+        text={text}
+        choices={choices}
+        correct={correct}
+        onQuestionChange={this.onQuestionChange}
+        onChoiceChange={this.onChoiceChange} />
+    });
+  }
+}

@@ -20,6 +20,7 @@ interface Inputs {
       correct: ChoiceIndex | void,
     ) => void,
   onChoiceChange: ChoiceChange,
+  onRemove: (number) => void,
 }
 
 type Props = QuestionState & Inputs;
@@ -32,6 +33,10 @@ export class QuestionEditor extends React.Component<Props> {
 
   onChoiceSelect = (correct: ChoiceIndex) => {
     this.props.onQuestionChange(this.props.index, this.props.text, correct);
+  }
+
+  onRemove = () => {
+    this.props.onRemove(this.props.index);
   }
 
   render() {
@@ -55,8 +60,11 @@ export class QuestionEditor extends React.Component<Props> {
           </div>
         </div>
         <div className="pure-u-1">
-          <button className="pure-button"><FontAwesomeIcon icon="minus" transform="left-2" /> Remove Question</button>
+          <button className="pure-button" onClick={this.onRemove}>
+            <FontAwesomeIcon icon="minus" transform="left-2" /> Remove Question
+          </button>
         </div>
+        <hr className="pure-u-1" />
       </>
     );
   }
@@ -68,6 +76,7 @@ export class QuestionEditor extends React.Component<Props> {
         key={i}
         text={text}
         response={response}
+        chosen={this.props.correct === choice_index}
         questionIndex={this.props.index}
         choiceIndex={choice_index}
         onChange={this.props.onChoiceChange}

@@ -15,7 +15,7 @@ interface State {
   questions: Array<QuestionState>,
 }
 
-export default class MyEditor extends React.Component<{}, State> {
+export default class Editor extends React.Component<{}, State> {
   state: State = {
     title: createEditorStateWithText("Your Next Lesson"),
     questions: [{
@@ -46,6 +46,7 @@ export default class MyEditor extends React.Component<{}, State> {
     this.setState((state) => {
       const {questions} = this.state;
       questions[index].text = text;
+      questions[index].correct = correct;
       return {...state, questions};
     });
   }
@@ -56,6 +57,36 @@ export default class MyEditor extends React.Component<{}, State> {
       questions[questionIndex].choices[choiceIndex] = {text, response};
       return {...state, questions};
     });
+  }
+
+  onAddQuestion = () => {
+    const { questions } = this.state;
+    questions.push({
+      text: createEditorStateWithText("Your Next Question"),
+      choices: {
+        [ChoiceIndices.first]: {
+          text: createEditorStateWithText("The first choice to answer"),
+          response: createEditorStateWithText("A response to the first choice"),
+        },
+        [ChoiceIndices.second]: {
+          text: createEditorStateWithText("The second choice to answer"),
+          response: createEditorStateWithText("A response to the second choice"),
+        },
+        [ChoiceIndices.third]: {
+          text: createEditorStateWithText("The third choice to answer"),
+          response: createEditorStateWithText("A response to the third choice"),
+        }
+      },
+      correct: null,
+    });
+    this.setState({ questions });
+  }
+
+  onQuestionRemove = (question_index: number) => {
+    const { questions } = this.state;
+    console.log(question_index);
+    questions.splice(question_index, 1);
+    this.setState({ questions });
   }
 
   render() {
@@ -72,9 +103,10 @@ export default class MyEditor extends React.Component<{}, State> {
         <div className="pure-u-7-8"><LessonEditor /></div>
         <hr className="pure-u-1" />
         {this.renderQuestions()}
-        <hr className="pure-u-1" />
         <div className={`pure-u-1 pure-button-group ${styles.buttonGroup}`} role="group" aria-label="Controls">
-          <button className="pure-button"><FontAwesomeIcon icon="plus" transform="left-2" /> Add Question</button>
+          <button className="pure-button" onClick={this.onAddQuestion}>
+            <FontAwesomeIcon icon="plus" transform="left-2" /> Add Question
+          </button>
           <button className="pure-button pure-button-primary">Preview</button>
         </div>
         <br />
@@ -96,6 +128,7 @@ export default class MyEditor extends React.Component<{}, State> {
         choices={choices}
         correct={correct}
         onQuestionChange={this.onQuestionChange}
+        onRemove={this.onQuestionRemove}
         onChoiceChange={this.onChoiceChange} />
     });
   }

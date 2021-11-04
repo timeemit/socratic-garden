@@ -31,7 +31,7 @@
     "typescript": "^4.0.3"
   },
   "engines": {
-    "node": "14.1.x"
+    "node": "14.17.x"
   },
   "cacheDirectories": [
     ".next/cache"

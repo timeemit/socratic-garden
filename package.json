@@ -5,6 +5,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start -p $PORT",
+		"lint": "eslint",
     "push": "next build && git checkout master && git merge - && git push && git checkout -"
   },
   "dependencies": {

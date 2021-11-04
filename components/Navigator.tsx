@@ -2,7 +2,6 @@
 import styles from "../styles/Navigator.module.scss";
 import React from "react";
 import Link from "next/link";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Interstitial from "./Interstitial";
 import { Direction } from "./SignWhere";
 import SignIn from "./SignIn";
@@ -45,22 +44,18 @@ export default class Navigator extends React.Component<Props, State> {
           </Link>
           <Link href="/courses">
             <a href="/courses" className={styles.headerPurple}>
-              <FontAwesomeIcon icon="book" transform="left-3" />
               <span className={styles.span}>Courses</span>
             </a>
           </Link>
           <Link href="/concepts">
             <a href="/concepts" className={styles.headerRed}>
-              <FontAwesomeIcon icon="sack" transform="left-3" />
               <span className={styles.span}>Concepts</span>
             </a>
           </Link>
           <span className={styles.headerYellow} onClick={this.onShowSignUp}>
-            <FontAwesomeIcon icon={["far", "file"]} transform="left-4" />
             <span className={styles.span}>Sign Up</span>
           </span>
           <span className={styles.headerBlue} onClick={this.onShowSignIn}>
-            <FontAwesomeIcon icon="edit" transform="left-2" />
             <span className={styles.span}>Sign In</span>
           </span>
         </nav>

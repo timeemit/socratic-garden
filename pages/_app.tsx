@@ -12,37 +12,6 @@ import { Provider } from "next-auth/client";
 // Draft JS
 import 'draft-js/dist/Draft.css';
 
-// Font Awesome
-import { config as fontAwesomeConfig } from "@fortawesome/fontawesome-svg-core";
-import "@fortawesome/fontawesome-svg-core/styles.css"; // Import the CSS
-fontAwesomeConfig.autoAddCss = false;
-
-import { library } from "@fortawesome/fontawesome-svg-core";
-import {
-  faArrowUp,
-  faBold,
-  faBook,
-  faChartLine,
-  faCheck,
-  faEdit,
-  faFireAlt,
-  faHeading,
-  faItalic,
-  faPencil,
-  faPlus,
-  faMinus,
-  faQuestion,
-  faSack,
-  faSignInAlt,
-  faUnderline,
-} from "@fortawesome/pro-solid-svg-icons";
-import {
-  faClock,
-  faFile,
-  faTimesCircle,
-} from "@fortawesome/pro-regular-svg-icons";
-import {} from "@fortawesome/pro-light-svg-icons";
-
 // Slugger
 import slug from "slug";
 
@@ -52,28 +21,6 @@ import { csrfToken as getCsrfToken } from "next-auth/client";
 slug.defaults.modes.pretty.lower = true;
 
 export { slug };
-
-library.add(
-  faArrowUp,
-  faBold,
-  faBook,
-  faChartLine,
-  faCheck,
-  faClock,
-  faEdit,
-  faFile,
-  faFireAlt,
-  faHeading,
-  faItalic,
-  faPencil,
-  faPlus,
-  faMinus,
-  faQuestion,
-  faSack,
-  faSignInAlt,
-  faTimesCircle,
-  faUnderline,
-);
 
 // Listen to router events
 import Router from "next/router";

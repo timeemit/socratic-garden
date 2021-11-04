@@ -8,11 +8,6 @@
     "push": "next build && git checkout master && git merge - && git push && git checkout -"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.31",
-    "@fortawesome/pro-light-svg-icons": "^5.15.0",
-    "@fortawesome/pro-regular-svg-icons": "^5.15.0",
-    "@fortawesome/pro-solid-svg-icons": "^5.15.0",
-    "@fortawesome/react-fontawesome": "^0.1.11",
     "@types/draft-js": "^0.10.44",
     "@types/gtag.js": "0.0.3",
     "babel-eslint": "8.2.6",
@@ -20,6 +15,7 @@
     "draft-js": "^0.11.7",
     "next": "^9.5.3",
     "next-auth": "^3.1.0",
+    "npm": "^8.1.2",
     "pg": "^8.3.0",
     "purecss": "^1.0.1",
     "react": "^16.7.0",

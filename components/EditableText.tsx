@@ -2,7 +2,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Editor, EditorState, convertFromRaw} from 'draft-js';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import createEditorStateWithText from '../utils/createEditorStateWithText';
 import Editable from './Editable';
 

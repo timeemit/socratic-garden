@@ -3,7 +3,6 @@ import styles from '../styles/editor.module.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Editor, ContentState, EditorState, RichUtils, convertFromRaw} from 'draft-js';
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import Editable from './Editable';
 
 const placeholder = convertFromRaw({
@@ -120,24 +119,20 @@ export default class LessonEditor extends React.Component {
           <button
             className={`pure-button ${this.isHeader() ? "pure-button-active" : null}`}
             onClick={this.onHeaderClick}>
-            <FontAwesomeIcon icon="heading" />
           </button>
         </div>
         <div className={`pure-button-group ${styles.buttonGroup}`} role="toolbar" aria-label="Inline Styles">
           <button
             className={`pure-button ${this.isBold() ? "pure-button-active" : null}`}
             onClick={this.onBoldClick}>
-            <FontAwesomeIcon icon="bold" />
           </button>
           <button
             className={`pure-button ${this.isItalic() ? "pure-button-active" : null}`}
             onClick={this.onItalicClick}>
-            <FontAwesomeIcon icon="italic" />
           </button>
           <button
             className={`pure-button ${this.isUnderline() ? "pure-button-active" : null}`}
             onClick={this.onUnderlineClick}>
-            <FontAwesomeIcon icon="underline" />
           </button>
         </div>
         <Editable>

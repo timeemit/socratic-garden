@@ -7,7 +7,6 @@ import React from 'react';
 import EditableText from '../../components/EditableText';
 import LessonEditor from '../../components/LessonEditor';
 import { QuestionEditor, QuestionState } from '../../components/QuestionEditor';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import createEditorStateWithText from '../../utils/createEditorStateWithText';
 
 interface State {
@@ -105,7 +104,7 @@ export default class Editor extends React.Component<{}, State> {
         {this.renderQuestions()}
         <div className={`pure-u-1 pure-button-group ${styles.buttonGroup}`} role="group" aria-label="Controls">
           <button className="pure-button" onClick={this.onAddQuestion}>
-            <FontAwesomeIcon icon="plus" transform="left-2" /> Add Question
+            Add Question
           </button>
           <button className="pure-button pure-button-primary">Preview</button>
         </div>

@@ -1,7 +1,6 @@
 // @format
 import { EditorState } from 'draft-js';
 import React from 'react';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ChoiceIndex, ChoiceIndices } from '../types/ChoiceTypes';
 import { ChoiceEditor, ChoiceState, ChoiceChange } from './ChoiceEditor';
 import EditableText from './EditableText';
@@ -61,7 +60,7 @@ export class QuestionEditor extends React.Component<Props> {
         </div>
         <div className="pure-u-1">
           <button className="pure-button" onClick={this.onRemove}>
-            <FontAwesomeIcon icon="minus" transform="left-2" /> Remove Question
+            Remove Question
           </button>
         </div>
         <hr className="pure-u-1" />

@@ -8,7 +8,6 @@ import { ConceptType } from "../../types/ConceptType";
 import { Choice, ChoiceIndex } from "../../types/ChoiceTypes";
 
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Page from "../../components/PageWithNavigator";
 import { ChoiceIndices } from "../../types/ChoiceTypes";
 import { LessonFetch } from "../../models/Lesson";

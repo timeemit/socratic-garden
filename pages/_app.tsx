@@ -34,7 +34,6 @@ Router.events.on("routeChangeComplete", send_url_to_google);
 import Head from "next/head";
 import App from "next/app";
 import React from "react";
-import Navigator from "../components/Navigator";
 
 function MyApp({ Component, pageProps, csrfToken }) {
   return (

@@ -44,12 +44,15 @@ function MyApp({ Component, pageProps, csrfToken }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
+      <Component {...pageProps} />
+      {/*
       <Provider session={pageProps.session}>
         <Navigator csrfToken={csrfToken} />
         <Component {...pageProps} />
       </Provider>
+      */}
 
-      <footer className="footer centered-text">Copyright © 2020</footer>
+      <footer className="footer centered-text">Copyright © 2020 - 2021</footer>
 
       {/* Google Tag */}
       <script

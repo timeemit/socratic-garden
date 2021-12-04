@@ -1,3 +1,4 @@
+$textAlign: right;
 $lineHeight: 1em;
 $paddingBottom: 1.5em;
 
@@ -11,6 +12,7 @@ $paddingBottom: 1.5em;
 }
 
 .navLink {
+  text-align: $textAlign;
   line-height: $lineHeight;
   padding-bottom: $paddingBottom;
 
@@ -24,6 +26,7 @@ $paddingBottom: 1.5em;
 }
 
 .navButton {
+  text-align: $textAlign;
   line-height: $lineHeight;
   & > button {
     padding: inherit;

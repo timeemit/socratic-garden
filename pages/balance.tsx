@@ -20,6 +20,10 @@ const Balance = () => {
         completed
       </em>
 
+      <div>
+        12.543 Socratic Coins (SOC) ≈ $0.65 (USD)
+      </div>
+
       <div className={classnames("pure-g", styles.actions)}>
         <div className="pure-u-1-3 centered-text">
           <button className="pure-button">Transfer Coins</button>
@@ -30,6 +34,17 @@ const Balance = () => {
         <div className="pure-u-1-3 centered-text">
           <button className="pure-button">Sell Coins</button>
         </div>
+      </div>
+
+      <h2>Recent Transactions</h2>
+      <div>
+        <em>February 6</em> -0.66 Coins Resubmission Fee
+      </div>
+      <div>
+        <em>January 23</em> +5.2 Coins Awarded for Being in Partial Agreement
+      </div>
+      <div>
+        <em>January 23</em> +8 Coins Awarded for Being in Complete Agreement
       </div>
     </PageWithNavigator>
   );

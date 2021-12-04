@@ -67,11 +67,13 @@ const LoggedInNavigation = ({ current }: NavigatorProps) => (
       current={current}
       destination={CurrentPage.Balance}
     />
+    {/*
     <NavigationLink
       text="Deadlines"
       current={current}
       destination={CurrentPage.Deadlines}
     />
+    */}
     <NavigationLink
       text="Challenges"
       current={current}

@@ -16,9 +16,11 @@ const ChallengeListItem = ({ title, response }) => (
   <div className={classnames("pure-class-g", styles.challengeListItem)}>
     <div className="pure-u-2-3">
       <div>
-        <strong>{title}</strong>
-        <br />
-        <em>{response ?? "No response submitted"}</em>
+        <p>
+          <strong>{title}</strong>
+          <br />
+          <em>{response ?? "No response submitted"}</em>
+        </p>
       </div>
     </div>
     <div className="pure-u-1-6 centered-text">
@@ -43,10 +45,12 @@ const Challenges = () => {
       current={CurrentPage.Challenges}
     >
       <h1>Challenges</h1>
-      <em>
-        You must respond to a challenge before you can evaluate a peers'
-        submissions
-      </em>
+      <p>
+        <em>
+          You must respond to a challenge before you can evaluate a peers'
+          submissions
+        </em>
+      </p>
       <ChallengeListItem
         title="Are Shakespeare's Fools Actually Foolish?"
         response={null}

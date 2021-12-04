@@ -23,6 +23,15 @@ interface NavigationLinkProps extends NavigatorProps {
   destination: CurrentPage;
 };
 
+type NavigationButton = {
+  text: string;
+  handler: () => void;
+};
+
+interface PageWithNavigatorProps extends NavigatorProps {
+  title: string;
+};
+
 const NavigationLink = ({ text, current, destination }: NavigationLinkProps) => (
   <div
     className={classnames("pure-u-1", styles.navLink, {
@@ -33,20 +42,11 @@ const NavigationLink = ({ text, current, destination }: NavigationLinkProps) => 
   </div>
 );
 
-type NavigationButton = {
-  text: string;
-  handler: () => void;
-};
-
 const NavigationButton = ({ text, handler }: NavigationButton) => (
   <div className={classnames("pure-u-1", styles.navButton)}>
     <button onClick={handler}>{text}</button>
   </div>
 );
-
-interface PageWithNavigatorProps extends NavigatorProps {
-  title: string;
-};
 
 const LoggedOutNavigation = ({ current }: NavigatorProps) => (
   <>

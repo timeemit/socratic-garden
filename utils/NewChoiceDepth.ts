@@ -4,7 +4,7 @@ type CorrectChoiceDepth = {
   count: number;
 };
 
-const NewChoiceDepth =  (
+const NewChoiceDepth = (
   correct_choice_depth?: CorrectChoiceDepth
 ): CorrectChoiceDepth => {
   const now = new Date();

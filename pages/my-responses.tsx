@@ -1,12 +1,19 @@
 // @format
 import React from "react";
 
-import PageWithNavigator, { CurrentPage } from "../components/PageWithNavigator";
+import PageWithNavigator, {
+  CurrentPage,
+} from "../components/PageWithNavigator";
 
-export default () => {
+const MyResponses = () => {
   return (
-    <PageWithNavigator title="Socratic Garden: My Responses" current={CurrentPage.MyResponses}>
+    <PageWithNavigator
+      title="Socratic Garden: My Responses"
+      current={CurrentPage.MyResponses}
+    >
       Balance Details
-		</PageWithNavigator>
+    </PageWithNavigator>
   );
 };
+
+export default MyResponses;

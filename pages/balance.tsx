@@ -1,12 +1,19 @@
 // @format
 import React from "react";
 
-import PageWithNavigator, { CurrentPage } from "../components/PageWithNavigator";
+import PageWithNavigator, {
+  CurrentPage,
+} from "../components/PageWithNavigator";
 
-export default () => {
+const Balance = () => {
   return (
-    <PageWithNavigator title="Socratic Garden: My Balance" current={CurrentPage.Balance}>
+    <PageWithNavigator
+      title="Socratic Garden: My Balance"
+      current={CurrentPage.Balance}
+    >
       Balance Details
-		</PageWithNavigator>
+    </PageWithNavigator>
   );
 };
+
+export default Balance;

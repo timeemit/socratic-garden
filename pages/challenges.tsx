@@ -1,12 +1,19 @@
 // @format
 import React from "react";
 
-import PageWithNavigator, { CurrentPage } from "../components/PageWithNavigator";
+import PageWithNavigator, {
+  CurrentPage,
+} from "../components/PageWithNavigator";
 
-export default () => {
+const Challenges = () => {
   return (
-    <PageWithNavigator title="Socratic Garden: Challenges" current={CurrentPage.Challenges}>
+    <PageWithNavigator
+      title="Socratic Garden: Challenges"
+      current={CurrentPage.Challenges}
+    >
       Balance Details
-		</PageWithNavigator>
+    </PageWithNavigator>
   );
 };
+
+export default Challenges;

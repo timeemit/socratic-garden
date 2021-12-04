@@ -36,10 +36,8 @@ type NavigationButton = {
 };
 
 const NavigationButton = ({ text, handler }: NavigationButton) => (
-  <div className="pure-u-1">
-    <button className={styles.navButton} onClick={handler}>
-      {text}
-    </button>
+  <div className={classnames("pure-u-1", styles.navButton)}>
+    <button onClick={handler}>{text}</button>
   </div>
 );
 

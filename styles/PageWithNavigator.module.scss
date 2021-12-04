@@ -1,10 +1,13 @@
+$lineHeight: 1em;
+$paddingBottom: 1.5em;
+
 .strong {
   font-weight: bold;
 }
 
 .navLink {
-  line-height: 1em;
-  padding-bottom: 1em;
+  line-height: $lineHeight;
+  padding-bottom: $paddingBottom;
 
   & > a {
     text-decoration: none;
@@ -16,8 +19,11 @@
 }
 
 .navButton {
-  padding: inherit;
-  border: none;
-  background: inherit;
-  padding-bottom: 1em;
+  line-height: $lineHeight;
+  & > button {
+    padding: inherit;
+    border: none;
+    background: inherit;
+    padding-bottom: $paddingBottom;
+  }
 }

@@ -5,7 +5,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start -p $PORT",
-		"lint": "eslint",
+    "lint": "eslint",
     "push": "next build && git checkout master && git merge - && git push && git checkout -"
   },
   "dependencies": {
@@ -13,6 +13,7 @@
     "@types/gtag.js": "0.0.3",
     "babel-eslint": "8.2.6",
     "babel-plugin-transform-flow-strip-types": "6.22.0",
+    "classnames": "^2.3.1",
     "draft-js": "^0.11.7",
     "next": "^9.5.3",
     "next-auth": "^3.1.0",
@@ -33,7 +34,7 @@
   },
   "engines": {
     "node": "14.17.x",
-		"npm": "7.x"
+    "npm": "7.x"
   },
   "cacheDirectories": [
     ".next/cache"

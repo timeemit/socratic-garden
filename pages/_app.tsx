@@ -70,13 +70,9 @@ function MyApp({ Component, pageProps, csrfToken }) {
         <meta name="theme-color" content="#ffffff" />
       </Head>
 
-      <Component {...pageProps} />
-      {/*
       <Provider session={pageProps.session}>
-        <Navigator csrfToken={csrfToken} />
         <Component {...pageProps} />
       </Provider>
-      */}
 
       <footer className="footer centered-text">Copyright © 2020 - 2021</footer>
 

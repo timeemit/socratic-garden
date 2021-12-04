@@ -63,6 +63,10 @@ const Challenges = () => {
         title="How Does Divinity Influence Action in British Literature?"
         response="Response Submitted January 22"
       />
+      <ChallengeListItem
+        title="Who Struggles for Power in Shakespeare's Plays?"
+        response="Response Submitted January 16"
+      />
     </PageWithNavigator>
   );
 };

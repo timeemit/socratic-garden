@@ -16,4 +16,4 @@ const EvaluationsGiven = () => {
   );
 };
 
-export default EvaluationsGiven
+export default EvaluationsGiven;

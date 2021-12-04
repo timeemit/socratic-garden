@@ -16,12 +16,12 @@ export enum CurrentPage {
 
 type NavigatorProps = {
   current: CurrentPage;
-}
+};
 
 interface NavigationLinkProps extends NavigatorProps {
   text: string;
   destination: CurrentPage;
-};
+}
 
 type NavigationButton = {
   text: string;
@@ -30,9 +30,13 @@ type NavigationButton = {
 
 interface PageWithNavigatorProps extends NavigatorProps {
   title: string;
-};
+}
 
-const NavigationLink = ({ text, current, destination }: NavigationLinkProps) => (
+const NavigationLink = ({
+  text,
+  current,
+  destination,
+}: NavigationLinkProps) => (
   <div
     className={classnames("pure-u-1", styles.navLink, {
       [styles.strong]: current === destination,
@@ -102,6 +106,10 @@ const PageWithNavigator: React.FC<PageWithNavigatorProps> = ({
   return (
     <Page title={title} grid={true}>
       <nav className="pure-u-1-8">
+        <img
+          className={classnames("pure-img", styles.logo)}
+          src="/logo-no-text.png"
+        />
         {loading && <>Loading...</>}
         {!loading && !session && <LoggedOutNavigation current={current} />}
         {!loading && session && <LoggedInNavigation current={current} />}

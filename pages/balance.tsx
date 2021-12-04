@@ -20,9 +20,7 @@ const Balance = () => {
         completed
       </em>
 
-      <div>
-        12.543 Socratic Coins (SOC) ≈ $0.65 (USD)
-      </div>
+      <div>12.543 Socratic Coins (SOC) ≈ $0.65 (USD)</div>
 
       <div className={classnames("pure-g", styles.actions)}>
         <div className="pure-u-1-3 centered-text">

@@ -14,13 +14,16 @@ export enum CurrentPage {
   EvaluationsGiven = "evaluations-given",
 }
 
-type NavigatorItemProps = {
-  text: string;
+type NavigatorProps = {
   current: CurrentPage;
+}
+
+interface NavigationLinkProps extends NavigatorProps {
+  text: string;
   destination: CurrentPage;
 };
 
-const NavigatorItem = ({ text, current, destination }: NavigatorItemProps) => (
+const NavigationLink = ({ text, current, destination }: NavigationLinkProps) => (
   <div
     className={classnames("pure-u-1", styles.navLink, {
       [styles.strong]: current === destination,
@@ -41,16 +44,15 @@ const NavigationButton = ({ text, handler }: NavigationButton) => (
   </div>
 );
 
-type PageWithNavigatorProps = {
+interface PageWithNavigatorProps extends NavigatorProps {
   title: string;
-  current: CurrentPage;
 };
 
-const LoggedOutNavigation = ({ current }: { current: CurrentPage }) => (
+const LoggedOutNavigation = ({ current }: NavigatorProps) => (
   <>
     <NavigationButton text="Sign Up" handler={signIn} />
     <NavigationButton text="Sign In" handler={signIn} />
-    <NavigatorItem
+    <NavigationLink
       text="Challenges"
       current={current}
       destination={CurrentPage.Challenges}
@@ -58,29 +60,29 @@ const LoggedOutNavigation = ({ current }: { current: CurrentPage }) => (
   </>
 );
 
-const LoggedInNavigation = ({ current }: { current: CurrentPage }) => (
+const LoggedInNavigation = ({ current }: NavigatorProps) => (
   <>
-    <NavigatorItem
+    <NavigationLink
       text="My Balance: 12.543 Coins"
       current={current}
       destination={CurrentPage.Balance}
     />
-    <NavigatorItem
+    <NavigationLink
       text="Deadlines"
       current={current}
       destination={CurrentPage.Deadlines}
     />
-    <NavigatorItem
+    <NavigationLink
       text="Challenges"
       current={current}
       destination={CurrentPage.Challenges}
     />
-    <NavigatorItem
+    <NavigationLink
       text="My Responses"
       current={current}
       destination={CurrentPage.MyResponses}
     />
-    <NavigatorItem
+    <NavigationLink
       text="Evaluations Given"
       current={current}
       destination={CurrentPage.EvaluationsGiven}

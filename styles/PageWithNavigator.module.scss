@@ -1,3 +1,16 @@
 .strong {
   font-weight: bold;
 }
+
+.navLink {
+  line-height: 1em;
+  padding-bottom: 1em;
+
+  & > a {
+    text-decoration: none;
+    color: black;
+    &:visited {
+      color: black;
+    }
+  }
+}

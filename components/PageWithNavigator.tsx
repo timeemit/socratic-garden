@@ -2,26 +2,30 @@
 import classnames from "classnames";
 import React, { FunctionComponent } from "react";
 import Page, { Props } from "./Page";
+import Link from 'next/link'
 import styles from "../styles/PageWithNavigator.module.scss";
 
 export enum CurrentPage {
-  Balance,
-  Deadlines,
-  Challenges,
-  MyResponses,
-  EvaluationsGiven,
+  Balance = "balance",
+  Deadlines = "deadlines",
+  Challenges = "challenges",
+  MyResponses = "my-responses",
+  EvaluationsGiven = "evaluations-given",
 }
 
 type NavigatorItemProps = {
   text: string,
-  is_current: boolean
+  current: CurrentPage,
+  destination: CurrentPage,
 }
 
 const NavigatorItem = (
-  { text, is_current }: NavigatorItemProps
+  { text, current, destination }: NavigatorItemProps
 ) => (
-  <div className={classnames("pure-u-1", {[styles.strong]: is_current})}>
-    {text}
+  <div className={classnames("pure-u-1", styles.navLink, {[styles.strong]: current === destination})}>
+    <Link href={"/" + destination}>
+      {text}
+    </Link>
   </div>
 )
 
@@ -35,11 +39,11 @@ const PageWithNavigator: React.FC<PageWithNavigatorProps> = (
 ) => (
   <Page title={title} grid={true}>
     <nav className="pure-u-1-8">
-      <NavigatorItem text="My Balance: 12.543 Coins" is_current={current === CurrentPage.Balance} />
-      <NavigatorItem text="Deadlines" is_current={current === CurrentPage.Deadlines} />
-      <NavigatorItem text="Challenges" is_current={current === CurrentPage.Challenges} />
-      <NavigatorItem text="My Responses" is_current={current === CurrentPage.MyResponses} />
-      <NavigatorItem text="Evaluations Given" is_current={current === CurrentPage.EvaluationsGiven} />
+      <NavigatorItem text="My Balance: 12.543 Coins" current={current} destination={CurrentPage.Balance} />
+      <NavigatorItem text="Deadlines" current={current} destination={CurrentPage.Deadlines} />
+      <NavigatorItem text="Challenges" current={current} destination={CurrentPage.Challenges} />
+      <NavigatorItem text="My Responses" current={current} destination={CurrentPage.MyResponses} />
+      <NavigatorItem text="Evaluations Given" current={current} destination={CurrentPage.EvaluationsGiven} />
       <div className="pure-u-1">
         Log Out
       </div>

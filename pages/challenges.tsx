@@ -1,6 +1,7 @@
 // @format
 import classnames from "classnames";
 import React from "react";
+import Link from "next/link";
 import styles from "../styles/Challenges.module.scss";
 
 import PageWithNavigator, {
@@ -24,7 +25,9 @@ const ChallengeListItem = ({ title, response }) => (
       </div>
     </div>
     <div className="pure-u-1-6 centered-text">
-      <button className="pure-button">Read More</button>
+      <Link href={"/challenges/1"}>
+        <div className="pure-button">Read More</div>
+      </Link>
     </div>
     <div className="pure-u-1-6 centered-text">
       <button

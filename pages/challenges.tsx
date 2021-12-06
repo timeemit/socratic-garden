@@ -30,13 +30,15 @@ const ChallengeListItem = ({ title, response }) => (
       </Link>
     </div>
     <div className="pure-u-1-6 centered-text">
-      <button
-        className={classnames("pure-button", {
-          "pure-button-disabled": response == null,
-        })}
-      >
-        Evaluate Peer
-      </button>
+      <Link href={"/given-evaluations/new"}>
+        <div
+          className={classnames("pure-button", {
+            "pure-button-disabled": response == null,
+          })}
+        >
+          Evaluate Peer
+        </div>
+      </Link>
     </div>
   </div>
 );

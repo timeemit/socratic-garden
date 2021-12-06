@@ -28,8 +28,9 @@ type NavigationButton = {
   handler: () => void;
 };
 
-interface PageWithNavigatorProps extends NavigatorProps {
+interface PageWithNavigatorProps {
   title: string;
+  current: CurrentPage | null;
 }
 
 const NavigationLink = ({

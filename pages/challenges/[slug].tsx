@@ -2,7 +2,7 @@
 import classnames from "classnames";
 import React from "react";
 import Link from "next/link";
-import ResponseView from "../../components/ResponseView";
+import { RankedResponseView } from "../../components/ResponseView";
 import styles from "../styles/Challenge.module.scss";
 
 import PageWithNavigator, {
@@ -31,10 +31,10 @@ const Challenge = () => {
         <input type="file" />
       </p>
       <h2>All Responses to this Challenge</h2>
-      <ResponseView rank={1} cost={4} />
-      <ResponseView rank={2} cost={2} />
-      <ResponseView rank={3} cost={1} />
-      <ResponseView rank={4} cost={1} />
+      <RankedResponseView rank={1} cost={4} />
+      <RankedResponseView rank={2} cost={2} />
+      <RankedResponseView rank={3} cost={1} />
+      <RankedResponseView rank={4} cost={1} />
     </PageWithNavigator>
   );
 };

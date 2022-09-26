@@ -74,7 +74,7 @@ function MyApp({ Component, pageProps, csrfToken }) {
         <Component {...pageProps} />
       </Provider>
 
-      <footer className="footer centered-text">Copyright © 2020 - 2021</footer>
+      <footer className="footer centered-text">Copyright © 2020 - 2022</footer>
 
       {/* Google Tag */}
       <script

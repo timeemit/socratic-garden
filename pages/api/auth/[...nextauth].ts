@@ -5,11 +5,9 @@ import Providers from "next-auth/providers";
 const options = {
   database: process.env.DATABASE_URL,
   secret: process.env.AUTH_SECRET,
-  session: {
-    jwt: {
-      secret: process.env.JWT_SECRET,
-      encryption: true,
-    },
+  jwt: {
+    secret: process.env.JWT_SECRET,
+    encryption: true,
   },
   providers: [
     Providers.Email({
@@ -27,19 +25,19 @@ const options = {
   ],
 };
 
-if (process.env.ENVIRONMENT == "local") {
-  options.providers.push(
-    Providers.Credentials({
-      name: "Dev Super Powers",
-      credentials: {},
-      authorize: async (credentials) => {
-        return Promise.resolve({
-          id: 0,
-          name: "dev",
-          email: "dev@socratic.garden",
-        });
-      },
-    })
-  );
-}
+// if (process.env.ENVIRONMENT == "local") {
+//   options.providers.push(
+//     Providers.Credentials({
+//       name: "Dev Super Powers",
+//       credentials: {},
+//       authorize: async (credentials) => {
+//         return Promise.resolve({
+//           id: 0,
+//           name: "dev",
+//           email: "dev@socratic.garden",
+//         });
+//       },
+//     })
+//   );
+// }
 export default (req, res) => NextAuth(req, res, options);

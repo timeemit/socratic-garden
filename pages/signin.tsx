@@ -2,6 +2,9 @@
 import React from "react";
 import { signIn, signOut, useSession } from "next-auth/client";
 
+const onClickSignIn = (e) => signIn(e);
+const onClickSignOut = (e) => signOut(e);
+
 export default function Page() {
   const [session, loading] = useSession();
 
@@ -11,7 +14,7 @@ export default function Page() {
       {!loading && !session && (
         <>
           Not signed in <br />
-          <button className="pure-button" onClick={signIn}>
+          <button className="pure-button" onClick={onClickSignIn}>
             Sign in
           </button>
         </>
@@ -20,7 +23,7 @@ export default function Page() {
         <>
           Signed in as {session.user.email} <br />
           <pre>{JSON.stringify(session.user)}</pre>
-          <button className="pure-button" onClick={signOut}>
+          <button className="pure-button" onClick={onClickSignOut}>
             Sign out
           </button>
         </>
